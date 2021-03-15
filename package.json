@@ -16,5 +16,11 @@
   "bugs": {
     "url": "https://github.com/So-G/blackandblueturtles/issues"
   },
-  "homepage": "https://github.com/So-G/blackandblueturtles#readme"
+  "homepage": "https://github.com/So-G/blackandblueturtles#readme",
+  "devDependencies": {
+    "eslint": "^7.22.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.22.1",
+    "prettier": "^2.2.1"
+  }
 }
