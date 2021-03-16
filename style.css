@@ -65,10 +65,11 @@
 /* Small screens */
 @media only screen and (max-width: 600px) {
   body {
+    height: 100vh;
     margin: 0;
     padding: 0;
     display: grid;
-    grid-template-rows: auto 1fr auto;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
   }
 }
 
@@ -80,8 +81,13 @@
   Components
   ================*/
 
+/* header {
+  display: grid;
+  place-items: center;
+} */
 
 header > img {
-  width: 100vw;
-  height: auto;
+  /* max-width: 960px;
+  max-height: 640px; */
+  aspect-ratio: auto 960 / 640;
 }
