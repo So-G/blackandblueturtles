@@ -62,10 +62,26 @@
   Layout
   ================*/
 
+/* Small screens */
+@media only screen and (max-width: 600px) {
+  body {
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+  }
+}
+
+/* Large screens */
+@media only screen and (min-width: 600px) {
+}
+
 /* ================
   Components
   ================*/
 
-#game {
 
+header > img {
+  width: 100vw;
+  height: auto;
 }
