@@ -1,4 +1,3 @@
-# blackandblueturtles
 
 tower block maquette
 
