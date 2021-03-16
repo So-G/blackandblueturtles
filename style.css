@@ -65,10 +65,11 @@
 /* Small screens */
 @media only screen and (max-width: 600px) {
   body {
+    height: 100vh;
     margin: 0;
     padding: 0;
     display: grid;
-    grid-template-rows: auto 1fr auto;
+    grid-template-rows: auto 1fr 1fr 4rem;
   }
 }
 
@@ -77,11 +78,45 @@
 }
 
 /* ================
-  Components
-  ================*/
+Components
+================*/
 
-
-header > img {
+header {
+  overflow: hidden;
   width: 100vw;
-  height: auto;
+  margin: 0;
+}
+
+#banner {
+  display: block;
+  width: 100%;
+  margin: -20% 0;
+}
+
+.divPlay {
+  display: grid;
+  place-items: center;
+}
+
+#play {
+  width: 50vw;
+  aspect-ratio: auto 1 / 1;
+  margin: 2em;
+}
+
+p {
+  line-height: 1.5;
+  word-break: break-word;
+  text-align: justify; /* Justifies text */
+  hyphens: auto; /* Hypenation on auto */
+  max-width: 60ch; /* max width of a paragraph should be around 60 characters */
+}
+
+footer {
+  background: var(--grey1);
+}
+
+footer > p {
+  text-align: center;
+  margin: 1rem 0;
 }
