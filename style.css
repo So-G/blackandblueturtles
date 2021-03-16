@@ -77,17 +77,31 @@
 @media only screen and (min-width: 600px) {
 }
 
+p {
+  line-height: 1.5;
+  word-break: break-word;
+  text-align: justify; /* Justifies text */
+  hyphens: auto; /* Hypenation on auto */
+  max-width: 60ch; /* max width of a paragraph should be around 60 characters */
+}
+
 /* ================
   Components
   ================*/
 
-/* header {
+#banner {
+  width: 100vw;
+  aspect-ratio: auto 960 / 640;
+}
+
+.divPlay {
   display: grid;
   place-items: center;
-} */
+}
 
-header > img {
-  /* max-width: 960px;
-  max-height: 640px; */
-  aspect-ratio: auto 960 / 640;
+#play {
+  width: 50vw;
+  aspect-ratio: auto 1 / 1;
+  margin: 2em;
+  stroke: white;
 }
