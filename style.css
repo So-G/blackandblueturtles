@@ -9,6 +9,42 @@
 /* ================
   Global variables
   ================*/
+:root {
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+  color: var(--text-primary);
+  background: var(--bg-primary);
+
+  --text-primary: hsla(0, 0%, 85%, 0.8);
+  --text-secondary: hsla(0, 0%, 90%);
+
+  --bg-primary: hsla(0, 0%, 15%, 0.9);
+  --bg-secondary: hsla(0, 0%, 10%, 1);
+
+  --accentColor: hsla(293, 62%, 65%, 90%);
+  --transition-speed: 300ms;
+
+  --red1: hsl(304, 50%, 55%);
+  --red2: hsl(0, 90%, 41%);
+  --green1: hsl(79, 52%, 56%);
+  --green2: hsl(136, 41%, 53%);
+  --yellow0: hsl(15, 75%, 81%);
+  --yellow1: hsl(25, 85%, 70%);
+  --yellow2: hsl(45, 99%, 51%);
+  --solar: hsl(35, 54%, 78%);
+  --blue1: hsl(210, 100%, 74%);
+  --blue2: hsl(210, 92%, 67%);
+  --blue3: hsl(210, 84%, 59%);
+
+  --grey0: hsl(0, 0%, 90%);
+  --grey1: hsl(0, 0%, 75%);
+  --grey2: hsl(0, 0%, 55%);
+  --grey3: hsl(0, 0%, 35%);
+  --grey4: hsl(0, 0%, 25%);
+  --grey5: hsl(0, 0%, 15%);
+  --grey6: hsl(0, 0%, 5%);
+}
 
 /* ================
   Global styles
@@ -17,6 +53,10 @@
 /* ================
   Typography
   ================*/
+* {
+  font-family: 'EB Garamond', 'Times New Roman', 'Bodoni Moda', serif;
+  font-family: 'Open Sans', Helvetica, 'Futura', sans-serif;
+}
 
 /* ================
   Layout
@@ -25,3 +65,7 @@
 /* ================
   Components
   ================*/
+
+#game {
+
+}
