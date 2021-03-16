@@ -69,7 +69,7 @@
     margin: 0;
     padding: 0;
     display: grid;
-    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto 1fr 1fr 4rem;
   }
 }
 
@@ -77,21 +77,20 @@
 @media only screen and (min-width: 600px) {
 }
 
-p {
-  line-height: 1.5;
-  word-break: break-word;
-  text-align: justify; /* Justifies text */
-  hyphens: auto; /* Hypenation on auto */
-  max-width: 60ch; /* max width of a paragraph should be around 60 characters */
+/* ================
+Components
+================*/
+
+header {
+  overflow: hidden;
+  width: 100vw;
+  margin: 0;
 }
 
-/* ================
-  Components
-  ================*/
-
 #banner {
-  width: 100vw;
-  aspect-ratio: auto 960 / 640;
+  display: block;
+  width: 100%;
+  margin: -20% 0;
 }
 
 .divPlay {
@@ -103,5 +102,21 @@ p {
   width: 50vw;
   aspect-ratio: auto 1 / 1;
   margin: 2em;
-  stroke: white;
+}
+
+p {
+  line-height: 1.5;
+  word-break: break-word;
+  text-align: justify; /* Justifies text */
+  hyphens: auto; /* Hypenation on auto */
+  max-width: 60ch; /* max width of a paragraph should be around 60 characters */
+}
+
+footer {
+  background: var(--grey1);
+}
+
+footer > p {
+  text-align: center;
+  margin: 1rem 0;
 }
