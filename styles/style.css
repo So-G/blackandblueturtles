@@ -109,7 +109,11 @@ p {
   word-break: break-word;
   text-align: justify; /* Justifies text */
   hyphens: auto; /* Hypenation on auto */
-  max-width: 60ch; /* max width of a paragraph should be around 60 characters */
+  max-width: 60ch; /* max width of a paragraph should be  around 60 characters */
+}
+
+.hidden{
+  display: none;
 }
 
 footer {
