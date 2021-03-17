@@ -10,21 +10,6 @@
   Global variables
   ================*/
 :root {
-  font-size: 16px;
-  margin: 0;
-  padding: 0;
-  color: var(--text-primary);
-  background: var(--bg-primary);
-
-  --text-primary: hsla(0, 0%, 85%, 0.8);
-  --text-secondary: hsla(0, 0%, 90%);
-
-  --bg-primary: #96C7D9;
-  --bg-secondary: hsla(0, 0%, 10%, 1);
-
-  --accentColor: hsla(293, 62%, 65%, 90%);
-  --transition-speed: 300ms;
-
   --red1: hsl(304, 50%, 55%);
   --red2: hsl(0, 90%, 41%);
   --green1: hsl(79, 52%, 56%);
@@ -33,8 +18,8 @@
   --yellow1: hsl(25, 85%, 70%);
   --yellow2: hsl(45, 99%, 51%);
   --solar: hsl(35, 54%, 78%);
-  --blue1: hsl(210, 100%, 74%);
-  --blue2: hsl(210, 92%, 67%);
+  --blue1: #96C7D9;
+  --blue2: #6DA2B5;
   --blue3: hsl(210, 84%, 59%);
 
   --grey0: hsl(0, 0%, 90%);
@@ -44,20 +29,54 @@
   --grey4: hsl(0, 0%, 25%);
   --grey5: hsl(0, 0%, 15%);
   --grey6: hsl(0, 0%, 5%);
+
+  --text-primary: var(--grey0);
+  --text-secondary: var(--grey5);
+
+  --bg-primary: var(--blue1);
+  --bg-secondary: var(--blue2);
+
+  --accentColor: var(--grey6);
+  --transition-speed: 300ms;
+
+  --default-font-size: 16px;
+  font-size: var(--default-font-size);
+  color: var(--text-primary);
+  background: var(--bg-primary);
 }
 
 /* ================
   Global styles
   ================*/
 
+h1 {
+  padding: 1rem;
+  text-align: center;
+}
+
+p {
+  line-height: 1.5;
+  word-break: break-word;
+  text-align: justify; /* Justifies text */
+  hyphens: auto; /* Hypenation on auto */
+  max-width: 60ch; /* max width of a paragraph should be  around 60 characters */
+}
+
+a {
+  text-decoration: none;
+  color: var(--text-secondary);
+  font-weight: bold;
+}
+
 /* ================
   Typography
   ================*/
 * {
-  font-family: 'EB Garamond', 'Times New Roman', 'Bodoni Moda', serif;
   font-family: 'Open Sans', Helvetica, 'Futura', sans-serif;
 }
-
+a {
+  font-family: 'EB Garamond', 'Times New Roman', 'Bodoni Moda', serif;
+}
 /* ================
   Layout
   ================*/
@@ -69,7 +88,10 @@
     margin: 0;
     padding: 0;
     display: grid;
-    grid-template-rows: auto 1fr 1fr 4rem;
+    grid-template-rows: auto 1fr 4rem;
+  }
+  p {
+    text-align: center;
   }
 }
 
@@ -104,12 +126,8 @@ header {
   margin: 2em;
 }
 
-p {
-  line-height: 1.5;
-  word-break: break-word;
-  text-align: justify; /* Justifies text */
-  hyphens: auto; /* Hypenation on auto */
-  max-width: 60ch; /* max width of a paragraph should be around 60 characters */
+.hidden {
+  display: none;
 }
 
 footer {
@@ -119,4 +137,8 @@ footer {
 footer > p {
   text-align: center;
   margin: 1rem 0;
+}
+
+#game-area {
+  width: 100%;
 }
