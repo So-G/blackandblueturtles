@@ -19,7 +19,7 @@
   --text-primary: hsla(0, 0%, 85%, 0.8);
   --text-secondary: hsla(0, 0%, 90%);
 
-  --bg-primary: hsla(0, 0%, 15%, 0.9);
+  --bg-primary: #96C7D9;
   --bg-secondary: hsla(0, 0%, 10%, 1);
 
   --accentColor: hsla(293, 62%, 65%, 90%);
@@ -113,7 +113,7 @@ p {
 }
 
 footer {
-  background: var(--grey1);
+  background: #6DA2B5;
 }
 
 footer > p {
