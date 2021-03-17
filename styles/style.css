@@ -31,7 +31,7 @@
   --grey6: hsl(0, 0%, 5%);
 
   --text-primary: var(--grey0);
-  --text-secondary: var(--grey1);
+  --text-secondary: var(--grey5);
 
   --bg-primary: var(--blue1);
   --bg-secondary: var(--blue2);
@@ -72,10 +72,11 @@ a {
   Typography
   ================*/
 * {
-  font-family: 'EB Garamond', 'Times New Roman', 'Bodoni Moda', serif;
   font-family: 'Open Sans', Helvetica, 'Futura', sans-serif;
 }
-
+a {
+  font-family: 'EB Garamond', 'Times New Roman', 'Bodoni Moda', serif;
+}
 /* ================
   Layout
   ================*/
@@ -136,4 +137,8 @@ footer {
 footer > p {
   text-align: center;
   margin: 1rem 0;
+}
+
+#game-area {
+  width: 100%;
 }
