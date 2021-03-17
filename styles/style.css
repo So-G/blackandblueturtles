@@ -10,21 +10,6 @@
   Global variables
   ================*/
 :root {
-  font-size: 16px;
-  margin: 0;
-  padding: 0;
-  color: var(--text-primary);
-  background: var(--bg-primary);
-
-  --text-primary: hsla(0, 0%, 85%, 0.8);
-  --text-secondary: hsla(0, 0%, 90%);
-
-  --bg-primary: hsla(0, 0%, 15%, 0.9);
-  --bg-secondary: hsla(0, 0%, 10%, 1);
-
-  --accentColor: hsla(293, 62%, 65%, 90%);
-  --transition-speed: 300ms;
-
   --red1: hsl(304, 50%, 55%);
   --red2: hsl(0, 90%, 41%);
   --green1: hsl(79, 52%, 56%);
@@ -44,13 +29,38 @@
   --grey4: hsl(0, 0%, 25%);
   --grey5: hsl(0, 0%, 15%);
   --grey6: hsl(0, 0%, 5%);
+
+  --text-primary: hsla(0, 0%, 85%, 0.8);
+  --text-secondary: hsla(0, 0%, 90%);
+
+  --bg-primary: hsla(0, 0%, 15%, 0.9);
+  --bg-secondary: hsla(0, 0%, 10%, 1);
+
+  --accentColor: hsla(293, 62%, 65%, 90%);
+  --transition-speed: 300ms;
+
+  --default-font-size: 16px;
+  font-size: var(--default-font-size);
+  color: var(--text-primary);
+  background: var(--bg-primary);
 }
 
 /* ================
   Global styles
   ================*/
 
-  
+h1 {
+  padding: 1rem;
+  text-align: center;
+}
+
+p {
+  line-height: 1.5;
+  word-break: break-word;
+  text-align: justify; /* Justifies text */
+  hyphens: auto; /* Hypenation on auto */
+  max-width: 60ch; /* max width of a paragraph should be  around 60 characters */
+}
 
 /* ================
   Typography
@@ -104,14 +114,6 @@ header {
   width: 50vw;
   aspect-ratio: auto 1 / 1;
   margin: 2em;
-}
-
-p {
-  line-height: 1.5;
-  word-break: break-word;
-  text-align: justify; /* Justifies text */
-  hyphens: auto; /* Hypenation on auto */
-  max-width: 60ch; /* max width of a paragraph should be  around 60 characters */
 }
 
 .hidden {
