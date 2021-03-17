@@ -18,8 +18,8 @@
   --yellow1: hsl(25, 85%, 70%);
   --yellow2: hsl(45, 99%, 51%);
   --solar: hsl(35, 54%, 78%);
-  --blue1: hsl(210, 100%, 74%);
-  --blue2: hsl(210, 92%, 67%);
+  --blue1: #96C7D9;
+  --blue2: #6DA2B5;
   --blue3: hsl(210, 84%, 59%);
 
   --grey0: hsl(0, 0%, 90%);
@@ -131,7 +131,7 @@ header {
 }
 
 footer {
-  background: var(--bg-secondary);
+  background: #6DA2B5;
 }
 
 footer > p {
