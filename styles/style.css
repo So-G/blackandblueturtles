@@ -50,6 +50,8 @@
   Global styles
   ================*/
 
+  
+
 /* ================
   Typography
   ================*/
@@ -69,7 +71,7 @@
     margin: 0;
     padding: 0;
     display: grid;
-    grid-template-rows: auto 1fr 1fr 4rem;
+    grid-template-rows: auto 1fr 4rem;
   }
 }
 
@@ -112,7 +114,7 @@ p {
   max-width: 60ch; /* max width of a paragraph should be  around 60 characters */
 }
 
-.hidden{
+.hidden {
   display: none;
 }
 
