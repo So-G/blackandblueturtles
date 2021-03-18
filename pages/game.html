@@ -17,17 +17,19 @@
     <title>The Tower of Doom</title>
   </head>
   <body>
-    <header class="header-container">
+    <header class="header">
       <img id="banner" alt="banner" src="../assets/banner.jpg" />
-      <input type="checkbox" name="menu" id="menu" class="menu-toggler" />
-      <label for="menu" class="menu-toggler-label">
-        <i data-feather="menu"> </i>
-      </label>
-      <ul class="stagger-menu hover-nav">
-        <li style="--i: 0"><a href="../index.html">Home</a></li>
-        <li style="--i: 1"><a href="./game.html">Game</a></li>
-        <li style="--i: 2"><a href="./highscores.html">Highscores</a></li>
-      </ul>
+      <nav class="nav-container">
+        <input type="checkbox" name="menu" id="menu" class="menu-toggler" />
+        <label for="menu" class="menu-toggler-label">
+          <i data-feather="menu"> </i>
+        </label>
+        <ul class="stagger-menu hover-nav">
+          <li style="--i: 0"><a href="../index.html">Home</a></li>
+          <li style="--i: 1"><a href="./game.html">Game</a></li>
+          <li style="--i: 2"><a href="./highscores.html">Highscores</a></li>
+        </ul>
+      </nav>
     </header>
     <main class="start">
       <section>
@@ -45,7 +47,7 @@
       <p><a id="contribution" href="#paypal">Buy us a coffee</a> ☕️</p>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
-    <script> 
+    <script>
       feather.replace({ width: '48px', height: '48px' })
     </script>
   </body>
