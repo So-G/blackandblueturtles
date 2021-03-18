@@ -262,3 +262,18 @@ li a:hover:before,
 li a:focus:before {
   transform: scale(1);
 }
+
+
+/*Play button*/
+a.svg {
+  position: relative;
+  display: inline-block; 
+}
+a.svg:after {
+  content: ""; 
+  position: absolute; 
+  top: 0; 
+  right: 0; 
+  bottom: 0; 
+  left: 0;
+}
