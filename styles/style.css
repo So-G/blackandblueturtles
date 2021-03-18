@@ -139,7 +139,7 @@ footer {
   left: 0;
   bottom: 0;
   width: 100%;
-  background: #6DA2B5;
+  background: var(--blue2);
 
 }
 
@@ -170,9 +170,9 @@ ol li {
   display: flex;
   flex-direction: column;
   text-align: center;
-  background: #D0CBC7;
-  width: 20 %;
-  color: #828282;
+  background: var(--grey2);
+  /* width: 20%; */
+  color: var(--grey3) ;
   border-width: 2px;
   padding : 50px;
 }
