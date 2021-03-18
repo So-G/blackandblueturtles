@@ -4,7 +4,10 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="heywords" content="tower,doom,tower of doom,game,project,tower of blocks,steve gardner" />
+    <meta
+      name="heywords"
+      content="tower,doom,tower of doom,game,project,tower of blocks,steve gardner"
+    />
     <link rel="stylesheet" href="../styles/reset.css" />
     <link rel="stylesheet" href="../styles/style.css" />
     <!-- Fonts -->
@@ -14,70 +17,68 @@
       rel="stylesheet"
     />
     <script defer src="../javascript/script.js"></script>
-    <title>The Tower of Doom the videogame, an amazing videogame project from blackandblueturtles based on Steve Gardner work</title>
+    <title>
+      The Tower of Doom the videogame, an amazing videogame project from
+      blackandblueturtles based on Steve Gardner work
+    </title>
   </head>
-  
 
   <body>
-    <header>
-      <img id="banner" alt="banner" src="../assets/banner.jpg"/>
+    <header class="header-container">
+      <img id="banner" alt="banner" src="../assets/banner.jpg" />
+      <input type="checkbox" name="menu" id="menu" class="menu-toggler" />
+      <label for="menu" class="menu-toggler-label">
+        <i data-feather="menu"> </i>
+      </label>
+      <ul class="stagger-menu hover-nav">
+        <li style="--i: 0"><a href="../index.html">Home</a></li>
+        <li style="--i: 1"><a href="./game.html">Game</a></li>
+        <li style="--i: 2"><a href="./highscores.html">Highscores</a></li>
+      </ul>
     </header>
-    <nav class="navbar">
-      <img class="menuhamb"
-            src="./assets/logohamb.jpg"
-            alt="hambmenu"
-            href="#highscores">
 
-        <!-- think about updating the hamblogo link-->
+    <main>
+      <section class="highscores">
+        <h1>Hall of Fame</h1>
+        <ol>
+          <li>Player 1</li>
+          <li>Player 2</li>
+          <li>Player 3</li>
+        </ol>
+      </section>
+      <form class="form">
+        <h2>Contact Us</h2>
+        <label for="name">Your Name</label>
+        <input type="text" id="name" name="name" placeholder="John Doe" />
+        <label for="email">Email address</label>
+        <input
+          type="text"
+          id="email"
+          name="email"
+          placeholder="someone@something.com"
+        />
 
-        <ul class="navlinks">
-          <li><a href="#howtoplay">How to play</a></li>
-          <li><a href="#highscores">Highscores</a></li>
-          <li><a href="game.html">Play the game</a></li>
-          <li><a href="#aboutus">About us</a></li>
-          
-        </ul>
-    </nav>
-    <section class="highscores">
-      <h1>Hall of Fame</h1>
-      <ol>
-        <li>Player 1</li>
-        <li>Player 2</li>
-        <li>Player 3</li>
-      </ol>
-    </section>
-    <form class="form">
-      <h2>Contact Us</h2>
-      <label for="name">Your Name</label>
-      <input
-        type="text"
-        id="name"
-        name="playername"
-        placeholder="Enter your name : "
-      />
-      <label for="email">Email address</label>
-      <input
-        type="text"
-        id="email"
-        name="email"
-        placeholder="Enter your email :"
-      />
-      
-      <label for="message">Message</label>
-      <textarea
-        id="message"
-        name="message"
-        placeholder="Don't be a stranger. Come and say hi 👋"
-      ></textarea>
-      <input type="submit" value="Send" />
-    </form>
-   
-    <section class ="aboutus"><h2>About us</h2>
-        <p>BLACK AND BLUE TURTLES</p>
+        <label for="message">Message</label>
+        <textarea
+          id="message"
+          name="message"
+          placeholder="Don't be a stranger. Come and say hi 👋"
+        ></textarea>
+        <button class="btn-contact">Send</button>
+      </form>
+      <section class="about-us">
+        <h2>About us</h2>
+        <p>Black and Blue Turtles</p>
         <p>Doriane, Edouard, Joris & Solène</p>
-    </section>
+      </section>
+    </main>
+
     <footer>
       <p><a id="contribution" href="#paypal">Buy us a coffee ☕️</a></p>
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script>
+      feather.replace({ width: '2em', height: '2em' })
+    </script>
   </body>
 </html>

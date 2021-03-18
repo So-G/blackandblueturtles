@@ -4,7 +4,10 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="heywords" content="tower,doom,tower of doom,game,project,tower of blocks,steve gardner" />
+    <meta
+      name="heywords"
+      content="tower,doom,tower of doom,game,project,tower of blocks,steve gardner"
+    />
     <link rel="stylesheet" href="./styles/reset.css" />
     <link rel="stylesheet" href="./styles/style.css" />
     <!-- Fonts -->
@@ -15,49 +18,50 @@
     />
 
     <script defer src="./javascript/script.js"></script>
-    <title>The Tower of Doom the videogame, an amazing videogame project from blackandblueturtles based on Steve Gardner work</title>
+    <title>
+      The Tower of Doom the videogame, an amazing videogame project from
+      blackandblueturtles based on Steve Gardner work
+    </title>
   </head>
   <body>
-    <header>
-      <img id="banner" alt="banner" src="./assets/banner.jpg" />
+    <header class="header-container">
+      <img id="banner" alt="banner" src="../assets/banner.jpg" />
+      <input type="checkbox" name="menu" id="menu" class="menu-toggler" />
+      <label for="menu" class="menu-toggler-label">
+        <i data-feather="menu"> </i>
+      </label>
+      <ul class="stagger-menu hover-nav">
+        <li style="--i: 0"><a href="./index.html">Home</a></li>
+        <li style="--i: 1"><a href="./pages/game.html">Game</a></li>
+        <li style="--i: 2"><a href="./pages/highscores.html">Highscores</a></li>
+      </ul>
     </header>
-<nav class="navbar">
-  <img id="menuhamb"
-        src="./assets/logohamb.jpg"
-        alt="hambmenu"
-        href="#howtoplay">
+    <main>
+      <section class="div-play">
+        <img
+          class="btn-play"
+          id="play"
+          src="assets/play_button.svg"
+          alt="Play Tower of Doom"
+          href="./pages/game.html"
+        />
+      </section>
 
-        <!-- think about updating the hamblogo link-->
-
-        <ul class="navlinks">
-<li><a href="#howToPlay">How to play</a></li>
-<li><a href="#highscores">Highscores</a></li>
-<li><a href="game.html">Play the game</a></li>
-<li><a href="#aboutus">About us</a></li>
-
-        </ul>
-</nav>
-    <div class="divPlay">
-      <img
-        class="btnPlay"
-        id="play"
-        src="assets/play_button.svg"
-        alt="playtowerofdoom"
-        href="#game"
-      />
-      <!--remplacer #game par url ou section du jeu-->
-    </div>
-
-    <div class="howToPlay">
-      <h1>How to play :</h1>
-      <p>
-        Tower building game. Place blocks by clicking, tapping, or space
-        barring.
-      </p>
-    </div>
+      <section class="how-to-play">
+        <h1>How to play :</h1>
+        <p>
+          Tower building game. Place blocks by clicking, tapping, or space
+          barring.
+        </p>
+      </section>
+    </main>
 
     <footer>
-      <p><a class="contribution" href="#paypal">Buy us a coffee</a> :)</p>
+      <p><a id="contribution" href="#paypal">Buy us a coffee ☕️</a></p>
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script>
+      feather.replace({ width: '48px', height: '48px' })
+    </script>
   </body>
 </html>
