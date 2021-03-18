@@ -158,5 +158,11 @@ a {
 }
 
 nav {
+  display: flex;
+  background-color: chartreuse;
+  justify-content: space-around;
+}
+
+.menuhamb {
   
 }
