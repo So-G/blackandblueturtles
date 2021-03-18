@@ -135,10 +135,25 @@ footer {
 }
 
 footer > p {
-  text-align: center;
+  text-align: left;
   margin: 1rem 0;
+}
+a {
+  color: var(--text-primary);
+  font-family: 'Open Sans', Helvetica, 'Futura', sans-serif;
 }
 
 #game-area {
   width: 100%;
 }
+
+.form {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  background: #D0CBC7;
+  color: #828282;
+  border-width: 2px;
+  padding : 50px;
+}
+
