@@ -18,28 +18,22 @@
   </head>
   <body>
     <header>
-      <img
-        id="banner"
-        alt="banner"
-        src="./assets/banner.jpg"
-      />
+      <img id="banner" alt="banner" src="../assets/banner.jpg" />
     </header>
     <main class="start">
-      <h1>Let's go !</h1>
-      <p>Press the spacebar or click to place the block</p>
-      <button id="start" name="start" type="button">Start</button>
+      <section>
+        <h1>Start Game</h1>
+        <p class="desktop hidden">Click or press spacebar</p>
+        <p class="mobile">Tap to play</p>
+        <div class="score">Score:</div>
+        <div class="score">High Score:</div>
+      </section>
+      <img id="game-area" src="../assets/tower.png" alt="Tower" />
+      <!-- <canvas class="game-area"> </canvas> -->
     </main>
-    <section class="score-container">
-      <p class="score">Score</p>
-      <p class="score">Best Score</p>
-    </section>
-    <section class="end">
-      <p><span>Game Over !</span> You did great, but you can do better !</p>
-      <p>Try again</p>
-    </section>
+
     <footer>
-      <p><a id="contribution" href="#paypal">Buy us a coffee</a> :)</p>
+      <p><a id="contribution" href="#paypal">Buy us a coffee</a> ☕️</p>
     </footer>
-  </body>
   </body>
 </html>
