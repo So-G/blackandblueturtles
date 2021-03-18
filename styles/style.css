@@ -18,8 +18,8 @@
   --yellow1: hsl(25, 85%, 70%);
   --yellow2: hsl(45, 99%, 51%);
   --solar: hsl(35, 54%, 78%);
-  --blue1: #96C7D9;
-  --blue2: #6DA2B5;
+  --blue1: #96c7d9;
+  --blue2: #6da2b5;
   --blue3: hsl(210, 84%, 59%);
 
   --grey0: hsl(0, 0%, 90%);
@@ -115,7 +115,7 @@ header {
   margin: -20% 0;
 }
 
-.divPlay {
+.div-play {
   display: grid;
   place-items: center;
 }
@@ -140,7 +140,6 @@ footer {
   bottom: 0;
   width: 100%;
   background: var(--blue2);
-
 }
 
 footer > p {
@@ -150,7 +149,7 @@ footer > p {
 }
 a {
   color: var(--text-primary);
-  font-family: 'Open Sans', Helvetica, 'Futura', sans-serif; 
+  font-family: 'Open Sans', Helvetica, 'Futura', sans-serif;
 }
 
 #game-area {
@@ -158,7 +157,6 @@ a {
 }
 
 .highscores {
-  
 }
 
 ol li {
@@ -172,18 +170,19 @@ ol li {
   text-align: center;
   background: var(--grey2);
   /* width: 20%; */
-  color: var(--grey3) ;
+  color: var(--grey3);
   border-width: 2px;
-  padding : 50px;
+  padding: 50px;
 }
 
-.contactbtn{
+.btn-contact {
   background-color: var(--bg-primary);
   width: 50%;
   border-radius: 12px;
-  text-align: center;}
+  text-align: center;
+}
 
-.aboutus {
+.about-us {
   padding-left: 10px;
   /* font-size: ; */
 }
@@ -249,7 +248,7 @@ ol li {
 
 li a:before {
   position: absolute;
-  content: "";
+  content: '';
   width: 100%;
   height: 100%;
   bottom: 0;
