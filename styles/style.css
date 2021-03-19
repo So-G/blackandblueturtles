@@ -130,6 +130,21 @@ a {
   }
 }
 
+#scores {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+#game-area {
+  width: 100%;
+  background: var(--grey2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* height: 80%; */
+}
+
 /* ================
 Components
 ================*/
@@ -174,10 +189,6 @@ footer > p {
 a {
   color: var(--text-primary);
   font-family: 'Open Sans', Helvetica, 'Futura', sans-serif;
-}
-
-#game-area {
-  width: 100%;
 }
 
 .highscores ol {
