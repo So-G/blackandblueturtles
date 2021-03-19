@@ -26,7 +26,7 @@
   <body>
     <header class="header">
       <img id="banner" alt="banner" src="../assets/banner.jpg" />
-      <nav class="nav-container">
+      <nav class="small-nav nav-container">
         <input type="checkbox" name="menu" id="menu" class="menu-toggler" />
         <label for="menu" class="menu-toggler-label">
           <i data-feather="menu"> </i>
@@ -34,7 +34,18 @@
         <ul class="stagger-menu hover-nav">
           <li style="--i: 0"><a href="../index.html">Home</a></li>
           <li style="--i: 1"><a href="./game.html">Game</a></li>
-          <li style="--i: 2"><a href="./highscores.html">Highscores</a></li>
+          <li style="--i: 2">
+            <a href="./highscores.html">Highscores</a>
+            <li style="--i: 3"><a href="./pages/contact.html">Contact us</a></li>
+          </li>
+        </ul>
+      </nav>
+      <nav class="large-nav">
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="./game.html">Game</a></li>
+          <li><a href="./highscores.html">Highscores</a></li>
+          <li><a href="./contact.html">Contact us</a></li>
         </ul>
       </nav>
     </header>
@@ -42,7 +53,6 @@
     <main>
       <h1>Hall of Fame</h1>
       <section class="highscores">
-        
         <ol>
           <li id="top1">Player 1</li>
           <li id="top2">Player 2</li>
@@ -54,7 +64,6 @@
           <li>Player 8</li>
           <li>Player 9</li>
           <li>Player 10</li>
-          
         </ol>
       </section>
       <form class="form">
