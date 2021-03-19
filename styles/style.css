@@ -156,7 +156,10 @@ a {
   width: 100%;
 }
 
-.highscores {
+.highscores ol {
+  display: flex;
+  justify-content: space-between;
+  
 }
 
 ol li {
