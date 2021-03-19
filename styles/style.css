@@ -155,6 +155,11 @@ a {
   width: 100%;
 }
 
+.highscores ol {
+  display: flex;
+  justify-content: space-between;  
+}
+
 ol li {
   text-align: center;
   list-style-position: inside;
