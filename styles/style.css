@@ -83,6 +83,16 @@ a {
 
 /* Small screens */
 @media only screen and (max-width: 600px) {
+  .large-nav {
+    display: none;
+  }
+
+  .nav-container {
+    position: absolute;
+    top: 1em;
+    left: 1em;
+  }
+
   body {
     height: 100vh;
     margin: 0;
@@ -90,6 +100,7 @@ a {
     display: grid;
     grid-template-rows: auto 1fr 4rem;
   }
+
   p {
     text-align: center;
   }
@@ -115,6 +126,41 @@ a {
 
 /* Large screens */
 @media only screen and (min-width: 600px) {
+  .small-nav {
+    display: none;
+  }
+
+  .large-nav {
+    background: var(--grey4);
+    padding: 1em 0;
+  }
+
+  .large-nav ul {
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+  }
+
+  .large-nav ul > li {
+    list-style: none;
+    margin: 0 1em;
+    font-weight: bold;
+  }
+}
+
+#scores {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+#game-area {
+  width: 100%;
+  background: var(--grey2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* height: 80%; */
 }
 
 /* ================
@@ -168,11 +214,11 @@ a {
 /*
 #game-area {
   width: 100%;
-}
+}*/
 
 .highscores ol {
   display: flex;
-  justify-content: space-between;  
+  justify-content: space-between;
 }
 
 ol li {
@@ -279,7 +325,7 @@ a.svg:after {
   z-index: 0;
 }
 
-li a:before {
+.small-nav li a:before {
   position: absolute;
   content: '';
   width: 100%;
@@ -292,8 +338,8 @@ li a:before {
   transition: transform 0.4s ease-in-out;
 }
 
-li a:hover:before,
-li a:focus:before {
+.small-nav li a:hover:before,
+.small-nav li a:focus:before {
   transform: scale(1);
 }
 
