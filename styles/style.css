@@ -159,11 +159,8 @@ Components
 }
 
 footer {
-  /* No need ;) */
-
-  /* position: fixed; */
-  /* left: 0;
-  bottom: 0; */
+  position: fixed;
+  bottom: 0;
   width: 100vw;
   background: var(--blue2);
 }
@@ -210,7 +207,8 @@ form {
 }
 
 input {
-  padding-top: 0;
+  margin-top: 1em;
+  margin-bottom: 1em;
   width: 100%;
   height: 2.4em;
   border-color: cornsilk;
@@ -219,8 +217,9 @@ input {
 }
 
 textarea {
+  margin-top: 1em;
   width: 100%;
-  height: 3em;
+  height: 4em;
   border-color: cornsilk;
   border-radius: 8px;
   border-width: 0, 2em;
@@ -231,8 +230,8 @@ textarea {
   color: var(--text-primary);
   font-weight: bold;
   margin-top: 1em;
-  padding: 0, 5em;
-  width: 20%;
+  padding: 0.5em;
+  width: 7em;
   border-radius: 12px;
   text-align: center;
 }
