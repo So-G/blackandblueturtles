@@ -30,6 +30,8 @@
   --grey5: hsl(0, 0%, 15%);
   --grey6: hsl(0, 0%, 5%);
 
+  --beige1: hsl(27, 9%, 80%);
+
   --text-primary: var(--grey0);
   --text-secondary: var(--grey5);
 
@@ -155,37 +157,51 @@ a {
   width: 100%;
 }
 
-.highscores ol {
-  display: flex;
-  justify-content: space-between;  
-}
-
 ol li {
   text-align: center;
   list-style-position: inside;
 }
 
-.form {
+form {
+  width: 100vw;
+  text-align: center;
   display: flex;
   flex-direction: column;
-  text-align: center;
-  background: var(--grey2);
-  /* width: 20%; */
+  background: var(--beige1);
   color: var(--grey3);
   border-width: 2px;
   padding: 50px;
 }
 
+input {
+  width: 100%;
+  height: 2.4em;
+  border-color: cornsilk;
+  border-radius: 8px;
+  border-width: 0, 2em;
+}
+
+textarea {
+  width: 100%;
+  height: 3em;
+  border-color: cornsilk;
+  border-radius: 8px;
+  border-width: 0, 2em;
+}
+
 .btn-contact {
   background-color: var(--bg-primary);
-  width: 50%;
+  color: var(--text-primary);
+  font-weight: bold;
+  margin-top: 1em;
+  padding: 0, 5em;
+  width: 20%;
   border-radius: 12px;
   text-align: center;
 }
 
 .about-us {
-  padding-left: 10px;
-  /* font-size: ; */
+  text-align: center;
 }
 
 /* Menu button & list */

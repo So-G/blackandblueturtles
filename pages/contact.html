@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="heywords"
+      content="tower,doom,tower of doom,game,project,tower of blocks,steve gardner"
+    />
+    <link rel="stylesheet" href="../styles/reset.css" />
+    <link rel="stylesheet" href="../styles/style.css" />
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;600;800&family=Open+Sans:ital,wght@0,300;0,400;0,800;1,600&display=swap"
+      rel="stylesheet"
+    />
+    <script defer src="../javascript/script.js"></script>
+    <title>
+      The Tower of Doom the videogame, an amazing videogame project from
+      blackandblueturtles based on Steve Gardner work.
+    </title>
+  </head>
+
+  <body>
+    <header class="header">
+      <img id="banner" alt="banner" src="../assets/banner.jpg" />
+      <nav class="nav-container">
+        <input type="checkbox" name="menu" id="menu" class="menu-toggler" />
+        <label for="menu" class="menu-toggler-label">
+          <i data-feather="menu"> </i>
+        </label>
+        <ul class="stagger-menu hover-nav">
+          <li style="--i: 0"><a href="../index.html">Home</a></li>
+          <li style="--i: 1"><a href="./game.html">Game</a></li>
+          <li style="--i: 2"><a href="./highscores.html">Highscores</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <form class="form">
+        <h2>Contact Us</h2>
+        <div class="container">
+          <label for="name">Your Name</label>
+          <input type="text" id="name" name="name" placeholder="John Doe" />
+          <label for="email">Email address</label>
+          <input
+            type="text"
+            id="email"
+            name="email"
+            placeholder="someone@something.com"
+          />
+
+          <label for="message">Message</label>
+          <textarea
+            id="message"
+            name="message"
+            placeholder="Don't be a stranger. Come and say hi 👋"
+          ></textarea>
+        </div>
+        <div class="button">
+          <button class="btn-contact">Send</button>
+        </div>
+      </form>
+      <section class="about-us">
+        <h2>About us</h2>
+        <p>Black and Blue Turtles</p>
+        <p>Doriane, Edouard, Joris & Solène</p>
+      </section>
+    </main>
+
+    <footer>
+      <p><a id="contribution" href="#paypal">Buy us a coffee ☕️</a></p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script>
+      feather.replace({ width: '2em', height: '2em' })
+    </script>
+  </body>
+</html>
