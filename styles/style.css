@@ -93,6 +93,12 @@ a {
   p {
     text-align: center;
   }
+
+  .nav-container {
+    position: absolute;
+    top: 1em;
+    left: 1em;
+  }
 }
 
 /* Large screens */
@@ -103,15 +109,10 @@ a {
 Components
 ================*/
 
-header {
-  overflow: hidden;
-  width: 100vw;
-  margin: 0;
-}
-
 #banner {
   display: block;
   width: 100%;
+  height: 5rem;
 }
 
 .div-play {
@@ -131,13 +132,12 @@ header {
 }
 
 footer {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  left: 0;
-  bottom: 0;
-  width: 100%;
+  /* No need ;) */
+
+  /* position: fixed; */
+  /* left: 0;
+  bottom: 0; */
+  width: 100vw;
   background: var(--blue2);
 }
 
@@ -192,7 +192,7 @@ ol li {
 
 /* STAGGERED */
 
-.container {
+.nav-container {
   overflow-x: hidden;
   width: 100%;
 }
@@ -201,21 +201,25 @@ ol li {
   display: none;
 }
 
+.menu-toggler-label > svg {
+  height: 2em;
+}
+
 .menu-toggler-label {
   cursor: pointer;
-  font-size: 20px;
+  font-size: 1.5em;
   font-weight: bold;
 }
 
 .stagger-menu {
   list-style-type: none;
-  margin: 16px 0;
+  margin: 1em 0;
   padding: 0;
 }
 
 .stagger-menu li {
-  margin-bottom: 8px;
-  font-size: 18px;
+  margin-bottom: 0.5em;
+  font-size: 1.2em;
   opacity: 0;
   max-width: max-content;
   transform: translateX(100%);
@@ -240,7 +244,7 @@ ol li {
 }
 
 .hover-nav li a {
-  color: var(--grey5);
+  color: var(--grey0);
   text-align: center;
   padding: 8px 12px;
   text-decoration: none;
@@ -254,7 +258,7 @@ li a:before {
   height: 100%;
   bottom: 0;
   left: 0;
-  background-color: var(--green2);
+  background-color: var(--blue2);
   z-index: -1;
   transform: scale(0);
   transition: transform 0.4s ease-in-out;
