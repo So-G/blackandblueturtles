@@ -168,7 +168,7 @@ a {
 /* ================
 Components
 ================*/
-main{
+main {
   padding: 10%;
 }
 
@@ -226,22 +226,18 @@ ol li {
 }
 
 form {
-  width: 100vw;
   text-align: center;
   display: flex;
   flex-direction: column;
   background: var(--beige1);
   color: var(--grey3);
-  border-width: 2px;
   padding: 50px;
 }
-
 .container {
   text-align: center;
   display: flex;
   flex-direction: column;
 }
-
 input {
   margin-top: 1em;
   margin-bottom: 1em;
@@ -285,14 +281,14 @@ textarea {
 /*Play button*/
 a.svg {
   position: relative;
-  display: inline-block; 
+  display: inline-block;
 }
 a.svg:after {
-  content: ""; 
-  position: absolute; 
-  top: 0; 
-  right: 0; 
-  bottom: 0; 
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
   left: 0;
 }
 
@@ -374,5 +370,3 @@ a.svg:after {
 .small-nav li a:focus:before {
   transform: scale(1);
 }
-
-
