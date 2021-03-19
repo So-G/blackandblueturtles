@@ -106,6 +106,24 @@ a {
   p {
     text-align: center;
   }
+
+  .nav-container {
+    position: absolute;
+    top: 1em;
+    left: 1em;
+  }
+
+  #play {
+    width: 50vw;
+    height: 40vw;
+    aspect-ratio: auto 1 / 1;
+    margin: 2em;
+  }
+  #game-area {
+    width: 70%;
+    margin: auto;
+    padding-top: 1rem;
+  }
 }
 
 /* Large screens */
@@ -150,6 +168,9 @@ a {
 /* ================
 Components
 ================*/
+main{
+  padding: 10%;
+}
 
 #banner {
   display: block;
@@ -161,13 +182,13 @@ Components
   display: grid;
   place-items: center;
 }
-
+/*
 #play {
   width: 50vw;
-  height: 20vw;
+  height: 50vw;
   aspect-ratio: auto 1 / 1;
   margin: 2em;
-}
+}*/
 
 .hidden {
   display: none;
@@ -189,6 +210,10 @@ a {
   color: var(--text-primary);
   font-family: 'Open Sans', Helvetica, 'Futura', sans-serif;
 }
+/*
+#game-area {
+  width: 100%;
+}*/
 
 .highscores ol {
   display: flex;
@@ -257,6 +282,19 @@ textarea {
 }
 
 /* Menu button & list */
+/*Play button*/
+a.svg {
+  position: relative;
+  display: inline-block; 
+}
+a.svg:after {
+  content: ""; 
+  position: absolute; 
+  top: 0; 
+  right: 0; 
+  bottom: 0; 
+  left: 0;
+}
 
 /* STAGGERED */
 
@@ -336,3 +374,5 @@ textarea {
 .small-nav li a:focus:before {
   transform: scale(1);
 }
+
+
