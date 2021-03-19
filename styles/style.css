@@ -101,8 +101,8 @@ a {
   }
 
   #play {
-    width: 40vw;
-    height: 20vw;
+    width: 50vw;
+    height: 40vw;
     aspect-ratio: auto 1 / 1;
     margin: 2em;
   }
@@ -134,13 +134,13 @@ main{
   display: grid;
   place-items: center;
 }
-
+/*
 #play {
   width: 50vw;
   height: 50vw;
   aspect-ratio: auto 1 / 1;
   margin: 2em;
-}
+}*/
 
 .hidden {
   display: none;
