@@ -30,6 +30,8 @@
   --grey5: hsl(0, 0%, 15%);
   --grey6: hsl(0, 0%, 5%);
 
+  --beige1: hsl(27, 9%, 80%);
+
   --text-primary: var(--grey0);
   --text-secondary: var(--grey5);
 
@@ -166,7 +168,7 @@ a {
 /* ================
 Components
 ================*/
-main{
+main {
   padding: 10%;
 }
 
@@ -193,11 +195,8 @@ main{
 }
 
 footer {
-  /* No need ;) */
-
-  /* position: fixed; */
-  /* left: 0;
-  bottom: 0; */
+  position: fixed;
+  bottom: 0;
   width: 100vw;
   background: var(--blue2);
 }
@@ -216,51 +215,117 @@ a {
   width: 100%;
 }*/
 
+.highscores {
+  display:flex;
+  justify-content: center;
+  
+  
+  }
+
+
 .highscores ol {
-  display: flex;
-  justify-content: space-between;
+  
+  display: grid;
+  grid-template-columns: 100px 100px 100px;
+   grid-template-rows: 100px 100px 100px 100px;
+   grid-gap: 25px;
+   text-align: center;
+  
+   padding-left: 0%;
+   width: auto;
+   
 }
 
-ol li {
+
+
+#top1 {
+  grid-column-start: 1;
+  grid-column-end: 4;
+  border:dashed red;
+}
+
+#top2 {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  
+  ;
+}
+
+#top3 {
+  grid-column-start: 3;
+  grid-column-end: 4;
+  
+}
+
+.highscores ol li {
   text-align: center;
-  list-style-position: inside;
+  
 }
 
-.form {
+form {
+  text-align: center;
   display: flex;
   flex-direction: column;
-  text-align: center;
-  background: var(--grey2);
-  /* width: 20%; */
+  background: var(--beige1);
   color: var(--grey3);
-  border-width: 2px;
   padding: 50px;
+}
+.container {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+input {
+  margin-top: 1em;
+  margin-bottom: 1em;
+  width: 100%;
+  height: 2.4em;
+  border-color: cornsilk;
+  border-radius: 8px;
+  border-width: 0, 2em;
+}
+
+textarea {
+  margin-top: 1em;
+  width: 100%;
+  height: 4em;
+  border-color: cornsilk;
+  border-radius: 8px;
+  border-width: 0, 2em;
 }
 
 .btn-contact {
   background-color: var(--bg-primary);
-  width: 50%;
+  color: var(--text-primary);
+  font-weight: bold;
+  margin-top: 1em;
+  padding: 0.5em;
+  width: 7em;
   border-radius: 12px;
   text-align: center;
 }
 
 .about-us {
-  padding-left: 10px;
-  /* font-size: ; */
+  text-align: center;
+}
+
+.about-us p {
+  text-align: left;
+  margin: 1em;
 }
 
 /* Menu button & list */
 /*Play button*/
 a.svg {
   position: relative;
-  display: inline-block; 
+  display: inline-block;
 }
 a.svg:after {
-  content: ""; 
-  position: absolute; 
-  top: 0; 
-  right: 0; 
-  bottom: 0; 
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
   left: 0;
 }
 
@@ -342,5 +407,3 @@ a.svg:after {
 .small-nav li a:focus:before {
   transform: scale(1);
 }
-
-

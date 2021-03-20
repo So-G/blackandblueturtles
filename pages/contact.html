@@ -34,10 +34,8 @@
         <ul class="stagger-menu hover-nav">
           <li style="--i: 0"><a href="../index.html">Home</a></li>
           <li style="--i: 1"><a href="./game.html">Game</a></li>
-          <li style="--i: 2">
-            <a href="./highscores.html">Highscores</a>
-            <li style="--i: 3"><a href="./pages/contact.html">Contact us</a></li>
-          </li>
+          <li style="--i: 2"><a href="./highscores.html">Highscores</a></li>
+          <li style="--i: 3"><a href="./pages/contact.html">Contact us</a></li>
         </ul>
       </nav>
       <nav class="large-nav">
@@ -51,23 +49,35 @@
     </header>
 
     <main>
-      <h1>Hall of Fame</h1>
-      <section class="highscores">
-        <ol>
-          <li id="top1">Player 1</li>
-          <li id="top2">Player 2</li>
-          <li id="top3">Player 3</li>
-          <li>Player 4</li>
-          <li>Player 5</li>
-          <li>Player 6</li>
-          <li>Player 7</li>
-          <li>Player 8</li>
-          <li>Player 9</li>
-          
-          </ol>
-</section>
-      
+      <form class="form">
+        <h2>Contact Us</h2>
+        <div class="container">
+          <label for="name">Your Name</label>
+          <input type="text" id="name" name="name" placeholder="John Doe" />
+          <label for="email">Email address</label>
+          <input
+            type="text"
+            id="email"
+            name="email"
+            placeholder="someone@something.com"
+          />
 
+          <label for="message">Message</label>
+          <textarea
+            id="message"
+            name="message"
+            placeholder="Don't be a stranger. Come and say hi 👋"
+          ></textarea>
+        </div>
+        <div class="button">
+          <button class="btn-contact">Send</button>
+        </div>
+      </form>
+      <section class="about-us">
+        <h2>About us</h2>
+        <p>Black and Blue Turtles</p>
+        <p>Doriane, Edouard, Joris & Solène</p>
+      </section>
     </main>
 
     <footer>
