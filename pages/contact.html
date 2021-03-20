@@ -8,21 +8,21 @@
       name="heywords"
       content="tower,doom,tower of doom,game,project,tower of blocks,steve gardner"
     />
-    <link rel="stylesheet" href="./styles/reset.css" />
-    <link rel="stylesheet" href="./styles/style.css" />
+    <link rel="stylesheet" href="../styles/reset.css" />
+    <link rel="stylesheet" href="../styles/style.css" />
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
       href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;600;800&family=Open+Sans:ital,wght@0,300;0,400;0,800;1,600&display=swap"
       rel="stylesheet"
     />
-
-    <script defer src="./javascript/script.js"></script>
+    <script defer src="../javascript/script.js"></script>
     <title>
       The Tower of Doom the videogame, an amazing videogame project from
-      blackandblueturtles based on Steve Gardner work
+      blackandblueturtles based on Steve Gardner work.
     </title>
   </head>
+
   <body>
     <header class="header">
       <img id="banner" alt="banner" src="../assets/banner.jpg" />
@@ -33,50 +33,50 @@
         </label>
         <ul class="stagger-menu hover-nav">
           <li style="--i: 0"><a href="../index.html">Home</a></li>
-          <li style="--i: 1"><a href="./pages/game.html">Game</a></li>
-          <li style="--i: 2">
-            <a href="./pages/highscores.html">Highscores</a>
-          </li>
+          <li style="--i: 1"><a href="./game.html">Game</a></li>
+          <li style="--i: 2"><a href="./highscores.html">Highscores</a></li>
           <li style="--i: 3"><a href="./pages/contact.html">Contact us</a></li>
         </ul>
       </nav>
       <nav class="large-nav">
         <ul>
           <li><a href="../index.html">Home</a></li>
-          <li><a href="./pages/game.html">Game</a></li>
-          <li><a href="./pages/highscores.html">Highscores</a></li>
-          <li><a href="./pages/contact.html">Contact us</a></li>
+          <li><a href="./game.html">Game</a></li>
+          <li><a href="./highscores.html">Highscores</a></li>
+          <li><a href="./contact.html">Contact us</a></li>
         </ul>
       </nav>
     </header>
-    <main>
-      <img id="game-area2" src="../assets/tower.png" alt="Tower" />
-      <section class="how-to-play">
-        <h1>How to play :</h1>
-        <p>
-          Tower building game. Place blocks by clicking, tapping, or space
-          barring.
-        </p>
-      </section>
-      <section class="div-play">
-        <a href="./pages/game.html#start-game" class ="svg">
-          <object data="assets/play_button.svg" type ="image/svg+html">
-          <img class="btn-play"
-          id="play"
-          src="assets/play_button.svg"
-          alt="Play Tower of Doom"
-          href="./pages/game.html#start-game" />
-        </object>
-        </a>
-      </section>
 
-      <section class="how-to-play">
-        <h1>How to play :</h1>
-        <p>
-          Try this awesome building tower game by adding slices to your tower at
-          the best position possible only with your mouse button or your
-          spacebar.
-        </p>
+    <main>
+      <form class="form">
+        <h2>Contact Us</h2>
+        <div class="container">
+          <label for="name">Your Name</label>
+          <input type="text" id="name" name="name" placeholder="John Doe" />
+          <label for="email">Email address</label>
+          <input
+            type="text"
+            id="email"
+            name="email"
+            placeholder="someone@something.com"
+          />
+
+          <label for="message">Message</label>
+          <textarea
+            id="message"
+            name="message"
+            placeholder="Don't be a stranger. Come and say hi 👋"
+          ></textarea>
+        </div>
+        <div class="button">
+          <button class="btn-contact">Send</button>
+        </div>
+      </form>
+      <section class="about-us">
+        <h2>About us</h2>
+        <p>Black and Blue Turtles</p>
+        <p>Doriane, Edouard, Joris & Solène</p>
       </section>
     </main>
 
@@ -85,7 +85,7 @@
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
     <script>
-      feather.replace({ width: '48px', height: '48px' })
+      feather.replace({ width: '2em', height: '2em' })
     </script>
   </body>
 </html>

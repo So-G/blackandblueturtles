@@ -19,7 +19,7 @@
   <body>
     <header class="header">
       <img id="banner" alt="banner" src="../assets/banner.jpg" />
-      <nav class="nav-container">
+      <nav class="small-nav nav-container">
         <input type="checkbox" name="menu" id="menu" class="menu-toggler" />
         <label for="menu" class="menu-toggler-label">
           <i data-feather="menu"> </i>
@@ -27,20 +27,33 @@
         <ul class="stagger-menu hover-nav">
           <li style="--i: 0"><a href="../index.html">Home</a></li>
           <li style="--i: 1"><a href="./game.html">Game</a></li>
-          <li style="--i: 2"><a href="./highscores.html">Highscores</a></li>
+          <li style="--i: 2">
+            <a href="./highscores.html">Highscores</a>
+          </li>
+          <li style="--i: 3"><a href="./pages/contact.html">Contact us</a></li>
+        </ul>
+      </nav>
+      <nav class="large-nav">
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="./game.html">Game</a></li>
+          <li><a href="./highscores.html">Highscores</a></li>
+          <li><a href="./contact.html">Contact us</a></li>
         </ul>
       </nav>
     </header>
     <main class="start">
+      <h1>Start Game</h1>
       <section>
-        <h1>Start Game</h1>
-        <p class="desktop hidden">Click or press spacebar</p>
-        <p class="mobile">Tap to play</p>
-        <div class="score">Score:</div>
-        <div class="score">High Score:</div>
+        <div id="scores">
+          <p class="score">Score</p>
+          <p class="score">/ HS</p>
+        </div>
+        <div id="game-area">
+          <p class="mobile">Tap to play</p>
+          <p class="desktop hidden">Click or press spacebar</p>
+        </div>
       </section>
-      <img id="game-area" src="../assets/tower.png" alt="Tower" />
-      <!-- <canvas class="game-area"> </canvas> -->
     </main>
 
     <footer>

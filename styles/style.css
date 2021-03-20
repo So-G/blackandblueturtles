@@ -30,6 +30,8 @@
   --grey5: hsl(0, 0%, 15%);
   --grey6: hsl(0, 0%, 5%);
 
+  --beige1: hsl(27, 9%, 80%);
+
   --text-primary: var(--grey0);
   --text-secondary: var(--grey5);
 
@@ -83,6 +85,16 @@ a {
 
 /* Small screens */
 @media only screen and (max-width: 600px) {
+  .large-nav {
+    display: none;
+  }
+
+  .nav-container {
+    position: absolute;
+    top: 1em;
+    left: 1em;
+  }
+
   body {
     height: 100vh;
     margin: 0;
@@ -90,6 +102,7 @@ a {
     display: grid;
     grid-template-rows: auto 1fr 4rem;
   }
+
   p {
     text-align: center;
   }
@@ -99,15 +112,65 @@ a {
     top: 1em;
     left: 1em;
   }
+
+  #play {
+    width: 50vw;
+    height: 40vw;
+    aspect-ratio: auto 1 / 1;
+    margin: 2em;
+  }
+  #game-area {
+    width: 70%;
+    margin: auto;
+    padding-top: 1rem;
+  }
 }
 
 /* Large screens */
 @media only screen and (min-width: 600px) {
+  .small-nav {
+    display: none;
+  }
+
+  .large-nav {
+    background: var(--grey4);
+    padding: 1em 0;
+  }
+
+  .large-nav ul {
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+  }
+
+  .large-nav ul > li {
+    list-style: none;
+    margin: 0 1em;
+    font-weight: bold;
+  }
+}
+
+#scores {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+#game-area {
+  width: 100%;
+  background: var(--grey2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* height: 80%; */
 }
 
 /* ================
 Components
 ================*/
+main {
+  padding: 10%;
+}
 
 #banner {
   display: block;
@@ -119,24 +182,21 @@ Components
   display: grid;
   place-items: center;
 }
-
+/*
 #play {
   width: 50vw;
-  height: 20vw;
+  height: 50vw;
   aspect-ratio: auto 1 / 1;
   margin: 2em;
-}
+}*/
 
 .hidden {
   display: none;
 }
 
 footer {
-  /* No need ;) */
-
-  /* position: fixed; */
-  /* left: 0;
-  bottom: 0; */
+  position: fixed;
+  bottom: 0;
   width: 100vw;
   background: var(--blue2);
 }
@@ -150,10 +210,10 @@ a {
   color: var(--text-primary);
   font-family: 'Open Sans', Helvetica, 'Futura', sans-serif;
 }
-
+/*
 #game-area {
   width: 100%;
-}
+}*/
 
 .highscores {
   display:flex;
@@ -202,30 +262,72 @@ a {
   
 }
 
-.form {
+form {
+  text-align: center;
   display: flex;
   flex-direction: column;
-  text-align: center;
-  background: var(--grey2);
-  /* width: 20%; */
+  background: var(--beige1);
   color: var(--grey3);
-  border-width: 2px;
   padding: 50px;
+}
+.container {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+input {
+  margin-top: 1em;
+  margin-bottom: 1em;
+  width: 100%;
+  height: 2.4em;
+  border-color: cornsilk;
+  border-radius: 8px;
+  border-width: 0, 2em;
+}
+
+textarea {
+  margin-top: 1em;
+  width: 100%;
+  height: 4em;
+  border-color: cornsilk;
+  border-radius: 8px;
+  border-width: 0, 2em;
 }
 
 .btn-contact {
   background-color: var(--bg-primary);
-  width: 50%;
+  color: var(--text-primary);
+  font-weight: bold;
+  margin-top: 1em;
+  padding: 0.5em;
+  width: 7em;
   border-radius: 12px;
   text-align: center;
 }
 
 .about-us {
-  padding-left: 10px;
-  /* font-size: ; */
+  text-align: center;
+}
+
+.about-us p {
+  text-align: left;
+  margin: 1em;
 }
 
 /* Menu button & list */
+/*Play button*/
+a.svg {
+  position: relative;
+  display: inline-block;
+}
+a.svg:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
 
 /* STAGGERED */
 
@@ -288,7 +390,7 @@ a {
   z-index: 0;
 }
 
-li a:before {
+.small-nav li a:before {
   position: absolute;
   content: '';
   width: 100%;
@@ -301,7 +403,7 @@ li a:before {
   transition: transform 0.4s ease-in-out;
 }
 
-li a:hover:before,
-li a:focus:before {
+.small-nav li a:hover:before,
+.small-nav li a:focus:before {
   transform: scale(1);
 }
