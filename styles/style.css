@@ -148,21 +148,19 @@ a {
     margin: 0 1em;
     font-weight: bold;
   }
+  #game-area2 {
+    width: 30%;
+    margin: auto;
+    background: var(--grey2);
+
+    /* height: 80%; */
+  }
 }
 
 #scores {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
-}
-
-#game-area {
-  width: 100%;
-  background: var(--grey2);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  /* height: 80%; */
 }
 
 /* ================
@@ -216,50 +214,39 @@ a {
 }*/
 
 .highscores {
-  display:flex;
+  display: flex;
   justify-content: center;
-  
-  
-  }
-
-
-.highscores ol {
-  
-  display: grid;
-  grid-template-columns: 100px 100px 100px;
-   grid-template-rows: 100px 100px 100px 100px;
-   grid-gap: 25px;
-   text-align: center;
-  
-   padding-left: 0%;
-   width: auto;
-   
 }
 
+.highscores ol {
+  display: grid;
+  grid-template-columns: 100px 100px 100px;
+  grid-template-rows: 100px 100px 100px 100px;
+  grid-gap: 25px;
+  text-align: center;
 
+  padding-left: 0%;
+  width: auto;
+}
 
 #top1 {
   grid-column-start: 1;
   grid-column-end: 4;
-  border:dashed red;
+  border: dashed red;
 }
 
 #top2 {
   grid-column-start: 1;
   grid-column-end: 2;
-  
-  ;
 }
 
 #top3 {
   grid-column-start: 3;
   grid-column-end: 4;
-  
 }
 
 .highscores ol li {
   text-align: center;
-  
 }
 
 form {
