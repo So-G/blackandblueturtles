@@ -59,7 +59,7 @@ h1 {
 p {
   line-height: 1.5;
   word-break: break-word;
-  text-align: justify; /* Justifies text */
+  /* text-align: justify; Justifies text */
   hyphens: auto; /* Hypenation on auto */
   max-width: 60ch; /* max width of a paragraph should be  around 60 characters */
 }
@@ -148,6 +148,13 @@ a {
     margin: 0 1em;
     font-weight: bold;
   }
+
+  p {
+    text-align: center;
+    margin: auto; /*center the text*/
+    padding: 0, 5rem;
+  }
+
   #game-area2 {
     width: 30%;
     margin: auto;
