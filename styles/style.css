@@ -170,7 +170,7 @@ a {
    grid-template-rows: 100px 100px 100px 100px;
    grid-gap: 25px;
    text-align: center;
-   border: dashed red;
+  
    padding-left: 0%;
    width: auto;
    
@@ -187,14 +187,14 @@ a {
 #top2 {
   grid-column-start: 1;
   grid-column-end: 2;
-  border:dashed brown;
+  
   ;
 }
 
 #top3 {
   grid-column-start: 3;
   grid-column-end: 4;
-  border: dashed white
+  
 }
 
 .highscores ol li {
