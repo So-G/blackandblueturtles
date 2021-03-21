@@ -159,7 +159,7 @@ a {
   }
 
   #game-area2 {
-    width: 30%;
+    width: 20%;
     margin: auto;
     background: var(--grey2);
 
@@ -167,6 +167,19 @@ a {
   }
   #game-area {
     display: none;
+  }
+
+  h1 {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  #play {
+    width: 20vw;
+    height: 10vw;
+    aspect-ratio: auto 1 / 1;
+    margin: 2em;
+  }
 }
 
 #scores {
@@ -192,13 +205,6 @@ main {
   display: grid;
   place-items: center;
 }
-/*
-#play {
-  width: 50vw;
-  height: 50vw;
-  aspect-ratio: auto 1 / 1;
-  margin: 2em;
-}*/
 
 .hidden {
   display: none;
