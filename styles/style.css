@@ -120,9 +120,12 @@ a {
     margin: 2em;
   }
   #game-area {
-    width: 70%;
+    width: 100%;
     margin: auto;
     padding-top: 1rem;
+  }
+  #game-area2 {
+    display: none;
   }
 }
 
@@ -162,6 +165,8 @@ a {
 
     /* height: 80%; */
   }
+  #game-area {
+    display: none;
 }
 
 #scores {
@@ -174,7 +179,7 @@ a {
 Components
 ================*/
 main {
-  padding: 10%;
+  padding: 1rem 5rem;
 }
 
 #banner {
