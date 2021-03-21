@@ -119,11 +119,13 @@ a {
     aspect-ratio: auto 1 / 1;
     margin: 2em;
   }
+
   #game-area {
     width: 100%;
     margin: auto;
     padding-top: 1rem;
   }
+
   #game-area2 {
     display: none;
   }
