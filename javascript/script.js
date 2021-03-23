@@ -56,7 +56,7 @@ function createElement() {
   newElement.style.height = `${fundation.style.height}px`
   newElement.style.marginLeft = `${100 + currentScore}px`
   // 3) Set color: hsl, hue + 10
-  newElement.style.background = `hsl(${0 + 10 * currentScore}, 50%, 50%)`
+  newElement.style.background = `hsl(${254 + 10 * currentScore}, 60%, 35%)`
   // 4) append child element to the container (gameArea): appendChild
   gameArea.appendChild(newElement)
 }
