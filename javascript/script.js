@@ -77,12 +77,15 @@ set speed +1
 */
 
 // fetchHighscore Fetch highscores from localStorage and assign them to variable highscore --Ed
-/* 
-1) fetch the data : localStorage.getItem('highscores')
-2) parse it : JSON.parse
-3) Assign it to highscores
-4) Assign it to Top 10
-*/
+function fetchHighscore() {
+  // 1) fetch the data : localStorage.getItem('highscores')
+  // 2) parse it : JSON.parse
+  const locSto = JSON.parse(localStorage.getItem('highscore'))
+  // Sort by highscore
+  locSto.sort((a, b) => b.score - a.score)
+  // 3) Assign it to highscores
+  highscore = locSto[0].score
+}
 
 //----------------
 // Event Listeners
