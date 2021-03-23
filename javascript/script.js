@@ -8,6 +8,10 @@ const gameArea = document.querySelector('#game-area')
 // fundation: Grab HTML element first bloc (fundation) (by id)
 const fundation = document.querySelector('#fundation')
 
+// displayScore & displayHighscore
+const displayScore = document.querySelector('#display-score')
+const displayHighscore = document.querySelector('#display-highscore')
+
 let currentScore = 0
 let highscore = 0
 const highscores = []
