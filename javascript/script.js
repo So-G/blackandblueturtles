@@ -44,12 +44,18 @@ using js   define status of bloc (isMooving:true/false) then switch true/false b
 */
 
 // createElement Function to create and position a new element / bloc (div) --Ed
-/*
-1) create element: document.createElement("div")
-2) Set width from previous bloc, height and (negative?) margin
-3) Set color: hsl, hue + 10
-4) append child element to the container (gameArea): appendChild
-*/
+function createElement() {
+  // 1) create element: document.createElement("div")
+  const newElement = document.createElement('div')
+  // 2) Set width from previous bloc, height and (negative?) margin
+  newElement.style.width = `${fundation.style.width}px`
+  newElement.style.height = `${fundation.style.height}px`
+  newElement.style.marginLeft = `${100 + currentScore}px`
+  // 3) Set color: hsl, hue + 10
+  newElement.style.background = `hsl(${0 + 10 * currentScore}, 50%, 50%)`
+  // 4) append child element to the container (gameArea): appendChild
+  gameArea.appendChild(newElement)
+}
 
 /** Function blocAnimation 
 - to add / create animation (css) for the new element / bloc (div) --Solene
