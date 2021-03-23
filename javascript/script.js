@@ -84,11 +84,13 @@ set speed +1
 function fetchHighscore() {
   // 1) fetch the data : localStorage.getItem('highscores')
   // 2) parse it : JSON.parse
-  const locSto = JSON.parse(localStorage.getItem('highscore'))
+  const locSto = JSON.parse(localStorage.getItem('highscores'))
   // Sort by highscore
   locSto.sort((a, b) => b.score - a.score)
-  // 3) Assign it to highscores
+  // 3) Assign it to highscore
   highscore = locSto[0].score
+  // 3) Display it
+  displayHighscore.textContent = `Highscore: ${highscore}`
 }
 
 //----------------
