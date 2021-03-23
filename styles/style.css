@@ -18,8 +18,8 @@
   --yellow1: hsl(25, 85%, 70%);
   --yellow2: hsl(45, 99%, 51%);
   --solar: hsl(35, 54%, 78%);
-  --blue1: #96c7d9;
-  --blue2: #6da2b5;
+  --blue1: hsl(196, 47%, 72%);
+  --blue2: hsl(196, 33%, 57%);
   --blue3: hsl(210, 84%, 59%);
 
   --grey0: hsl(0, 0%, 90%);
@@ -115,7 +115,7 @@ main > section {
 #fundation {
   width: 50%;
   height: 50px;
-  background: hsl(0, 50%, 50%);
+  background: hsl(244, 60%, 35%);
 }
 
 /* Small screens */
