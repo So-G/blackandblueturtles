@@ -120,7 +120,7 @@ main > section {
 
 /* Small screens */
 @media only screen and (max-width: 600px) {
-  .large-nav {
+  .desktop {
     display: none;
   }
 
@@ -154,26 +154,30 @@ main > section {
     aspect-ratio: auto 1 / 1;
     margin: 2em;
   }
+
+  .desktop {
+    display: none;
+  }
 }
 
 /* Large screens */
 @media only screen and (min-width: 600px) {
-  .small-nav {
+  .mobile {
     display: none;
   }
 
-  .large-nav {
+  .desktop {
     background: var(--grey4);
     padding: 1em 0;
   }
 
-  .large-nav ul {
+  .desktop ul {
     display: flex;
     flex-direction: row;
     margin: 0;
   }
 
-  .large-nav ul > li {
+  .desktop ul > li {
     list-style: none;
     margin: 0 1em;
     font-weight: bold;
@@ -204,6 +208,10 @@ main > section {
     aspect-ratio: auto 1 / 1;
     margin: 2em;
   }
+
+  .mobile {
+    display: none;
+  }
 }
 
 #scores {
@@ -220,10 +228,6 @@ Components
 .div-play {
   display: grid;
   place-items: center;
-}
-
-.hidden {
-  display: none;
 }
 
 footer {
@@ -407,7 +411,7 @@ a.svg:after {
   z-index: 0;
 }
 
-.small-nav li a:before {
+.mobile li a:before {
   position: absolute;
   content: '';
   width: 100%;
@@ -420,7 +424,7 @@ a.svg:after {
   transition: transform 0.4s ease-in-out;
 }
 
-.small-nav li a:hover:before,
-.small-nav li a:focus:before {
+.mobile li a:hover:before,
+.mobile li a:focus:before {
   transform: scale(1);
 }
