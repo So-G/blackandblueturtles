@@ -101,12 +101,20 @@ main > section {
   background: var(--grey1);
   height: 80%;
   display: flex;
+  flex-direction: column-reverse;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 #game-area > p {
-  align-self: center;
-  margin: 0 auto;
+  margin: auto;
   padding: 1em;
+}
+
+#fundation {
+  width: 50%;
+  height: 50px;
+  background: hsl(0, 50%, 50%);
 }
 
 /* Small screens */
