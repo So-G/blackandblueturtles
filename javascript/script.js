@@ -3,23 +3,25 @@
 //----------
 
 // gameArea: Grab HTML containing element (id)
+const gameArea = document.querySelector('#game-area')
 
 // fundation: Grab HTML element first bloc (fundation) (by id)
+const fundation = document.querySelector('#fundation')
 
-// currentScore
-// highscore
-// highscores
+let currentScore = 0
+let highscore = 0
+const highscores = []
 /*
 Array of objects:
 - playerName: John Doe
 - score: 1234
 */
 
-// speed
+let speed = 1
 
-// blocHeight ?
+const blocHeight = fundation.style.height
 
-// isStarted
+let isStarted = false
 
 //----------
 // Functions
@@ -50,7 +52,7 @@ using js   define status of bloc (isMooving:true/false) then switch true/false b
 */
 
 /** Function blocAnimation 
- - to add / create animation (css) for the new element / bloc (div) --Solene
+- to add / create animation (css) for the new element / bloc (div) --Solene
 change class + JS (toggle?)
 set speed +1
 */
