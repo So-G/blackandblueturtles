@@ -23,7 +23,7 @@ Array of objects:
 
 let speed = 1
 
-const blockHegight = fundation.offsetHeight
+const blockHeight = fundation.offsetHeight
 
 let isStarted = false
 
