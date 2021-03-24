@@ -127,9 +127,17 @@ function fetchHighscore() {
   displayHighscore.textContent = `Highscore: ${highscore}`
 }
 
+// Function to hide the instructions (tap to play...)
+function hideInstructions() {
+  const instructions = gameArea.querySelectorAll('p')
+  instructions.forEach((paragraph) => (paragraph.style.display = 'none'))
+}
+
+// Main function called once the game area is clicked (spacebar, tap & click)
 const eventHandler = () => {
   if (isStarted === false) {
     isStarted = true
+    hideInstructions()
     createElement()
     startAnimation()
     stopAnimation()
@@ -148,6 +156,9 @@ const eventHandler = () => {
 
 // Create an event listener to start the game && 'drop' the bloc && restart the game
 // on click, spacebar, tap event -- Do
+
+gameArea.addEventListener('click', eventHandler)
+gameArea.addEventListener('keypress', eventHandler)
 
 /* 
 Start the game: 
