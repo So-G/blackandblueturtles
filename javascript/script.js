@@ -28,13 +28,6 @@ let isStarted = false
 //----------
 // Functions
 //----------
-
-const eventHandler= () => {
-  /* 
-
-}
-
-
 // Function = "blocAnimation" -- joris
 /*  animation lunched => event.listener(click) => stop animation
 using js   define status of bloc (isMooving:true/false) then switch true/false by event.click
@@ -42,34 +35,35 @@ using js   define status of bloc (isMooving:true/false) then switch true/false b
             
  */
 
-
 // Function resizeBloc : resize the current element / bloc (div) || or loose ??? --Do -
 
 const resizeCurrentElement = () => {
-  //Select the current bloc : getElement
-  const currentElement = document.querySelector(".block:last-of-type")
+  // Select the current bloc : getElement
+  const currentElement = document.querySelector('.block:last-of-type')
   const leftMovingBlock = currentElement.getBoundingClientRect().x
-  const rightMovingBlock = currentElement.getBoundingClientRect().right 
+  const rightMovingBlock = currentElement.getBoundingClientRect().right
 
-  //Select the previous bloc : ~ node.previousSibling 
-  const previousElement = currentElement.previousSibling // ou document.queryS
+  // Select the previous bloc : ~ node.previousSibling
+  const previousElement = currentElement.previousElementSibling // ou document.queryS
   const leftFixedBlock = previousElement.getBoundingClientRect().x
   const rightFixedBlock = previousElement.getBoundingClientRect().right
-  
-    // if we are here it means that both bloc are not equal
-    if (leftMovingBlock ==! leftFixedBlock){
-      if (leftFixedBlock < leftMovingBlock && leftMovingBlock < rightFixedBlock){  //if x is between [ab]
-          rightMovingBlock === rightFixedBlock    
-          const resizedWidth = previousElement.width - (rightMovingBlock - rightFixedBlock)                                 //so, y = b
-        }
-        else if (leftFixedBlock < rightMovingBlock && rightMovingBlock < rightFixedBlock){   //if y is between [ab]
-          leftMovingBlock === leftFixedBlock 
-          const resizedWidth = previousElement.width - (leftMovingBlock - leftFixedBlock)                                        //so, x = a 
-        }  
-    // set the new size to the element
-    currentElement.width = resizedWidth    
-}
 
+  // if we are here it means that both bloc are not equal
+  if (leftFixedBlock < leftMovingBlock && leftMovingBlock < rightFixedBlock) {
+    // if x is between [ab]
+    const resizedWidth =
+      previousElement.offsetWidth - (rightMovingBlock - rightFixedBlock) // so, y = b
+  } else if (
+    leftFixedBlock < rightMovingBlock &&
+    rightMovingBlock < rightFixedBlock
+  ) {
+    // if y is between [ab]
+    const resizedWidth =
+      previousElement.offsetWidth - (leftMovingBlock - leftFixedBlock) // so, x = a
+  }
+  // set the new size to the element
+  currentElement.offsetWidth = resizedWidth //
+}
 
 // createElement creates a new block --Ed
 function createElement() {
@@ -103,7 +97,7 @@ set speed +1
 
 // function startGame
 /** Function to restart the game : delete all blocs --Solene
- when bloc = 0 (ie if click when moving bloc is outside of area previous fixed bloc)
+when bloc = 0 (ie if click when moving bloc is outside of area previous fixed bloc)
   querySelectorAll(div) + function remove div (movingbloc.remove()?) so that only fixed bloc stays 
 + reset score to 0
 */
@@ -121,13 +115,27 @@ function fetchHighscore() {
   displayHighscore.textContent = `Highscore: ${highscore}`
 }
 
+const eventHandler = () => {
+  if ((isStarted = false)) {
+    isStarted = true
+    createElement()
+    startAnimation()
+    stopAnimation()
+    if (leftMovingBlock !== leftFixedBlock) {
+      //variables définies ?
+      resizeCurrentElement()
+    }
+    countScore()
+    fetchHighscore
+  }
+}
+
 //----------------
 // Event Listeners
 //----------------
 
 // Create an event listener to start the game && 'drop' the bloc && restart the game
 // on click, spacebar, tap event -- Do
-
 
 /* 
 Start the game: 
