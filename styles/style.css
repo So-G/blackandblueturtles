@@ -267,6 +267,10 @@ a {
   width: auto;
 }
 
+.block {
+  height: 50px;
+}
+
 #top1 {
   grid-column-start: 1;
   grid-column-end: 4;
