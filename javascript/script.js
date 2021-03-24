@@ -30,10 +30,8 @@ let isStarted = false
 //----------
 // Function = "blocAnimation" -- joris
 /*  animation lunched => event.listener(click) => stop animation
-using js   define status of bloc (isMooving:true/false) then switch true/false by event.click
-            
-            
- */
+using js   define status of bloc (isMooving:true/false) then switch true/false by event.click          
+*/
 
 // Function resizeBloc : resize the current element / bloc (div) || or loose ??? --Do -
 
@@ -49,20 +47,17 @@ const resizeCurrentElement = () => {
   const rightFixedBlock = previousElement.getBoundingClientRect().right
 
   // if we are here it means that both bloc are not equal
-  if (leftFixedBlock < leftMovingBlock && leftMovingBlock < rightFixedBlock) {
+  if (leftFixedBlock < leftMovingBlock < rightFixedBlock) {
     // if x is between [ab]
     const resizedWidth =
       previousElement.offsetWidth - (rightMovingBlock - rightFixedBlock) // so, y = b
-  } else if (
-    leftFixedBlock < rightMovingBlock &&
-    rightMovingBlock < rightFixedBlock
-  ) {
+  } else if (leftFixedBlock < rightMovingBlock < rightFixedBlock) {
     // if y is between [ab]
     const resizedWidth =
       previousElement.offsetWidth - (leftMovingBlock - leftFixedBlock) // so, x = a
   }
   // set the new size to the element
-  currentElement.offsetWidth = resizedWidth //
+  currentElement.style.width = `${resizedWidth.offsetWidth}px`
 }
 
 // createElement creates a new block --Ed
@@ -126,7 +121,16 @@ const eventHandler = () => {
       resizeCurrentElement()
     }
     countScore()
-    fetchHighscore
+    fetchHighscore()
+  }
+  if ((isStarted = true)) {
+    stopAnimation()
+    if (leftMovingBlock !== leftFixedBlock) {
+      //variables définies ?
+      resizeCurrentElement()
+    }
+    countScore()
+    fetchHighscore()
   }
 }
 
