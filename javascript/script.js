@@ -28,10 +28,14 @@ let isStarted = false
 //----------
 // Functions
 //----------
-// Function = "blocAnimation" -- joris
+// Function = "stopAnimation" -- joris
 /*  animation lunched => event.listener(click) => stop animation
 using js   define status of bloc (isMooving:true/false) then switch true/false by event.click
 */
+function stopAnimation() {
+  const movingBlock = document.querySelector('.new-block:last-of-type')
+  movingBlock.style.animationPlayState = 'paused'
+}
 
 // Function resizeBloc : resize the current element / bloc (div) || or loose ??? --Do -
 
@@ -145,7 +149,7 @@ const eventHandler = (event) => {
     } else {
       stopAnimation()
       resizeCurrentElement()
-      countScore()
+      // countScore() -- Not yet implemented
     }
     // if (leftMovingBlock !== leftFixedBlock) {
     //   // variables définies ?
