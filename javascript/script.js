@@ -32,22 +32,31 @@ let isStarted = false
 // Function = "Animation" -- joris
 /*  animation lunched => event.listener(click) => stop animation
 using js   define status of bloc (isStarted:true/false) then switch true/false by event.click
- 
 
-
-gameArea.addEventListener('keydown' //key === 32, function (event)  ||
-gameArea.addEventListener('click', function (event){
-   if (isStarted = false){
-     isStarted = true 
-   })
- } 
-
+document.addEventListener('keyup' || 'click', event => {
+  if (event.code === 'Space') {
+    if (isStarted === false){
+      isStarted = true
+    }
+  }
+})
+gameArea.addEventListener('key === 32' || 'click', function (event) 
+{
+    if (isStarted = false){
+      isStarted = true 
+    })
+  } 
 
 buttonElement.addEventListener('click' || 'keydown', function (event)) {
-  if(isMooving = true){
-    isMooving = false
+  if(isStarted = true){
+    stopAnimation
   };
 });
+let stopAnimation
+const running = lastBlock.style.animationPlayState === 'running';
+lastBlock.style.animationPlayState = running ? 'paused' : 'running';
+
+
  */
 
 // Function resizeBloc : resize the current element / bloc (div) || or loose ??? --Do -
