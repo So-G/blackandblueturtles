@@ -31,9 +31,7 @@ let isStarted = false
 // Function = "blocAnimation" -- joris
 /*  animation lunched => event.listener(click) => stop animation
 using js   define status of bloc (isMooving:true/false) then switch true/false by event.click
-            
-            
- */
+*/
 
 // Function resizeBloc : resize the current element / bloc (div) || or loose ??? --Do -
 
@@ -130,7 +128,7 @@ function fetchHighscore() {
 }
 
 const eventHandler = () => {
-  if ((isStarted = false)) {
+  if (isStarted === false) {
     isStarted = true
     createElement()
     startAnimation()
@@ -140,7 +138,7 @@ const eventHandler = () => {
       resizeCurrentElement()
     }
     countScore()
-    fetchHighscore
+    fetchHighscore()
   }
 }
 
