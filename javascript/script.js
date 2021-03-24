@@ -59,6 +59,7 @@ function createElement() {
   newElement.style.background = `hsl(${254 + 10 * currentScore}, 60%, 35%)`
   // 4) append child element to the container (gameArea): appendChild
   gameArea.appendChild(newElement)
+  return newElement
 }
 
 /** Function blocAnimation 
