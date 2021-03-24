@@ -109,9 +109,10 @@ function startGame() {
     score = 0
   }
 }
-/**const resetScore = document.getElementById('.display-score');
+/* const resetScore = document.getElementById('.display-score');
   resetScore.innerHTML = "0"
- /** when bloc = 0 (ie if click when moving bloc is outside of area previous fixed bloc)
+when bloc = 0 (ie if click when moving bloc is outside of area previous fixed bloc)
+*/
 
 // fetchHighscore Fetch highscores from localStorage and assign them to variable highscore --Ed
 function fetchHighscore() {
