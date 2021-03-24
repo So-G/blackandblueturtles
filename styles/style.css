@@ -102,7 +102,7 @@ main > section {
 }
 
 #game-area {
-  background: var(--grey1);
+  background: var(--beige1);
   height: 80%;
   width: 100%;
   display: flex;
@@ -120,6 +120,27 @@ main > section {
   width: 50%;
   height: 50px;
   background: hsl(244, 60%, 35%);
+}
+
+.new-block {
+  animation-name: slideIn;
+  animation-timing-function: linear;
+  animation-duration: 8s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translate(-150%, 0px);
+  }
+
+  50% {
+    transform: translate(150%, 0px);
+  }
+
+  100% {
+    transform: translate(-150%, 0px);
+  }
 }
 
 /* Small screens */

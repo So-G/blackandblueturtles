@@ -60,13 +60,34 @@ lastBlock.style.animationPlayState = running ? 'paused' : 'running';
  */
 
 // Function resizeBloc : resize the current element / bloc (div) || or loose ??? --Do -
-/*
-1) Select the current bloc : getElement
-2) Get the size : width 
-3) //Compare the gap between the size and the gamearea : substraction
-4) Get the extra bloc : substraction with previous bloc 
-5) Set the new size to the element
-*/
+
+const resizeCurrentElement = () => {
+  // Select the current bloc : getElement
+  const currentElement = document.querySelector('.block:last-of-type')
+  const leftMovingBlock = currentElement.getBoundingClientRect().x
+  const rightMovingBlock = currentElement.getBoundingClientRect().right
+
+  // Select the previous bloc : ~ node.previousSibling
+  const previousElement = currentElement.previousElementSibling // ou document.queryS
+  const leftFixedBlock = previousElement.getBoundingClientRect().x
+  const rightFixedBlock = previousElement.getBoundingClientRect().right
+
+  // if we are here it means that both bloc are not equal
+  if (leftFixedBlock < leftMovingBlock && leftMovingBlock < rightFixedBlock) {
+    // if x is between [ab]
+    const resizedWidth =
+      previousElement.offsetWidth - (rightMovingBlock - rightFixedBlock) // so, y = b
+  } else if (
+    leftFixedBlock < rightMovingBlock &&
+    rightMovingBlock < rightFixedBlock
+  ) {
+    // if y is between [ab]
+    const resizedWidth =
+      previousElement.offsetWidth - (leftMovingBlock - leftFixedBlock) // so, x = a
+  }
+  // set the new size to the element
+  currentElement.offsetWidth = resizedWidth //
+}
 
 // createElement creates a new block --Ed
 function createElement() {
@@ -87,9 +108,14 @@ function createElement() {
 }
 
 /** Function blocAnimation 
-- to add / create animation (css) for the new element / bloc (div) --Solene
-change class + JS (toggle?)
-set speed +1 
+- to add / create animation (css) for the new element / bloc (div) --Solene */
+function speedDefinition (htmlElement){
+  let period = 1 / speed
+  htmlElement.style.animationDuration = `${3 + period}s`
+  // Speed to be adjusted
+}
+/**change class + JS (toggle?)
+set speed +1
 */
 
 // Function = "countScore" (and sets highscore if score > highscore) && save it to localStorage --joris
@@ -103,8 +129,16 @@ localStorage.setItem(myName,myScore);
  */
 
 // function startGame
-/** Function to restart the game : delete all blocs --Solene
- when bloc = 0 (ie if click when moving bloc is outside of area previous fixed bloc)
+// Function to restart the game : delete all blocs --Solene
+function startGame () {
+  const deleteBlocks = document.querySelectorAll(".new-block");
+    for (let i = 0; i < deleteBlocs.length; i++) { 
+    deleteBlocks[i].remove ();
+    score = 0;
+ }
+  /**const resetScore = document.getElementById('.display-score');
+  resetScore.innerHTML = "0"
+ /** when bloc = 0 (ie if click when moving bloc is outside of area previous fixed bloc)
   querySelectorAll(div) + function remove div (movingbloc.remove()?) so that only fixed bloc stays 
 + reset score to 0
 */
@@ -122,12 +156,28 @@ function fetchHighscore() {
   displayHighscore.textContent = `Highscore: ${highscore}`
 }
 
+const eventHandler = () => {
+  if ((isStarted = false)) {
+    isStarted = true
+    createElement()
+    startAnimation()
+    stopAnimation()
+    if (leftMovingBlock !== leftFixedBlock) {
+      //variables définies ?
+      resizeCurrentElement()
+    }
+    countScore()
+    fetchHighscore
+  }
+}
+
 //----------------
 // Event Listeners
 //----------------
 
 // Create an event listener to start the game && 'drop' the bloc && restart the game
 // on click, spacebar, tap event -- Do
+
 /* 
 Start the game: 
 When start button is clicked, call the createElement function
