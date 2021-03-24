@@ -51,7 +51,9 @@ function createElement() {
   const newElement = document.createElement('div')
   // 2) Set width from previous bloc, height and (negative?) margin
   // grab the last bloc element (of class)
-  const lastBlock = document.querySelector('.block:last-child')
+  const lastBlock = document.querySelector('.block:last-of-type')
+  newElement.classList.add('block')
+  newElement.classList.add('new-block')
   newElement.style.width = `${lastBlock.offsetWidth}px`
   newElement.style.marginLeft = `${100 + currentScore}px`
   // 3) Set color: hsl, hue + 10
