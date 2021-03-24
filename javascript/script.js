@@ -130,6 +130,7 @@ function fetchHighscore() {
 // Function to hide the instructions (tap to play...)
 function hideInstructions() {
   const instructions = gameArea.querySelectorAll('p')
+  // eslint-disable-next-line no-return-assign
   instructions.forEach((paragraph) => (paragraph.style.display = 'none'))
 }
 
@@ -140,18 +141,19 @@ const eventHandler = (event) => {
       isStarted = true
       hideInstructions()
       createElement()
-      // startAnimation()
+      // startAnimation() => Not needed, it starts automatically because it has the new-blocks class which moves using the CSS
+    } else {
       stopAnimation()
-      if (leftMovingBlock !== leftFixedBlock) {
-        //variables définies ?
-        resizeCurrentElement()
-      }
+      resizeCurrentElement()
       countScore()
-      fetchHighscore()
     }
+    // if (leftMovingBlock !== leftFixedBlock) {
+    //   // variables définies ?
+    // }
   }
 }
 
+fetchHighscore()
 //----------------
 // Event Listeners
 //----------------
