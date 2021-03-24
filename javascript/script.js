@@ -42,12 +42,12 @@ function stopAnimation() {
 const resizeCurrentElement = () => {
   // Select the current bloc : getElement
   const currentElement = document.querySelector('.block:last-of-type')
-  const leftMovingBlock = currentElement.getBoundingClientRect().x
+  const leftMovingBlock = currentElement.getBoundingClientRect().left
   const rightMovingBlock = currentElement.getBoundingClientRect().right
 
   // Select the previous bloc : ~ node.previousSibling
   const previousElement = currentElement.previousElementSibling // ou document.queryS
-  const leftFixedBlock = previousElement.getBoundingClientRect().x
+  const leftFixedBlock = previousElement.getBoundingClientRect().left
   const rightFixedBlock = previousElement.getBoundingClientRect().right
 
   let resizedWidth
