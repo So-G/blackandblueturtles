@@ -30,7 +30,7 @@ let isStarted = false
 //----------
 // Function = "blocAnimation" -- joris
 /*  animation lunched => event.listener(click) => stop animation
-using js   define status of bloc (isMooving:true/false) then switch true/false by event.click          
+using js   define status of bloc (isMooving:true/false) then switch true/false by event.click
 */
 
 // Function resizeBloc : resize the current element / bloc (div) || or loose ??? --Do -
@@ -46,18 +46,20 @@ const resizeCurrentElement = () => {
   const leftFixedBlock = previousElement.getBoundingClientRect().x
   const rightFixedBlock = previousElement.getBoundingClientRect().right
 
+  let resizedWidth
+
   // if we are here it means that both bloc are not equal
   if (leftFixedBlock < leftMovingBlock < rightFixedBlock) {
     // if x is between [ab]
-    const resizedWidth =
+    resizedWidth =
       previousElement.offsetWidth - (rightMovingBlock - rightFixedBlock) // so, y = b
   } else if (leftFixedBlock < rightMovingBlock < rightFixedBlock) {
     // if y is between [ab]
-    const resizedWidth =
+    resizedWidth =
       previousElement.offsetWidth - (leftMovingBlock - leftFixedBlock) // so, x = a
   }
   // set the new size to the element
-  currentElement.style.width = `${resizedWidth.offsetWidth}px`
+  currentElement.offsetWidth = resizedWidth // currentElement.style.width = `${resizedWidth.offsetWidth}px` ?
 }
 
 // createElement creates a new block --Ed
@@ -78,9 +80,14 @@ function createElement() {
   return newElement
 }
 
-/** Function blocAnimation 
-- to add / create animation (css) for the new element / bloc (div) --Solene
-change class + JS (toggle?)
+/* Function blocAnimation 
+- to add / create animation (css) for the new element / bloc (div) --Solene */
+function speedDefinition(htmlElement) {
+  let period = 1 / speed
+  htmlElement.style.animationDuration = `${3 + period}s`
+  // Speed to be adjusted
+}
+/* change class + JS (toggle?)
 set speed +1
 */
 
@@ -91,10 +98,17 @@ set speed +1
  */
 
 // function startGame
-/** Function to restart the game : delete all blocs --Solene
+// Function to restart the game : delete all blocs --Solene
+function startGame() {
+  const deleteBlocks = document.querySelectorAll('.new-block')
+  for (let i = 0; i < deleteBlocks.length; i++) {
+    deleteBlocks[i].remove()
+    currentScore = 0
+  }
+}
+/* const resetScore = document.getElementById('.display-score');
+  resetScore.innerHTML = "0"
 when bloc = 0 (ie if click when moving bloc is outside of area previous fixed bloc)
-  querySelectorAll(div) + function remove div (movingbloc.remove()?) so that only fixed bloc stays 
-+ reset score to 0
 */
 
 // fetchHighscore Fetch highscores from localStorage and assign them to variable highscore --Ed
@@ -111,19 +125,10 @@ function fetchHighscore() {
 }
 
 const eventHandler = () => {
-  if ((isStarted = false)) {
+  if (isStarted === false) {
     isStarted = true
     createElement()
     startAnimation()
-    stopAnimation()
-    if (leftMovingBlock !== leftFixedBlock) {
-      //variables définies ?
-      resizeCurrentElement()
-    }
-    countScore()
-    fetchHighscore()
-  }
-  if ((isStarted = true)) {
     stopAnimation()
     if (leftMovingBlock !== leftFixedBlock) {
       //variables définies ?
