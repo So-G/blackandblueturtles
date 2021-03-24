@@ -23,7 +23,7 @@ Array of objects:
 
 let speed = 1
 
-const blocHeight = fundation.offsetHeight
+const blockHegight = fundation.offsetHeight
 
 let isStarted = false
 
@@ -55,7 +55,7 @@ function createElement() {
   // grab the last bloc element (of class)
   const lastBlock = document.querySelector('.block:last-child')
   newElement.style.width = `${lastBlock.offsetWidth}px`
-  newElement.style.height = `${blocHeight}px`
+  newElement.style.height = `${blockHeight}px`
   newElement.style.marginLeft = `${100 + currentScore}px`
   // 3) Set color: hsl, hue + 10
   newElement.style.background = `hsl(${254 + 10 * currentScore}, 60%, 35%)`
