@@ -111,13 +111,6 @@ function startGame () {
   /**const resetScore = document.getElementById('.display-score');
   resetScore.innerHTML = "0"
  /** when bloc = 0 (ie if click when moving bloc is outside of area previous fixed bloc)
-=======
-/** Function to restart the game : delete all blocs --Solene
-when bloc = 0 (ie if click when moving bloc is outside of area previous fixed bloc)
->>>>>>> dev
-  querySelectorAll(div) + function remove div (movingbloc.remove()?) so that only fixed bloc stays 
-+ reset score to 0
-*/
 
 // fetchHighscore Fetch highscores from localStorage and assign them to variable highscore --Ed
 function fetchHighscore() {
