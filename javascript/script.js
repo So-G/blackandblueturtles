@@ -85,7 +85,7 @@ function createElement() {
 
 /** Function blocAnimation 
 - to add / create animation (css) for the new element / bloc (div) --Solene */
-function speedDefinition (htmlElement){
+function speedDefinition(htmlElement) {
   let period = 1 / speed
   htmlElement.style.animationDuration = `${3 + period}s`
   // Speed to be adjusted
@@ -102,13 +102,14 @@ set speed +1
 
 // function startGame
 // Function to restart the game : delete all blocs --Solene
-function startGame () {
-  const deleteBlocks = document.querySelectorAll(".new-block");
-    for (let i = 0; i < deleteBlocs.length; i++) { 
-    deleteBlocks[i].remove ();
-    score = 0;
- }
-  /**const resetScore = document.getElementById('.display-score');
+function startGame() {
+  const deleteBlocks = document.querySelectorAll('.new-block')
+  for (let i = 0; i < deleteBlocs.length; i++) {
+    deleteBlocks[i].remove()
+    score = 0
+  }
+}
+/**const resetScore = document.getElementById('.display-score');
   resetScore.innerHTML = "0"
  /** when bloc = 0 (ie if click when moving bloc is outside of area previous fixed bloc)
 
