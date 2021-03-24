@@ -84,8 +84,13 @@ function createElement() {
 }
 
 /** Function blocAnimation 
-- to add / create animation (css) for the new element / bloc (div) --Solene
-change class + JS (toggle?)
+- to add / create animation (css) for the new element / bloc (div) --Solene */
+function speedDefinition (htmlElement){
+  let period = 1 / speed
+  htmlElement.style.animationDuration = `${3 + period}s`
+  // Speed to be adjusted
+}
+/**change class + JS (toggle?)
 set speed +1
 */
 
@@ -96,8 +101,21 @@ set speed +1
  */
 
 // function startGame
+<<<<<<< HEAD
+// Function to restart the game : delete all blocs --Solene
+function startGame () {
+  const deleteBlocks = document.querySelectorAll(".new-block");
+    for (let i = 0; i < deleteBlocs.length; i++) { 
+    deleteBlocks[i].remove ();
+    score = 0;
+ }
+  /**const resetScore = document.getElementById('.display-score');
+  resetScore.innerHTML = "0"
+ /** when bloc = 0 (ie if click when moving bloc is outside of area previous fixed bloc)
+=======
 /** Function to restart the game : delete all blocs --Solene
 when bloc = 0 (ie if click when moving bloc is outside of area previous fixed bloc)
+>>>>>>> dev
   querySelectorAll(div) + function remove div (movingbloc.remove()?) so that only fixed bloc stays 
 + reset score to 0
 */
