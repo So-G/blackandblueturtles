@@ -34,30 +34,34 @@ using js   define status of bloc (isMooving:true/false) then switch true/false b
             
  */
 
+
 // Function resizeBloc : resize the current element / bloc (div) || or loose ??? --Do -
 
-function resizeCurrentElement () => {
+const resizeCurrentElement = () => {
   //Select the current bloc : getElement
-  const currentElement = document.querySelector(".new-block:last-of-type") // fundation ? 
-  const x = currentElement.getBoundingClientRect().x
-  const y = currentElement.getBoundingClientRect().right 
+  const currentElement = document.querySelector(".block:last-of-type")
+  const leftMovingBlock = currentElement.getBoundingClientRect().x
+  const rightMovingBlock = currentElement.getBoundingClientRect().right 
 
   //Select the previous bloc : ~ node.previousSibling 
   const previousElement = currentElement.previousSibling // ou document.queryS
-  const a = previousElement.getBoundingClientRect().x
-  const b = previousElement.getBoundingClientRect().right
-
+  const leftFixedBlock = previousElement.getBoundingClientRect().x
+  const rightFixedBlock = previousElement.getBoundingClientRect().right
   
-
-
-
-
+    // if we are here it means that both bloc are not equal
+    if (leftMovingBlock ==! leftFixedBlock){
+      if (leftFixedBlock < leftMovingBlock && leftMovingBlock < rightFixedBlock){  //if x is between [ab]
+          rightMovingBlock === rightFixedBlock    
+          const resizedWidth = previousElement.width - (rightMovingBlock - rightFixedBlock)                                 //so, y = b
+        }
+        else if (leftFixedBlock < rightMovingBlock && rightMovingBlock < rightFixedBlock){   //if y is between [ab]
+          leftMovingBlock === leftFixedBlock 
+          const resizedWidth = previousElement.width - (leftMovingBlock - leftFixedBlock)                                        //so, x = a 
+        }  
+    // set the new size to the element
+    currentElement.width = resizedWidth    
 }
-/*2) Get the size : width 
-3) //Compare the gap between the size and the gamearea : substraction
-4) Get the extra bloc : substraction with previous bloc 
-5) Set the new size to the element
-*/
+
 
 // createElement Function to create and position a new element / bloc (div) --Ed
 function createElement() {
@@ -109,6 +113,8 @@ function fetchHighscore() {
 
 // Create an event listener to start the game && 'drop' the bloc && restart the game
 // on click, spacebar, tap event -- Do
+
+
 /* 
 Start the game: 
 When start button is clicked, call the createElement function
