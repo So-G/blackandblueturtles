@@ -134,19 +134,21 @@ function hideInstructions() {
 }
 
 // Main function called once the game area is clicked (spacebar, tap & click)
-const eventHandler = () => {
-  if (isStarted === false) {
-    isStarted = true
-    hideInstructions()
-    createElement()
-    startAnimation()
-    stopAnimation()
-    if (leftMovingBlock !== leftFixedBlock) {
-      //variables définies ?
-      resizeCurrentElement()
+const eventHandler = (event) => {
+  if (event.code === 'space' || event.type === 'click') {
+    if (isStarted === false) {
+      isStarted = true
+      hideInstructions()
+      createElement()
+      // startAnimation()
+      stopAnimation()
+      if (leftMovingBlock !== leftFixedBlock) {
+        //variables définies ?
+        resizeCurrentElement()
+      }
+      countScore()
+      fetchHighscore()
     }
-    countScore()
-    fetchHighscore()
   }
 }
 
