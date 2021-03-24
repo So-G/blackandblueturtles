@@ -45,20 +45,20 @@ using js   define status of bloc (isMooving:true/false) then switch true/false b
 5) Set the new size to the element
 */
 
-// createElement Function to create and position a new element / bloc (div) --Ed
+// createElement creates a new block --Ed
 function createElement() {
   // 1) create element: document.createElement("div")
   const newElement = document.createElement('div')
-  // 2) Set width from previous bloc, height and (negative?) margin
   // grab the last bloc element (of class)
   const lastBlock = document.querySelector('.block:last-of-type')
+  // 2) Set width from previous bloc, height, margin and class
   newElement.classList.add('block')
   newElement.classList.add('new-block')
   newElement.style.width = `${lastBlock.offsetWidth}px`
   newElement.style.marginLeft = `${100 + currentScore}px`
-  // 3) Set color: hsl, hue + 10
+  // 3) Set color: using hsl, hue + 10 * score
   newElement.style.background = `hsl(${254 + 10 * currentScore}, 60%, 35%)`
-  // 4) append child element to the container (gameArea): appendChild
+  // 4) append child block to the container (gameArea)
   gameArea.appendChild(newElement)
   return newElement
 }
