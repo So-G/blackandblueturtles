@@ -52,8 +52,8 @@ function createElement() {
   // 1) create element: document.createElement("div")
   const newElement = document.createElement('div')
   // 2) Set width from previous bloc, height and (negative?) margin
-  newElement.style.width = `${fundation.style.width}px`
-  newElement.style.height = `${fundation.style.height}px`
+  newElement.style.width = `${fundation.offsetWidth}px`
+  newElement.style.height = `${fundation.offsetHeight}px`
   newElement.style.marginLeft = `${100 + currentScore}px`
   // 3) Set color: hsl, hue + 10
   newElement.style.background = `hsl(${254 + 10 * currentScore}, 60%, 35%)`
