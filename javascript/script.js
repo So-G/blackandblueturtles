@@ -63,10 +63,10 @@ function createElement() {
 
 /** Function blocAnimation 
 - to add / create animation (css) for the new element / bloc (div) --Solene */
-function startAnimation //(*parametre(classe?*) {
+function startAnimation //(*parametre(classe {
   const staticBlock = document.querySelector('div');
   staticBlock.ClassList.add("moving-bloc")
-  speed**
+  speed == **
 }
 /**change class + JS (toggle?)
 set speed +1
@@ -81,7 +81,7 @@ set speed +1
 // function startGame
 // Function to restart the game : delete all blocs --Solene
 function startGame () {
-  const deleteBlocks = document.querySelectorAll(".movingblock");
+  const deleteBlocks = document.querySelectorAll(".new-block");
     for (let i = 0; i < deleteBlocs.length; i++) { 
     deleteBlocks[i].remove ();
     score = 0;

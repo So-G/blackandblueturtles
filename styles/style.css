@@ -117,10 +117,10 @@ main > section {
   height: 50px;
   background: hsl(244, 60%, 35%);
 }
-/**
 
-#moving-bloc {
-animation-name: slideIn;
+#new-block {
+  animation-name: slideIn;
+  animation-timing-function: linear;
   animation-duration: 8s;
   animation-iteration-count: infinite;
 }
@@ -137,7 +137,7 @@ animation-name: slideIn;
   100% {
     transform: translate(-150%, 0px);
   }
-}  */
+}
 
 /* Small screens */
 @media only screen and (max-width: 600px) {
