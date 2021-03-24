@@ -31,11 +31,25 @@ let isStarted = false
 // Functions
 //----------
 
-// Function = "blocAnimation" -- joris
+// Function = "Animation" -- joris
 /*  animation lunched => event.listener(click) => stop animation
-using js   define status of bloc (isMooving:true/false) then switch true/false by event.click
-            
-            
+using js   define status of bloc (isStarted:true/false) then switch true/false by event.click
+ 
+
+
+gameArea.addEventListener('keydown' //key === 32, function (event)  ||
+gameArea.addEventListener('click', function (event){
+   if (isStarted = false){
+     isStarted = true 
+   })
+ } 
+
+
+buttonElement.addEventListener('click' || 'keydown', function (event)) {
+  if(isMooving = true){
+    isMooving = false
+  };
+});
  */
 
 // Function resizeBloc : resize the current element / bloc (div) || or loose ??? --Do -
@@ -64,12 +78,16 @@ function createElement() {
 /** Function blocAnimation 
 - to add / create animation (css) for the new element / bloc (div) --Solene
 change class + JS (toggle?)
-set speed +1
+set speed +1 
 */
 
 // Function = "countScore" (and sets highscore if score > highscore) && save it to localStorage --joris
-/* score = (nombre de <div> crée par function create new element) save the score at the end of game
-  highscore = best loaded score in local storage by user
+/* score = (number of <div> created by function create new element) save the score at the end of game
+  
+myScore = newBlock.length
+
+localStorage.setItem(myName,myScore);
+
 
  */
 
