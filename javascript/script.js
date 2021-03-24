@@ -27,6 +27,12 @@ let isStarted = false
 // Functions
 //----------
 
+const eventHandler= () => {
+  /* 
+
+}
+
+
 // Function = "blocAnimation" -- joris
 /*  animation lunched => event.listener(click) => stop animation
 using js   define status of bloc (isMooving:true/false) then switch true/false by event.click
