@@ -35,9 +35,25 @@ using js   define status of bloc (isMooving:true/false) then switch true/false b
  */
 
 // Function resizeBloc : resize the current element / bloc (div) || or loose ??? --Do -
-/*
-1) Select the current bloc : getElement
-2) Get the size : width 
+
+function resizeCurrentElement () => {
+  //Select the current bloc : getElement
+  const currentElement = document.querySelector(".new-block:last-of-type") // fundation ? 
+  const x = currentElement.getBoundingClientRect().x
+  const y = currentElement.getBoundingClientRect().right 
+
+  //Select the previous bloc : ~ node.previousSibling 
+  const previousElement = currentElement.previousSibling // ou document.queryS
+  const a = previousElement.getBoundingClientRect().x
+  const b = previousElement.getBoundingClientRect().right
+
+  
+
+
+
+
+}
+/*2) Get the size : width 
 3) //Compare the gap between the size and the gamearea : substraction
 4) Get the extra bloc : substraction with previous bloc 
 5) Set the new size to the element
