@@ -19,7 +19,7 @@
   <body>
     <header class="header">
       <img id="banner" alt="banner" src="../assets/banner.jpg" />
-      <nav class="small-nav nav-container">
+      <nav class="mobile nav-container">
         <input type="checkbox" name="menu" id="menu" class="menu-toggler" />
         <label for="menu" class="menu-toggler-label">
           <i data-feather="menu"> </i>
@@ -30,10 +30,10 @@
           <li style="--i: 2">
             <a href="./highscores.html">Highscores</a>
           </li>
-          <li style="--i: 3"><a href="./pages/contact.html">Contact us</a></li>
+          <li style="--i: 3"><a href="./contact.html">Contact us</a></li>
         </ul>
       </nav>
-      <nav class="large-nav">
+      <nav class="desktop">
         <ul>
           <li><a href="../index.html">Home</a></li>
           <li><a href="./game.html">Game</a></li>
@@ -46,13 +46,13 @@
       <h1>Start Game</h1>
       <section>
         <div id="scores">
-          <p class="score">Score</p>
-          <p class="score">/ HS</p>
+          <p class="score" id="display-score">Score</p>
+          <p class="score" id="display-highscore">/ HS</p>
         </div>
         <div id="game-area">
+          <div id="fundation" class="block"></div>
           <p class="mobile">Tap to play</p>
-          <p class="desktop hidden">Click or press spacebar</p>
-          <div id="fundation" width="300px" height="50px"></div>
+          <p class="desktop">Click or press spacebar</p>
         </div>
       </section>
     </main>

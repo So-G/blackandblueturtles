@@ -8,6 +8,10 @@ const gameArea = document.querySelector('#game-area')
 // fundation: Grab HTML element first bloc (fundation) (by id)
 const fundation = document.querySelector('#fundation')
 
+// displayScore & displayHighscore
+const displayScore = document.querySelector('#display-score')
+const displayHighscore = document.querySelector('#display-highscore')
+
 let currentScore = 0
 let highscore = 0
 const highscores = []
@@ -18,8 +22,6 @@ Array of objects:
 */
 
 let speed = 1
-
-const blocHeight = fundation.style.height
 
 let isStarted = false
 
@@ -69,18 +71,22 @@ const resizeCurrentElement = () => {
 }
 
 
-// createElement Function to create and position a new element / bloc (div) --Ed
+// createElement creates a new block --Ed
 function createElement() {
   // 1) create element: document.createElement("div")
   const newElement = document.createElement('div')
-  // 2) Set width from previous bloc, height and (negative?) margin
-  newElement.style.width = `${fundation.style.width}px`
-  newElement.style.height = `${fundation.style.height}px`
+  // grab the last bloc element (of class)
+  const lastBlock = document.querySelector('.block:last-of-type')
+  // 2) Set width from previous bloc, height, margin and class
+  newElement.classList.add('block')
+  newElement.classList.add('new-block')
+  newElement.style.width = `${lastBlock.offsetWidth}px`
   newElement.style.marginLeft = `${100 + currentScore}px`
-  // 3) Set color: hsl, hue + 10
-  newElement.style.background = `hsl(${0 + 10 * currentScore}, 50%, 50%)`
-  // 4) append child element to the container (gameArea): appendChild
+  // 3) Set color: using hsl, hue + 10 * score
+  newElement.style.background = `hsl(${254 + 10 * currentScore}, 60%, 35%)`
+  // 4) append child block to the container (gameArea)
   gameArea.appendChild(newElement)
+  return newElement
 }
 
 /** Function blocAnimation 
@@ -106,11 +112,13 @@ set speed +1
 function fetchHighscore() {
   // 1) fetch the data : localStorage.getItem('highscores')
   // 2) parse it : JSON.parse
-  const locSto = JSON.parse(localStorage.getItem('highscore'))
+  const locSto = JSON.parse(localStorage.getItem('highscores'))
   // Sort by highscore
   locSto.sort((a, b) => b.score - a.score)
-  // 3) Assign it to highscores
+  // 3) Assign it to highscore
   highscore = locSto[0].score
+  // 3) Display it
+  displayHighscore.textContent = `Highscore: ${highscore}`
 }
 
 //----------------
