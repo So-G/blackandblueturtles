@@ -95,6 +95,10 @@ function startGame () {
 + reset score to 0
 */
 
+// prompt User name (Solene)
+
+function getUserName()
+
 // fetchHighscore Fetch highscores from localStorage and assign them to variable highscore --Ed
 function fetchHighscore() {
   // 1) fetch the data : localStorage.getItem('highscores')
