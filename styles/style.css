@@ -98,7 +98,7 @@ main > section {
 }
 
 #game-area {
-  background: var(--grey1);
+  background: var(--beige1);
   height: 80%;
   width: 100%;
   display: flex;
