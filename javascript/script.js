@@ -23,8 +23,6 @@ Array of objects:
 
 let speed = 1
 
-const blocHeight = fundation.style.height
-
 let isStarted = false
 
 //----------
@@ -61,18 +59,22 @@ buttonElement.addEventListener('click' || 'keydown', function (event)) {
 5) Set the new size to the element
 */
 
-// createElement Function to create and position a new element / bloc (div) --Ed
+// createElement creates a new block --Ed
 function createElement() {
   // 1) create element: document.createElement("div")
   const newElement = document.createElement('div')
-  // 2) Set width from previous bloc, height and (negative?) margin
-  newElement.style.width = `${fundation.style.width}px`
-  newElement.style.height = `${fundation.style.height}px`
+  // grab the last bloc element (of class)
+  const lastBlock = document.querySelector('.block:last-of-type')
+  // 2) Set width from previous bloc, height, margin and class
+  newElement.classList.add('block')
+  newElement.classList.add('new-block')
+  newElement.style.width = `${lastBlock.offsetWidth}px`
   newElement.style.marginLeft = `${100 + currentScore}px`
-  // 3) Set color: hsl, hue + 10
+  // 3) Set color: using hsl, hue + 10 * score
   newElement.style.background = `hsl(${254 + 10 * currentScore}, 60%, 35%)`
-  // 4) append child element to the container (gameArea): appendChild
+  // 4) append child block to the container (gameArea)
   gameArea.appendChild(newElement)
+  return newElement
 }
 
 /** Function blocAnimation 
