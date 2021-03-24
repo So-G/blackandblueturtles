@@ -97,6 +97,10 @@ main > section {
   height: 80%;
 }
 
+#game-preview {
+  margin: 2rem auto 0;
+}
+
 #game-area {
   background: var(--grey1);
   height: 80%;
