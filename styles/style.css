@@ -186,6 +186,17 @@ main > section {
   .desktop {
     display: none;
   }
+  
+  form {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    background: var(--beige1);
+    color: var(--grey3);
+    margin-top: 1em;
+    padding: 50px;
+    padding-top: 0;
+  }
 }
 
 /* Large screens */
@@ -242,11 +253,22 @@ main > section {
   }
 }
 
-#scores {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  margin-right: 2em;
+  #scores {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin-right: 2em;
+}
+  form {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    background: var(--beige1);
+    color: var(--grey3);
+    padding: 50px;
+    border-radius: 40px;
+    padding-top: 0;
+  }
 }
 
 /* ================
@@ -318,16 +340,7 @@ a {
   text-align: center;
 }
 
-form {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  background: var(--beige1);
-  color: var(--grey3);
-  border-radius: 20px;
-  padding: 50px;
-  padding-top: 0;
-}
+
 
 input {
   margin-top: 1em;
@@ -361,13 +374,13 @@ textarea {
 
 .about-us {
   text-align: center;
-  max-height: 8em;
+  max-height: 14em;
 }
 
 .about-us p {
   text-align: left;
+  padding: 0.3em;
   margin: 1em;
-  padding-bottom: 0%;
 }
 
 /* Menu button & list */
