@@ -130,6 +130,8 @@ main > section {
   animation-timing-function: linear;
   animation-duration: 8s;
   animation-iteration-count: infinite;
+  box-shadow: 4px 1px 2px rgba(0, 0, 0, 0.2);
+  border-radius: 4px 3px 6px / 2px 4px;
 }
 
 @keyframes slideIn {
@@ -286,7 +288,7 @@ a {
   grid-template-rows: 100px 100px 100px 100px;
   grid-gap: 25px;
   text-align: center;
-
+  background: linear-gradient(var(--blue2), var(--blue1));
   padding-left: 0%;
   width: auto;
 }
@@ -296,9 +298,12 @@ a {
 }
 
 #top1 {
+  display: flex;
+  justify-content: center;
   grid-column-start: 1;
   grid-column-end: 4;
-  border: dashed red;
+  border: 4mm ridge rgba(75, 50, 220, 0.6);
+  color: hsl(0, 90%, 41%);
 }
 
 #top2 {

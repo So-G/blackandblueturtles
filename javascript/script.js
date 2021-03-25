@@ -28,10 +28,39 @@ let isStarted = false
 //----------
 // Functions
 //----------
-// Function = "blocAnimation" -- joris
+
+// Function = "Animation" -- joris
 /*  animation lunched => event.listener(click) => stop animation
-using js   define status of bloc (isMooving:true/false) then switch true/false by event.click
-*/
+using js   define status of bloc (isStarted:true/false) then switch true/false by event.click
+
+document.addEventListener('keyup' || 'click', event => {
+  if (event.code === 'Space') {
+    if (isStarted === false){
+      isStarted = true
+    }
+  }
+})
+gameArea.addEventListener('key === 32' || 'click', function (event) 
+{
+    if (isStarted = false){
+      isStarted = true 
+    })
+  } 
+
+buttonElement.addEventListener('click' || 'keydown', function (event)) {
+  if(isStarted = true){
+    stopAnimation
+  };if (isStarted = false){
+      isStarted = true 
+    })
+});
+  
+function stopAnimation 
+const running = lastBlock.slideIn.animationPlayState === 'running';
+lastBlock.slideIn.animationPlayState = running ? 'paused' : 'running';
+
+
+ */
 
 // Function resizeBloc : resize the current element / bloc (div) || or loose ??? --Do -
 
@@ -92,8 +121,12 @@ set speed +1
 */
 
 // Function = "countScore" (and sets highscore if score > highscore) && save it to localStorage --joris
-/* score = (nombre de <div> crée par function create new element) save the score at the end of game
-  highscore = best loaded score in local storage by user
+/* score = (number of <div> created by function create new element) save the score at the end of game
+  
+myScore = newBlock.length
+
+localStorage.setItem(myName,myScore);
+
 
  */
 
@@ -108,7 +141,9 @@ function startGame() {
 }
 /* const resetScore = document.getElementById('.display-score');
   resetScore.innerHTML = "0"
-when bloc = 0 (ie if click when moving bloc is outside of area previous fixed bloc)
+ /** when bloc = 0 (ie if click when moving bloc is outside of area previous fixed bloc)
+  querySelectorAll(div) + function remove div (movingbloc.remove()?) so that only fixed bloc stays 
++ reset score to 0
 */
 
 // fetchHighscore Fetch highscores from localStorage and assign them to variable highscore --Ed
