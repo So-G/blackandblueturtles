@@ -106,7 +106,7 @@ set speed +1
 
 // function startGame
 // Function to restart the game : delete all blocs --Solene
-function startGame() {
+function resetGame() {
   const deleteBlocks = document.querySelectorAll('.new-block')
   for (let i = 0; i < deleteBlocks.length; i++) {
     deleteBlocks[i].remove()
