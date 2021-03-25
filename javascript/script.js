@@ -9,8 +9,8 @@ const gameArea = document.querySelector('#game-area')
 const fundation = document.querySelector('#fundation')
 
 // displayScore & displayHighscore
-const displayScore = document.querySelector('#display-score')
-const displayHighscore = document.querySelector('#display-highscore')
+const scoreDisplay = document.querySelector('#display-score')
+const highscoreDisplay = document.querySelector('#display-highscore')
 
 // Instruction
 const instructions = gameArea.querySelectorAll('p')
@@ -79,7 +79,6 @@ const resizeCurrentElement = () => {
       previousBlock.offsetWidth - (leftFixedBlock - leftMovingBlock)
   }
   // set the new size to the element
-  console.log(currentBlockWidth)
   currentBlock.style.width = `${currentBlockWidth}px`
 }
 
@@ -101,11 +100,10 @@ function createBlock() {
   return newBlock
 }
 
-// Function = "countScore" (and sets highscore if score > highscore) && save it to localStorage --joris
-/* score = (nombre de <div> crée par function create new element) save the score at the end of game
-  highscore = best loaded score in local storage by user
-
- */
+// Function = "displayScore" (and sets highscore if score > highscore) && save it to localStorage --joris
+function displayScore(score) {
+  scoreDisplay.textContent = `Score: ${score} `
+}
 
 // function startGame
 // Function to restart the game : delete all blocs --Solene
@@ -136,7 +134,7 @@ function fetchHighscore() {
     // 3) Assign it to highscore
     highscore = localStor[0].score
     // 3) Display it
-    displayHighscore.textContent = `Highscore: ${highscore}`
+    highscoreDisplay.textContent = `Highscore: ${highscore}`
   }
 }
 
@@ -168,15 +166,15 @@ const eventHandler = (event) => {
 
       // Size of element === 0 => Lost : prompt user for name, then reset Game (and display message Click to play)
       if (currentBlockWidth <= 0) {
-        isStarted = false
         promptUser()
         highscores.push({ playerName, score: currentScore })
+        isStarted = false
         resetGame()
         toggleInstructions()
       } else {
         currentScore++
+        displayScore(currentScore)
         createBlock()
-        // increase speed
       }
     }
   }
