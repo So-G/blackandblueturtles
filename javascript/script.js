@@ -12,6 +12,9 @@ const fundation = document.querySelector('#fundation')
 const displayScore = document.querySelector('#display-score')
 const displayHighscore = document.querySelector('#display-highscore')
 
+// Instruction
+const instructions = gameArea.querySelectorAll('p')
+
 let currentScore = 0
 let highscore = 0
 const highscores = []
@@ -152,11 +155,15 @@ function promptUser() {
   playerName = prompt("🎉 Well done! Sailor ⭐️ \n What's your name ?", 'Ed')
 }
 
-// Function to hide the instructions (tap to play...)
-function hideInstructions() {
-  const instructions = gameArea.querySelectorAll('p')
-  // eslint-disable-next-line no-return-assign
-  instructions.forEach((paragraph) => (paragraph.style.display = 'none'))
+// Function to toggle the instructions (tap to play...)
+function toggleInstructions() {
+  if (instructions[0].style.display === 'none') {
+    // eslint-disable-next-line no-return-assign
+    instructions.forEach((paragraph) => (paragraph.style.display = 'bloc'))
+  } else {
+    // eslint-disable-next-line no-return-assign
+    instructions.forEach((paragraph) => (paragraph.style.display = 'none'))
+  }
 }
 
 // Main function called everytime the game area is clicked (spacebar, tap & click)
@@ -164,9 +171,9 @@ const eventHandler = (event) => {
   if (event.code === 'space' || event.type === 'click') {
     if (!isStarted) {
       isStarted = true
-      hideInstructions()
+      toggleInstructions()
       createBlock()
-    } else if (isStarted) {
+    } else {
       stopAnimation()
       resizeCurrentElement()
 
@@ -174,7 +181,9 @@ const eventHandler = (event) => {
       if (currentBlockWidth <= 0) {
         isStarted = false
         promptUser()
+        highscores.push({ playerName, score: currentScore })
         resetGame()
+        toggleInstructions()
       } else {
         currentScore++
         createBlock()
