@@ -22,6 +22,7 @@ Array of objects:
 */
 
 let playerName = ''
+// playerName = document.querySelector('#player-name').value
 let currentBlockWidth
 let isStarted = false
 
@@ -65,7 +66,7 @@ const resizeCurrentElement = () => {
     // calculates the size of the leftover and move it
     currentBlockWidth =
       previousBlock.offsetWidth - (rightMovingBlock - rightFixedBlock)
-    currentBlock.style.marginRight = (rightMovingBlock - rightFixedBlock) / 2
+    currentBlock.style.right = `${rightFixedBlock}px`
   } else if (
     // The moving bloc is to the left of the fixed one
     leftFixedBlock < rightMovingBlock &&
@@ -74,7 +75,7 @@ const resizeCurrentElement = () => {
     // calculates the size of the leftover and move it
     currentBlockWidth =
       previousBlock.offsetWidth - (leftFixedBlock - leftMovingBlock)
-    currentBlock.style.marginRight = (leftMovingBlock - leftFixedBlock) / 2
+    currentBlock.style.left = `${leftFixedBlock}px`
   }
   // set the new size to the element
   currentBlock.style.width = `${currentBlockWidth}px`
@@ -132,15 +133,13 @@ function fetchHighscore() {
   }
 }
 
-function promptUser() {
-  playerName = prompt("🎉 Well done, Sailor! 🎉\n What's your name ?", 'Ed')
-}
-
 // Function to toggle the instructions (tap to play...)
 function toggleInstructions() {
   if (instructions[0].style.display === 'none') {
-    // eslint-disable-next-line no-return-assign
-    instructions.forEach((paragraph) => (paragraph.style.display = 'bloc'))
+    // eslint-disable-next-line no-unused-expressions
+    document.querySelector('body').offsetWidth > 600
+      ? (instructions[1].style.display = 'block')
+      : (instructions[0].style.display = 'block')
   } else {
     // eslint-disable-next-line no-return-assign
     instructions.forEach((paragraph) => (paragraph.style.display = 'none'))
@@ -149,7 +148,7 @@ function toggleInstructions() {
 
 // Main function called everytime the game area is clicked (spacebar, tap & click)
 const eventHandler = (event) => {
-  if (event.code === 'space' || event.type === 'click') {
+  if (event.code === 'space' || event.type === 'mousedown') {
     if (!isStarted) {
       isStarted = true
       toggleInstructions()
@@ -157,17 +156,17 @@ const eventHandler = (event) => {
     } else {
       stopAnimation()
       resizeCurrentElement()
-
       // Size of element === 0 => Lost : prompt user for name, then reset Game (and display message Click to play)
-      if (currentBlockWidth <= 0) {
-        promptUser()
+      if (currentBlockWidth === 0) {
         highscores.push({ playerName, score: currentScore })
         isStarted = false
         resetGame()
         toggleInstructions()
+        currentScore = 0
       } else {
         currentScore++
         displayScore(currentScore, highscore)
+        // setHighscore()
         createBlock()
       }
     }
@@ -182,6 +181,6 @@ fetchHighscore()
 // Create an event listener to start the game && 'drop' the bloc && restart the game
 // on click, spacebar, tap event -- Do
 
-gameArea.addEventListener('click', eventHandler)
+gameArea.addEventListener('mousedown', eventHandler)
 // todo : Not working... why ?
 gameArea.addEventListener('keypress', eventHandler)
