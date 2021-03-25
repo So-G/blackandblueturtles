@@ -95,9 +95,9 @@ main {
   height: 100vh;
 }
 
-/*main > section {
+main > section {
   height: 80%;
-}*/
+}
 
 #game-area {
   background: var(--beige1);
@@ -136,7 +136,7 @@ main {
   height: 20px;
   margin: auto;
   width: 100px;
-  box-shadow: 4px 1px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: 8px -4px 2px rgba(0, 0, 0, 0.2);
   border-radius: 4px 3px 6px / 2px 4px;
 }
 
@@ -150,8 +150,8 @@ main {
   animation-direction: alternate;
   animation-duration: 2s;
   animation-iteration-count: infinite;
-  box-shadow: 4px 1px 2px rgba(0, 0, 0, 0.2);
-  border-radius: 4px 3px 6px / 2px 4px;
+  box-shadow: 8px -4px 2px rgba(0, 0, 0, 0.2);
+  border-radius: 2px;
 }
 
 #fundation {
@@ -159,14 +159,16 @@ main {
   height: 50px;
   background: hsl(244, 60%, 35%);
 }
+.block {
+  box-shadow: 8px -4px 2px rgba(0, 0, 0, 0.2);
+  border-radius: 2px;
+}
 
 .new-block {
   animation-name: slideIn;
   animation-timing-function: linear;
   animation-duration: 8s;
   animation-iteration-count: infinite;
-  box-shadow: 4px 1px 2px rgba(0, 0, 0, 0.2);
-  border-radius: 4px 3px 6px / 2px 4px;
 }
 
 @keyframes runDemoLeft {
@@ -242,7 +244,7 @@ main {
   .desktop {
     display: none;
   }
-  
+
   form {
     text-align: center;
     display: flex;
@@ -313,7 +315,7 @@ main {
     flex-direction: row;
     justify-content: flex-end;
     margin-right: 2em;
-}
+  }
 
   form {
     text-align: center;
@@ -357,7 +359,6 @@ a {
 .highscores {
   display: flex;
   justify-content: center;
-  
 }
 
 .highscores ol {
@@ -382,8 +383,8 @@ a {
   justify-content: center;
   grid-column-start: 1;
   grid-column-end: 4;
-  border:4mm ridge rgba(75, 50, 220, 0.6);
-  color:hsl(0, 90%, 41%);
+  border: 4mm ridge rgba(75, 50, 220, 0.6);
+  color: hsl(0, 90%, 41%);
   border-radius: 5px;
   font: bold;
 }
@@ -401,8 +402,6 @@ a {
 .highscores ol li {
   text-align: center;
 }
-
-
 
 input {
   margin-top: 1em;
@@ -496,14 +495,12 @@ a.svg:after {
   transition-property: opacity, transform;
   transition-duration: 0.3s;
   transition-timing-function: cubic-bezier(0.75, -0.015, 0.565, 1.055);
-  
 }
 
 .menu-toggler:checked ~ .stagger-menu li {
   opacity: 1;
   transform: translateX(0);
   transition-delay: calc(0.055s * var(--i));
-  
 }
 
 /* HOVER */
@@ -513,7 +510,6 @@ a.svg:after {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  
 }
 
 .hover-nav li a {
