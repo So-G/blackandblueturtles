@@ -22,6 +22,7 @@ Array of objects:
 */
 
 let speed = 1
+let playerName = ''
 let currentBlockWidth
 let isStarted = false
 
@@ -50,8 +51,18 @@ const resizeCurrentElement = () => {
   const leftFixedBlock = previousBlock.getBoundingClientRect().left
   const rightFixedBlock = previousBlock.getBoundingClientRect().right
 
-  // The moving bloc is to the right of the fixed one
-  if (leftFixedBlock < leftMovingBlock && leftMovingBlock < rightFixedBlock) {
+  if (
+    // The moving bloc is not above the tower
+    leftFixedBlock >= rightMovingBlock ||
+    leftMovingBlock >= rightFixedBlock
+  ) {
+    currentBlock.remove()
+    currentBlockWidth = 0
+  } else if (
+    // The moving bloc is to the right of the fixed one
+    leftFixedBlock < leftMovingBlock &&
+    leftMovingBlock < rightFixedBlock
+  ) {
     // calculates the size of the leftover
     currentBlockWidth =
       previousBlock.offsetWidth - (rightMovingBlock - rightFixedBlock)
@@ -63,10 +74,9 @@ const resizeCurrentElement = () => {
     // calculates the size of the leftover
     currentBlockWidth =
       previousBlock.offsetWidth - (leftFixedBlock - leftMovingBlock)
-  } else if () {
-
   }
   // set the new size to the element
+  console.log(currentBlockWidth)
   currentBlock.style.width = `${currentBlockWidth}px`
 }
 
@@ -132,6 +142,10 @@ function fetchHighscore() {
   displayHighscore.textContent = `Highscore: ${highscore}`
 }
 
+function promptUser() {
+  playerName = prompt("🎉 Well done! Sailor ⭐️ \n What's your name ?", 'Ed')
+}
+
 // Function to hide the instructions (tap to play...)
 function hideInstructions() {
   const instructions = gameArea.querySelectorAll('p')
@@ -141,7 +155,6 @@ function hideInstructions() {
 
 // Main function called everytime the game area is clicked (spacebar, tap & click)
 const eventHandler = (event) => {
-  console.log(event)
   if (event.code === 'space' || event.type === 'click') {
     if (!isStarted) {
       isStarted = true
@@ -152,7 +165,8 @@ const eventHandler = (event) => {
       resizeCurrentElement()
 
       // Size of element === 0 => Lost : prompt user for name, then reset Game (and display message Click to play)
-      if (currentBlockWidth === 0) {
+      if (currentBlockWidth <= 0) {
+        isStarted = false
         promptUser()
         resetGame()
       } else {
