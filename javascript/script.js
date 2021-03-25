@@ -4,6 +4,7 @@
 
 // gameArea: Grab HTML containing element (id)
 const gameArea = document.querySelector('#game-area')
+const input = document.querySelector('#player-name')
 
 // Score & Highscore
 const scoreDisplay = document.querySelector('#display-score')
@@ -145,7 +146,11 @@ function toggleInstructions() {
 
 // Main function called everytime the game area is clicked (spacebar, tap & click)
 const eventHandler = (event) => {
-  if (event.code === 'Space' || event.type === 'mousedown') {
+  if (
+    event.code === 'Enter' ||
+    event.code === 'Space' ||
+    event.type === 'mousedown'
+  ) {
     event.preventDefault()
     if (!isStarted) {
       isStarted = true
@@ -181,3 +186,4 @@ fetchHighscore()
 
 gameArea.addEventListener('mousedown', eventHandler)
 document.body.addEventListener('keypress', eventHandler)
+input.addEventListener('keypress', eventHandler)
