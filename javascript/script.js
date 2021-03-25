@@ -5,9 +5,6 @@
 // gameArea: Grab HTML containing element (id)
 const gameArea = document.querySelector('#game-area')
 
-// fundation: Grab HTML element first bloc (fundation) (by id)
-const fundation = document.querySelector('#fundation')
-
 // Score & Highscore
 const scoreDisplay = document.querySelector('#display-score')
 const highscoreDisplay = document.querySelector('#display-highscore')
@@ -24,7 +21,6 @@ Array of objects:
 - score: 1234
 */
 
-let speed = 1
 let playerName = ''
 let currentBlockWidth
 let isStarted = false
