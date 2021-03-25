@@ -75,21 +75,23 @@ const resizeCurrentElement = () => {
   const leftFixedBlock = previousElement.getBoundingClientRect().x
   const rightFixedBlock = previousElement.getBoundingClientRect().right
 
+  let resizedWidth
+
   // if we are here it means that both bloc are not equal
   if (leftFixedBlock < leftMovingBlock && leftMovingBlock < rightFixedBlock) {
     // if x is between [ab]
-    const resizedWidth =
+    resizedWidth =
       previousElement.offsetWidth - (rightMovingBlock - rightFixedBlock) // so, y = b
   } else if (
     leftFixedBlock < rightMovingBlock &&
     rightMovingBlock < rightFixedBlock
   ) {
     // if y is between [ab]
-    const resizedWidth =
+    resizedWidth =
       previousElement.offsetWidth - (leftMovingBlock - leftFixedBlock) // so, x = a
   }
   // set the new size to the element
-  currentElement.offsetWidth = resizedWidth //
+  currentElement.offsetWidth = resizedWidth
 }
 
 // createElement creates a new block --Ed
@@ -110,14 +112,14 @@ function createElement() {
   return newElement
 }
 
-/** Function blocAnimation 
+/* Function blocAnimation 
 - to add / create animation (css) for the new element / bloc (div) --Solene */
-function speedDefinition (htmlElement){
+function speedDefinition(htmlElement) {
   let period = 1 / speed
   htmlElement.style.animationDuration = `${3 + period}s`
   // Speed to be adjusted
 }
-/**change class + JS (toggle?)
+/* change class + JS (toggle?)
 set speed +1
 */
 
@@ -133,13 +135,14 @@ localStorage.setItem(myName,myScore);
 
 // function startGame
 // Function to restart the game : delete all blocs --Solene
-function startGame () {
-  const deleteBlocks = document.querySelectorAll(".new-block");
-    for (let i = 0; i < deleteBlocs.length; i++) { 
-    deleteBlocks[i].remove ();
-    score = 0;
- }
-  /**const resetScore = document.getElementById('.display-score');
+function startGame() {
+  const deleteBlocks = document.querySelectorAll('.new-block')
+  for (let i = 0; i < deleteBlocks.length; i++) {
+    deleteBlocks[i].remove()
+    currentScore = 0
+  }
+}
+/* const resetScore = document.getElementById('.display-score');
   resetScore.innerHTML = "0"
  /** when bloc = 0 (ie if click when moving bloc is outside of area previous fixed bloc)
   querySelectorAll(div) + function remove div (movingbloc.remove()?) so that only fixed bloc stays 
@@ -160,7 +163,7 @@ function fetchHighscore() {
 }
 
 const eventHandler = () => {
-  if ((isStarted = false)) {
+  if (isStarted === false) {
     isStarted = true
     createElement()
     startAnimation()
@@ -170,7 +173,7 @@ const eventHandler = () => {
       resizeCurrentElement()
     }
     countScore()
-    fetchHighscore
+    fetchHighscore()
   }
 }
 
