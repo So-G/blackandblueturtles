@@ -371,6 +371,7 @@ a {
   width: auto;
   border-radius: 2px;
   list-style: none;
+  margin:0, auto;
 }
 
 .block {
@@ -516,7 +517,10 @@ a.svg:after {
   
 }
 
+
+
 .hover-nav li a {
+  position: inherit;
   color: var(--grey0);
   text-align: center;
   padding: 8px 12px;
@@ -532,7 +536,7 @@ a.svg:after {
   bottom: 0;
   left: 0;
   background-color: var(--blue2);
-  z-index: -1;
+  z-index: auto;
   transform: scale(0);
   transition: transform 0.4s ease-in-out;
 }
