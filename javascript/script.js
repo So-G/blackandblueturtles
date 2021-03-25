@@ -35,14 +35,14 @@ using js   define status of bloc (isMooving:true/false) then switch true/false b
 
 // Function resizeBloc : resize the current element / bloc (div) || or loose ??? --Do -
 
-const resizeCurrentElement = () => {
+function resizeCurrentElement() {
   // Select the current bloc : getElement
   const currentElement = document.querySelector('.block:last-of-type')
   const leftMovingBlock = currentElement.getBoundingClientRect().x
   const rightMovingBlock = currentElement.getBoundingClientRect().right
 
-  // Select the previous bloc : ~ node.previousSibling
-  const previousElement = currentElement.previousElementSibling // ou document.queryS
+  // Select the previous bloc
+  const previousElement = currentElement.previousElementSibling
   const leftFixedBlock = previousElement.getBoundingClientRect().x
   const rightFixedBlock = previousElement.getBoundingClientRect().right
 
@@ -126,16 +126,39 @@ function fetchHighscore() {
 
 const eventHandler = () => {
   if (isStarted === false) {
-    isStarted = true
-    createElement()
-    startAnimation()
-    stopAnimation()
-    if (leftMovingBlock !== leftFixedBlock) {
-      //variables définies ?
-      resizeCurrentElement()
+    const gameOver = document.getElementById('game-over')
+    if (gameOver.style.display === visible) {
+      // check appropriated attribute or use local storage
+      startGame()
+      resetScore()
+      gameOver.style.display = 'none'
     }
+    createElement()
+    speedDefinition()
+    isStarted = true
+  }
+
+  if (isStarted === true) {
+    stopAnimation()
+    if (// condition Game Over
+      leftMovingBlock < RightMovingBlock < leftFixedBlock ||
+      rightFixedBlock < leftMovingBlock < rightMovingBlock
+    ) {
+      gameOver.style.display = 'visible' // stop the animation
+      score // current score
+      isStarted = false
+    }
+    else {
+    if (
+      leftFixedBlock < leftMovingBlock < rightFixedBlock || //les definir dans createElement
+      leftFixedBlock < rightMovingBlock < rightFixedBlock
+    ) {
+      resizeCurrentElement
+    } 
+    createElement()
+    speedDefinition()
     countScore()
-    fetchHighscore()
+    fetchHighscore() // check together
   }
 }
 

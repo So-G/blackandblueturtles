@@ -115,7 +115,7 @@ main > section {
   margin: auto;
   padding: 1em;
 }
-.game-over {
+#game-over {
   display: none;
 }
 
