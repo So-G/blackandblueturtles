@@ -8,7 +8,7 @@ const gameArea = document.querySelector('#game-area')
 // fundation: Grab HTML element first bloc (fundation) (by id)
 const fundation = document.querySelector('#fundation')
 
-// displayScore & displayHighscore
+// Score & Highscore
 const scoreDisplay = document.querySelector('#display-score')
 const highscoreDisplay = document.querySelector('#display-highscore')
 
@@ -17,7 +17,7 @@ const instructions = gameArea.querySelectorAll('p')
 
 let currentScore = 0
 let highscore = 0
-const highscores = []
+const highscores = [{ playerName: "Bob's your uncle", score: 10 }]
 /*
 Array of objects:
 - playerName: John Doe
@@ -101,8 +101,9 @@ function createBlock() {
 }
 
 // Function = "displayScore" (and sets highscore if score > highscore) && save it to localStorage --joris
-function displayScore(score) {
+function displayScore(score, highscore) {
   scoreDisplay.textContent = `Score: ${score} `
+  highscoreDisplay.textContent = `Highscore: ${highscore}`
 }
 
 // function startGame
@@ -114,32 +115,27 @@ function resetGame() {
   }
   currentScore = 0
 }
-/* const resetScore = document.getElementById('.display-score');
-  resetScore.innerHTML = "0"
-when bloc = 0 (ie if click when moving bloc is outside of area previous fixed bloc)
-*/
 
 // fetchHighscore Fetch highscores from localStorage and assign them to variable highscore --Ed
 function fetchHighscore() {
-  // 0) Deal with the case the highscores don't exists
-  if (!localStorage.getItem('highscores')) {
-    localStorage.setItem('hightscores', JSON.stringify(highscores))
-  } else {
+  if (localStorage.getItem('highscores')) {
     // 1) fetch the data : localStorage.getItem('highscores')
     // 2) parse it : JSON.parse
     const localStor = JSON.parse(localStorage.getItem('highscores'))
-    console.log(localStor)
     // Sort by highscore
     localStor.sort((a, b) => b.score - a.score)
     // 3) Assign it to highscore
     highscore = localStor[0].score
     // 3) Display it
-    highscoreDisplay.textContent = `Highscore: ${highscore}`
+    displayScore(currentScore, highscore)
+  } else {
+    // 0) Deal with the case the highscores don't exists by adding one (fake)
+    localStorage.setItem('highscores', JSON.stringify(highscores))
   }
 }
 
 function promptUser() {
-  playerName = prompt("🎉 Well done! Sailor ⭐️ \n What's your name ?", 'Ed')
+  playerName = prompt("🎉 Well done, Sailor! 🎉\n What's your name ?", 'Ed')
 }
 
 // Function to toggle the instructions (tap to play...)
@@ -173,7 +169,7 @@ const eventHandler = (event) => {
         toggleInstructions()
       } else {
         currentScore++
-        displayScore(currentScore)
+        displayScore(currentScore, highscore)
         createBlock()
       }
     }
