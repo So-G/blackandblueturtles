@@ -97,7 +97,13 @@ function startGame () {
 
 // prompt User name (Solene)
 
-function getUserName()
+/**function getUserName() {
+  const newHighScore = prompt("Congratulations, you've made it to the top! Enter your name :");
+ if newHighScore > {
+ } else {
+  alert('Try again');
+}*/
+
 
 // fetchHighscore Fetch highscores from localStorage and assign them to variable highscore --Ed
 function fetchHighscore() {
