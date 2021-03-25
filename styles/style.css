@@ -134,15 +134,15 @@ main > section {
 
 @keyframes slideIn {
   0% {
-    transform: translate(-100%, 0px);
+    transform: translate(-50vw, 0px);
   }
 
   50% {
-    transform: translate(100%, 0px);
+    transform: translate(50vw, 0px);
   }
 
   100% {
-    transform: translate(-100%, 0px);
+    transform: translate(-50vw, 0px);
   }
 }
 
@@ -251,7 +251,6 @@ main > section {
   .mobile {
     display: none;
   }
-}
 
   #scores {
     display: flex;
@@ -259,6 +258,7 @@ main > section {
     justify-content: flex-end;
     margin-right: 2em;
 }
+
   form {
     text-align: center;
     display: flex;
