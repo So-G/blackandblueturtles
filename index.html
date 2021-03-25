@@ -4,6 +4,10 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="heywords"
+      content="tower,doom,tower of doom,game,project,tower of blocks,steve gardner"
+    />
     <link rel="stylesheet" href="./styles/reset.css" />
     <link rel="stylesheet" href="./styles/style.css" />
     <!-- Fonts -->
@@ -13,35 +17,75 @@
       rel="stylesheet"
     />
 
-    <script defer src="./javascript/script.js"></script>
-    <title>The Tower of Doom</title>
+    
+    <title>
+      The Tower of Doom the videogame, an amazing videogame project from
+      blackandblueturtles based on Steve Gardner work
+    </title>
   </head>
   <body>
-    <header>
-      <img id="banner" alt="banner" src="./assets/banner.jpg" />
+    <header class="header">
+      <img id="banner" alt="banner" src="../assets/banner.jpg" />
+      <nav class="mobile nav-container">
+        <input type="checkbox" name="menu" id="menu" class="menu-toggler" />
+        <label for="menu" class="menu-toggler-label">
+          <i data-feather="menu"> </i>
+        </label>
+        <ul class="stagger-menu hover-nav">
+          <li style="--i: 0"><a href="../index.html">Home</a></li>
+          <li style="--i: 1"><a href="./pages/game.html">Game</a></li>
+          <li style="--i: 2">
+            <a href="./pages/highscores.html">Highscores</a>
+          </li>
+          <li style="--i: 3"><a href="./pages/contact.html">Contact us</a></li>
+        </ul>
+      </nav>
+      <nav class="desktop">
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="./pages/game.html">Game</a></li>
+          <li><a href="./pages/highscores.html">Highscores</a></li>
+          <li><a href="./pages/contact.html">Contact us</a></li>
+        </ul>
+      </nav>
     </header>
-
-    <div class="divPlay">
-      <img
-        class="btnPlay"
-        id="play"
-        src="assets/play_button.svg"
-        alt="playlogo"
-        href="#game"
-      />
-      <!--remplacer #game par url ou section du jeu-->
-    </div>
-
-    <div class="howToPlay">
-      <h1>How to play :</h1>
-      <p>
-        Tower building game. Place blocks by clicking, tapping, or space
-        barring.
-      </p>
-    </div>
+    <main>
+      <div id="demo-block1" class="demo-block"></div>
+      <div id="demo-block2" class="demo-block"></div>
+      <div id="demo-block3" class="demo-block"></div>
+      <div id="demo-block4"></div>
+      <section class="how-to-play">
+        <h1>How to play :</h1>
+        <p>
+          Tower building game. Place blocks by clicking, tapping, or space
+          barring.
+        </p>
+      </section>
+      <section class="div-play">
+        <a href="./pages/game.html#start-game" class="svg">
+          <object data="assets/play_button.svg" type="image/svg+html">
+            <img
+              class="btn-play"
+              id="play"
+              src="assets/play_button.svg"
+              alt="Play Tower of Doom"
+              href="./pages/game.html#start-game"
+            />
+          </object>
+        </a>
+      </section>
+    </main>
 
     <footer>
-      <p><a id="contribution" href="#paypal">Buy us a coffee</a> :)</p>
+      <p>
+        <a id="contribution" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+          >Buy us a coffee ☕️</a
+        >
+      </p>
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script>
+      feather.replace({ width: '48px', height: '48px' })
+    </script>
   </body>
 </html>
