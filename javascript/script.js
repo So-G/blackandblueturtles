@@ -22,7 +22,7 @@ Array of objects:
 */
 
 let speed = 1
-
+let currentBlockWidth
 let isStarted = false
 
 //----------
@@ -46,27 +46,25 @@ const resizeCurrentElement = () => {
   const rightMovingBlock = currentElement.getBoundingClientRect().right
 
   // Select the previous bloc : ~ node.previousSibling
-  const previousElement = currentElement.previousElementSibling // ou document.queryS
+  const previousElement = document.querySelector('.block:nth-last-of-type(2)')
   const leftFixedBlock = previousElement.getBoundingClientRect().left
   const rightFixedBlock = previousElement.getBoundingClientRect().right
-
-  let resizedWidth
 
   // if we are here it means that both bloc are not equal
   if (leftFixedBlock < leftMovingBlock && leftMovingBlock < rightFixedBlock) {
     // if x is between [ab]
-    resizedWidth =
+    currentBlockWidth =
       previousElement.offsetWidth - (rightMovingBlock - rightFixedBlock) // so, y = b
   } else if (
     leftFixedBlock < rightMovingBlock &&
     rightMovingBlock < rightFixedBlock
   ) {
     // if y is between [ab]
-    resizedWidth =
-      previousElement.offsetWidth - (leftMovingBlock - leftFixedBlock) // so, x = a
+    currentBlockWidth =
+      previousElement.offsetWidth - (leftFixedBlock - leftMovingBlock) // so, x = a
   }
   // set the new size to the element
-  currentElement.offsetWidth = resizedWidth
+  currentElement.style.width = `${currentBlockWidth}px`
 }
 
 // createElement creates a new block --Ed
@@ -79,7 +77,7 @@ function createElement() {
   newElement.classList.add('block')
   newElement.classList.add('new-block')
   newElement.style.width = `${lastBlock.offsetWidth}px`
-  newElement.style.marginLeft = `${100 + currentScore}px`
+  newElement.style.left = `${100 + currentScore}px`
   // 3) Set color: using hsl, hue + 10 * score
   newElement.style.background = `hsl(${254 + 10 * currentScore}, 60%, 35%)`
   // 4) append child block to the container (gameArea)
@@ -140,20 +138,26 @@ function hideInstructions() {
 
 // Main function called once the game area is clicked (spacebar, tap & click)
 const eventHandler = (event) => {
+  console.log(event)
   if (event.code === 'space' || event.type === 'click') {
-    if (isStarted === false) {
+    if (!isStarted) {
       isStarted = true
       hideInstructions()
       createElement()
-      // startAnimation() => Not needed, it starts automatically because it has the new-blocks class which moves using the CSS
-    } else {
+    } else if (isStarted) {
       stopAnimation()
       resizeCurrentElement()
-      // countScore() -- Not yet implemented
+
+      // Size of element === 0 => Lost : prompt user for name, then reset Game (and display message Click to play)
+      if (currentBlockWidth === 0) {
+        promptUser()
+        resetGame()
+      } else {
+        currentScore++
+        createElement()
+        // increase speed
+      }
     }
-    // if (leftMovingBlock !== leftFixedBlock) {
-    //   // variables définies ?
-    // }
   }
 }
 
