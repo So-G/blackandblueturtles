@@ -115,6 +115,9 @@ main > section {
   margin: auto;
   padding: 1em;
 }
+.game-over {
+  display: none;
+}
 
 #fundation {
   width: 50%;
