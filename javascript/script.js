@@ -90,7 +90,7 @@ function createBlock() {
   currentBlock.classList.add('block')
   currentBlock.classList.add('new-block')
   currentBlock.style.width = `${previousBlock.offsetWidth}px`
-  currentBlock.style.left = `${previousBlock.offsetWidth}px`
+  // currentBlock.style.left = `${previousBlock.offsetWidth}px`
   // 3) Set color: using hsl, hue + 10 * score
   currentBlock.style.background = `hsl(${254 + 10 * currentScore}, 60%, 35%)`
   // 4) append child block to the container (gameArea)

@@ -134,6 +134,7 @@ main > section {
 @keyframes slideIn {
   0% {
     transform: translate(-100%, 0px);
+    transform-origin: 50%;
   }
 
   50% {
