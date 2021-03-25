@@ -50,7 +50,9 @@ gameArea.addEventListener('key === 32' || 'click', function (event)
 buttonElement.addEventListener('click' || 'keydown', function (event)) {
   if(isStarted = true){
     stopAnimation
-  };
+  };if (isStarted = false){
+      isStarted = true 
+    })
 });
 let stopAnimation
 const running = lastBlock.style.animationPlayState === 'running';
