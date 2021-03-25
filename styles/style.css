@@ -441,7 +441,7 @@ textarea {
 .about-us p {
   text-align: left;
   padding: 0.3em;
-  margin: 1em;
+  margin: auto;
 }
 
 /* Menu button & list */
