@@ -97,10 +97,6 @@ main > section {
   height: 80%;
 }
 
-#game-preview {
-  margin: 2rem auto 0;
-}
-
 #game-area {
   background: var(--beige1);
   height: 80%;
@@ -119,6 +115,43 @@ main > section {
   display: none;
 }
 
+#demo-block1 {
+  background-color: hsl(79, 52%, 56%);
+  animation-name: runDemoRight;
+}
+#demo-block2 {
+  background-color: hsl(25, 85%, 70%);
+  animation-name: runDemoLeft;
+}
+
+#demo-block3 {
+  background-color: hsl(0, 90%, 41%);
+  animation-name: runDemoRight;
+}
+
+#demo-block4 {
+  background-color: hsl(210, 84%, 59%);
+  height: 20px;
+  margin: auto;
+  width: 100px;
+  box-shadow: 4px 1px 2px rgba(0, 0, 0, 0.2);
+  border-radius: 4px 3px 6px / 2px 4px;
+}
+
+.demo-block {
+  height: 20px;
+  margin: auto;
+  margin-bottom: 0, 5%;
+  padding: 10px;
+  width: 100px;
+  animation-timing-function: linear;
+  animation-direction: alternate;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  box-shadow: 4px 1px 2px rgba(0, 0, 0, 0.2);
+  border-radius: 4px 3px 6px / 2px 4px;
+}
+
 #fundation {
   width: 50%;
   height: 50px;
@@ -134,17 +167,35 @@ main > section {
   border-radius: 4px 3px 6px / 2px 4px;
 }
 
+@keyframes runDemoLeft {
+  from {
+    transform: translate(100%, 0);
+  }
+  to {
+    transform: translate(-100%, 0);
+  }
+}
+
+@keyframes runDemoRight {
+  from {
+    transform: translate(-100%, 0);
+  }
+  to {
+    transform: translate(100%, 0);
+  }
+}
+
 @keyframes slideIn {
   0% {
-    transform: translate(-150%, 0px);
+    transform: translate(-100%, 0px);
   }
 
   50% {
-    transform: translate(150%, 0px);
+    transform: translate(100%, 0px);
   }
 
   100% {
-    transform: translate(-150%, 0px);
+    transform: translate(-100%, 0px);
   }
 }
 

@@ -5,199 +5,176 @@
 // gameArea: Grab HTML containing element (id)
 const gameArea = document.querySelector('#game-area')
 
-// fundation: Grab HTML element first bloc (fundation) (by id)
-const fundation = document.querySelector('#fundation')
+// Score & Highscore
+const scoreDisplay = document.querySelector('#display-score')
+const highscoreDisplay = document.querySelector('#display-highscore')
 
-// displayScore & displayHighscore
-const displayScore = document.querySelector('#display-score')
-const displayHighscore = document.querySelector('#display-highscore')
+// Instruction
+const instructions = gameArea.querySelectorAll('p')
 
 let currentScore = 0
 let highscore = 0
-const highscores = []
+const highscores = [{ playerName: "Bob's your uncle", score: 10 }]
 /*
 Array of objects:
 - playerName: John Doe
 - score: 1234
 */
 
-let speed = 1
-
+let playerName = ''
+let currentBlockWidth
 let isStarted = false
 
 //----------
 // Functions
 //----------
-
-// Function = "Animation" -- joris
+// Function = "stopAnimation" -- joris
 /*  animation lunched => event.listener(click) => stop animation
-using js   define status of bloc (isStarted:true/false) then switch true/false by event.click
-
-document.addEventListener('keyup' || 'click', event => {
-  if (event.code === 'Space') {
-    if (isStarted === false){
-      isStarted = true
-    }
-  }
-})
-gameArea.addEventListener('key === 32' || 'click', function (event) 
-{
-    if (isStarted = false){
-      isStarted = true 
-    })
-  } 
-
-buttonElement.addEventListener('click' || 'keydown', function (event)) {
-  if(isStarted = true){
-    stopAnimation
-  };if (isStarted = false){
-      isStarted = true 
-    })
-});
-  
-function stopAnimation 
-const running = lastBlock.slideIn.animationPlayState === 'running';
-lastBlock.slideIn.animationPlayState = running ? 'paused' : 'running';
-
-
- */
+using js   define status of bloc (isMooving:true/false) then switch true/false by event.click
+*/
+function stopAnimation() {
+  const movingBlock = document.querySelector('.new-block:last-of-type')
+  movingBlock.style.animationPlayState = 'paused'
+}
 
 // Function resizeBloc : resize the current element / bloc (div) || or loose ??? --Do -
 
 function resizeCurrentElement() {
   // Select the current bloc : getElement
-  const currentElement = document.querySelector('.block:last-of-type')
-  const leftMovingBlock = currentElement.getBoundingClientRect().x
-  const rightMovingBlock = currentElement.getBoundingClientRect().right
+  const currentBlock = document.querySelector('.block:last-of-type')
+  const leftMovingBlock = currentBlock.getBoundingClientRect().left
+  const rightMovingBlock = currentBlock.getBoundingClientRect().right
 
-  // Select the previous bloc
-  const previousElement = currentElement.previousElementSibling
-  const leftFixedBlock = previousElement.getBoundingClientRect().x
-  const rightFixedBlock = previousElement.getBoundingClientRect().right
+  // Select the previous bloc : ~ node.previousSibling
+  const previousBlock = document.querySelector('.block:nth-last-of-type(2)')
+  const leftFixedBlock = previousBlock.getBoundingClientRect().left
+  const rightFixedBlock = previousBlock.getBoundingClientRect().right
 
-  let resizedWidth
-
-  // if we are here it means that both bloc are not equal
-  if (leftFixedBlock < leftMovingBlock < rightFixedBlock) {
-    // if x is between [ab]
-    resizedWidth =
-      previousElement.offsetWidth - (rightMovingBlock - rightFixedBlock) // so, y = b
-  } else if (leftFixedBlock < rightMovingBlock < rightFixedBlock) {
-    // if y is between [ab]
-    resizedWidth =
-      previousElement.offsetWidth - (leftMovingBlock - leftFixedBlock) // so, x = a
+  if (
+    // The moving bloc is not above the tower
+    leftFixedBlock >= rightMovingBlock ||
+    leftMovingBlock >= rightFixedBlock
+  ) {
+    currentBlock.remove()
+    currentBlockWidth = 0
+  } else if (
+    // The moving bloc is to the right of the fixed one
+    leftFixedBlock < leftMovingBlock &&
+    leftMovingBlock < rightFixedBlock
+  ) {
+    // calculates the size of the leftover and move it
+    currentBlockWidth =
+      previousBlock.offsetWidth - (rightMovingBlock - rightFixedBlock)
+    currentBlock.style.marginRight = (rightMovingBlock - rightFixedBlock) / 2
+  } else if (
+    // The moving bloc is to the left of the fixed one
+    leftFixedBlock < rightMovingBlock &&
+    rightMovingBlock < rightFixedBlock
+  ) {
+    // calculates the size of the leftover and move it
+    currentBlockWidth =
+      previousBlock.offsetWidth - (leftFixedBlock - leftMovingBlock)
+    currentBlock.style.marginRight = (leftMovingBlock - leftFixedBlock) / 2
   }
   // set the new size to the element
-  currentElement.offsetWidth = resizedWidth // currentElement.style.width = `${resizedWidth.offsetWidth}px` ?
+  currentBlock.style.width = `${currentBlockWidth}px`
 }
 
 // createElement creates a new block --Ed
-function createElement() {
+function createBlock() {
   // 1) create element: document.createElement("div")
-  const newElement = document.createElement('div')
+  const currentBlock = document.createElement('div')
   // grab the last bloc element (of class)
-  const lastBlock = document.querySelector('.block:last-of-type')
+  const previousBlock = document.querySelector('.block:last-of-type')
   // 2) Set width from previous bloc, height, margin and class
-  newElement.classList.add('block')
-  newElement.classList.add('new-block')
-  newElement.style.width = `${lastBlock.offsetWidth}px`
-  newElement.style.marginLeft = `${100 + currentScore}px`
+  currentBlock.classList.add('block')
+  currentBlock.classList.add('new-block')
+  currentBlock.style.width = `${previousBlock.offsetWidth}px`
+  currentBlock.style.left = `${previousBlock.offsetWidth}px`
   // 3) Set color: using hsl, hue + 10 * score
-  newElement.style.background = `hsl(${254 + 10 * currentScore}, 60%, 35%)`
+  currentBlock.style.background = `hsl(${254 + 10 * currentScore}, 60%, 35%)`
   // 4) append child block to the container (gameArea)
-  gameArea.appendChild(newElement)
-  return newElement
+  gameArea.appendChild(currentBlock)
+  return currentBlock
 }
 
-/* Function blocAnimation 
-- to add / create animation (css) for the new element / bloc (div) --Solene */
-function speedDefinition(htmlElement) {
-  let period = 1 / speed
-  htmlElement.style.animationDuration = `${3 + period}s`
-  // Speed to be adjusted
+// Function = "displayScore" (and sets highscore if score > highscore) && save it to localStorage --joris
+function displayScore(score, highscore) {
+  scoreDisplay.textContent = `Score: ${score} `
+  highscoreDisplay.textContent = `Highscore: ${highscore}`
 }
-/* change class + JS (toggle?)
-set speed +1
-*/
-
-// Function = "countScore" (and sets highscore if score > highscore) && save it to localStorage --joris
-/* score = (number of <div> created by function create new element) save the score at the end of game
-  
-myScore = newBlock.length
-
-localStorage.setItem(myName,myScore);
-
-
- */
 
 // function startGame
 // Function to restart the game : delete all blocs --Solene
-function startGame() {
-  const deleteBlocks = document.querySelectorAll('.new-block')
-  for (let i = 0; i < deleteBlocks.length; i++) {
-    deleteBlocks[i].remove()
-    currentScore = 0
+function resetGame() {
+  const blocksToRemove = document.querySelectorAll('.new-block')
+  for (let i = 0; i < blocksToRemove.length; i++) {
+    blocksToRemove[i].remove()
   }
+  currentScore = 0
 }
-/* const resetScore = document.getElementById('.display-score');
-  resetScore.innerHTML = "0"
- /** when bloc = 0 (ie if click when moving bloc is outside of area previous fixed bloc)
-  querySelectorAll(div) + function remove div (movingbloc.remove()?) so that only fixed bloc stays 
-+ reset score to 0
-*/
 
 // fetchHighscore Fetch highscores from localStorage and assign them to variable highscore --Ed
 function fetchHighscore() {
-  // 1) fetch the data : localStorage.getItem('highscores')
-  // 2) parse it : JSON.parse
-  const locSto = JSON.parse(localStorage.getItem('highscores'))
-  // Sort by highscore
-  locSto.sort((a, b) => b.score - a.score)
-  // 3) Assign it to highscore
-  highscore = locSto[0].score
-  // 3) Display it
-  displayHighscore.textContent = `Highscore: ${highscore}`
+  if (localStorage.getItem('highscores')) {
+    // 1) fetch the data : localStorage.getItem('highscores')
+    // 2) parse it : JSON.parse
+    const localStor = JSON.parse(localStorage.getItem('highscores'))
+    // Sort by highscore
+    localStor.sort((a, b) => b.score - a.score)
+    // 3) Assign it to highscore
+    highscore = localStor[0].score
+    // 3) Display it
+    displayScore(currentScore, highscore)
+  } else {
+    // 0) Deal with the case the highscores don't exists by adding one (fake)
+    localStorage.setItem('highscores', JSON.stringify(highscores))
+  }
 }
 
-const eventHandler = () => {
-  if (isStarted === false) {
-    const gameOver = document.getElementById('game-over')
-    if (gameOver.style.display === visible) {
-      // check appropriated attribute or use local storage
-      startGame()
-      resetScore()
-      gameOver.style.display = 'none'
-    }
-    createElement()
-    speedDefinition()
-    isStarted = true
-  }
+function promptUser() {
+  playerName = prompt("🎉 Well done, Sailor! 🎉\n What's your name ?", 'Ed')
+}
 
-  if (isStarted === true) {
-    stopAnimation()
-    if (
-      // condition Game Over
-      leftMovingBlock < RightMovingBlock < leftFixedBlock ||
-      rightFixedBlock < leftMovingBlock < rightMovingBlock
-    ) {
-      gameOver.style.display = 'visible' // stop the animation
-      currentScore // display
-      isStarted = false
+// Function to toggle the instructions (tap to play...)
+function toggleInstructions() {
+  if (instructions[0].style.display === 'none') {
+    // eslint-disable-next-line no-return-assign
+    instructions.forEach((paragraph) => (paragraph.style.display = 'bloc'))
+  } else {
+    // eslint-disable-next-line no-return-assign
+    instructions.forEach((paragraph) => (paragraph.style.display = 'none'))
+  }
+}
+
+// Main function called everytime the game area is clicked (spacebar, tap & click)
+const eventHandler = (event) => {
+  if (event.code === 'space' || event.type === 'click') {
+    if (!isStarted) {
+      isStarted = true
+      toggleInstructions()
+      createBlock()
     } else {
-      if (
-        leftFixedBlock < leftMovingBlock < rightFixedBlock || //les definir dans createElement
-        leftFixedBlock < rightMovingBlock < rightFixedBlock
-      ) {
-        resizeCurrentElement
+      stopAnimation()
+      resizeCurrentElement()
+
+      // Size of element === 0 => Lost : prompt user for name, then reset Game (and display message Click to play)
+      if (currentBlockWidth <= 0) {
+        promptUser()
+        highscores.push({ playerName, score: currentScore })
+        isStarted = false
+        resetGame()
+        toggleInstructions()
+      } else {
+        currentScore++
+        displayScore(currentScore, highscore)
+        createBlock()
       }
-      createElement()
-      speedDefinition()
-      countScore()
-      fetchHighscore() // check together
     }
   }
 }
 
+fetchHighscore()
 //----------------
 // Event Listeners
 //----------------
@@ -205,16 +182,6 @@ const eventHandler = () => {
 // Create an event listener to start the game && 'drop' the bloc && restart the game
 // on click, spacebar, tap event -- Do
 
-/* 
-Start the game: 
-When start button is clicked, call the createElement function
-When spacebar is pressed, call the createElement function
-
-Drop the bloc : 
-When user click, call the drop function
-When spacebar is pressed, call the drop function
-
-Restart the game
-When user click, go back to the initial game 
-When spacebar, go back to the initial game
-*/
+gameArea.addEventListener('click', eventHandler)
+// todo : Not working... why ?
+gameArea.addEventListener('keypress', eventHandler)
