@@ -84,19 +84,19 @@ function resizeCurrentElement() {
 // createElement creates a new block --Ed
 function createBlock() {
   // 1) create element: document.createElement("div")
-  const newBlock = document.createElement('div')
+  const currentBlock = document.createElement('div')
   // grab the last bloc element (of class)
-  const lastBlock = document.querySelector('.block:last-of-type')
+  const previousBlock = document.querySelector('.block:last-of-type')
   // 2) Set width from previous bloc, height, margin and class
   currentBlock.classList.add('block')
   currentBlock.classList.add('new-block')
   currentBlock.style.width = `${previousBlock.offsetWidth}px`
   // currentBlock.style.left = `${previousBlock.offsetWidth}px`
   // 3) Set color: using hsl, hue + 10 * score
-  newBlock.style.background = `hsl(${254 + 10 * currentScore}, 60%, 35%)`
+  currentBlock.style.background = `hsl(${254 + 10 * currentScore}, 60%, 35%)`
   // 4) append child block to the container (gameArea)
-  gameArea.appendChild(newBlock)
-  return newBlock
+  gameArea.appendChild(currentBlock)
+  return currentBlock
 }
 
 // Function = "displayScore" (and sets highscore if score > highscore) && save it to localStorage --joris
