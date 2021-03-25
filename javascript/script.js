@@ -101,17 +101,6 @@ function createBlock() {
   return newBlock
 }
 
-/* Function blocAnimation 
-- to add / create animation (css) for the new element / bloc (div) --Solene */
-function speedDefinition(block) {
-  let period = 1 / speed
-  block.style.animationDuration = `${3 + period}s`
-  // Speed to be adjusted
-}
-/* change class + JS (toggle?)
-set speed +1
-*/
-
 // Function = "countScore" (and sets highscore if score > highscore) && save it to localStorage --joris
 /* score = (nombre de <div> crée par function create new element) save the score at the end of game
   highscore = best loaded score in local storage by user
