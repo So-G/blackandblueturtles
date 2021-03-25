@@ -87,6 +87,7 @@ a {
   display: block;
   width: 100%;
   height: 5rem;
+  border-radius: 5px;
 }
 
 main {
@@ -153,6 +154,7 @@ main > section {
     position: absolute;
     top: 1em;
     left: 1em;
+    border-radius: 5px;
   }
 
   body {
@@ -260,6 +262,7 @@ footer {
   bottom: 0;
   width: 100vw;
   background: var(--blue2);
+  border-radius: 5px;
 }
 
 footer > p {
@@ -275,6 +278,7 @@ a {
 .highscores {
   display: flex;
   justify-content: center;
+  
 }
 
 .highscores ol {
@@ -286,6 +290,8 @@ a {
   background:linear-gradient(var(--blue2),var(--blue1));
   padding-left: 0%;
   width: auto;
+  border-radius: 2px;
+  list-style: none;
 }
 
 .block {
@@ -298,7 +304,9 @@ a {
   grid-column-start: 1;
   grid-column-end: 4;
   border:4mm ridge rgba(75, 50, 220, 0.6);
-  color:hsl(0, 90%, 41%)
+  color:hsl(0, 90%, 41%);
+  border-radius: 5px;
+  font: bold;
 }
 
 #top2 {
@@ -418,12 +426,14 @@ a.svg:after {
   transition-property: opacity, transform;
   transition-duration: 0.3s;
   transition-timing-function: cubic-bezier(0.75, -0.015, 0.565, 1.055);
+  
 }
 
 .menu-toggler:checked ~ .stagger-menu li {
   opacity: 1;
   transform: translateX(0);
   transition-delay: calc(0.055s * var(--i));
+  
 }
 
 /* HOVER */
@@ -433,6 +443,7 @@ a.svg:after {
   margin: 0;
   padding: 0;
   overflow: hidden;
+  
 }
 
 .hover-nav li a {
@@ -440,7 +451,7 @@ a.svg:after {
   text-align: center;
   padding: 8px 12px;
   text-decoration: none;
-  z-index: 0;
+  z-index: -1;
 }
 
 .mobile li a:before {
