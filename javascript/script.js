@@ -10,7 +10,7 @@ const scoreDisplay = document.querySelector('#display-score')
 const highscoreDisplay = document.querySelector('#display-highscore')
 
 // Instruction
-const instructions = gameArea.querySelectorAll('p')
+const instructions = gameArea.querySelector('#click-to-play')
 
 let currentScore = 0
 let highscore = 0
@@ -66,7 +66,7 @@ function resizeCurrentElement() {
     // calculates the size of the leftover
     currentBlockWidth =
       previousBlock.offsetWidth - (rightMovingBlock - rightFixedBlock)
-    currentBlock.style.right = `${rightFixedBlock}px`
+    currentBlock.style.right = `${(rightMovingBlock - rightFixedBlock) / 2}px`
   } else if (
     // The moving bloc is to the left of the fixed one
     leftFixedBlock < rightMovingBlock &&
@@ -75,8 +75,9 @@ function resizeCurrentElement() {
     // calculates the size of the leftover
     currentBlockWidth =
       previousBlock.offsetWidth - (leftFixedBlock - leftMovingBlock)
-    currentBlock.style.left = `${leftFixedBlock}px`
+    currentBlock.style.left = `${(leftFixedBlock - leftMovingBlock) / 2}px`
   }
+  currentBlock.style.position = 'relative'
   // set the new size to the element
   currentBlock.style.width = `${currentBlockWidth}px`
 }
@@ -135,20 +136,18 @@ function fetchHighscore() {
 
 // Function to toggle the instructions (tap to play...)
 function toggleInstructions() {
-  if (instructions[0].style.display === 'none') {
-    // eslint-disable-next-line no-unused-expressions
-    document.querySelector('body').offsetWidth > 600
-      ? (instructions[1].style.display = 'block')
-      : (instructions[0].style.display = 'block')
+  if (instructions.style.display === 'none') {
+    instructions.style.display = 'block'
   } else {
-    // eslint-disable-next-line no-return-assign
-    instructions.forEach((paragraph) => (paragraph.style.display = 'none'))
+    instructions.style.display = 'none'
   }
 }
 
 // Main function called everytime the game area is clicked (spacebar, tap & click)
 const eventHandler = (event) => {
-  if (event.code === 'space' || event.type === 'mousedown') {
+  console.log(event)
+  if (event.code === 'Space' || event.type === 'mousedown') {
+    event.preventDefault()
     if (!isStarted) {
       isStarted = true
       toggleInstructions()
@@ -182,5 +181,4 @@ fetchHighscore()
 // on click, spacebar, tap event -- Do
 
 gameArea.addEventListener('mousedown', eventHandler)
-// todo : Not working... why ?
-gameArea.addEventListener('keypress', eventHandler)
+document.body.addEventListener('keypress', eventHandler)
