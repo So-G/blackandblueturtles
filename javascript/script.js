@@ -33,6 +33,7 @@ let isStarted = false
 using js   define status of bloc (isMooving:true/false) then switch true/false by event.click
 */
 
+
 // Function resizeBloc : resize the current element / bloc (div) || or loose ??? --Do -
 
 const resizeCurrentElement = () => {
