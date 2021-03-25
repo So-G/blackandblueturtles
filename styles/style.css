@@ -92,12 +92,12 @@ a {
 }
 
 main {
-  height: 100vh;
+  height: 100%;
 }
 
-/*main > section {
+main > #game {
   height: 80%;
-}*/
+}
 
 #game-area {
   background: var(--beige1);
@@ -242,7 +242,7 @@ main {
   .desktop {
     display: none;
   }
-  
+
   form {
     text-align: center;
     display: flex;
@@ -257,6 +257,14 @@ main {
 
 /* Large screens */
 @media only screen and (min-width: 600px) {
+  body {
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-rows: auto 1fr 4rem;
+  }
+
   .mobile {
     display: none;
   }
@@ -313,7 +321,7 @@ main {
     flex-direction: row;
     justify-content: flex-end;
     margin-right: 2em;
-}
+  }
 
   form {
     text-align: center;
@@ -357,7 +365,6 @@ a {
 .highscores {
   display: flex;
   justify-content: center;
-  
 }
 
 .highscores ol {
@@ -382,8 +389,8 @@ a {
   justify-content: center;
   grid-column-start: 1;
   grid-column-end: 4;
-  border:4mm ridge rgba(75, 50, 220, 0.6);
-  color:hsl(0, 90%, 41%);
+  border: 4mm ridge rgba(75, 50, 220, 0.6);
+  color: hsl(0, 90%, 41%);
   border-radius: 5px;
   font: bold;
 }
@@ -401,8 +408,6 @@ a {
 .highscores ol li {
   text-align: center;
 }
-
-
 
 input {
   margin-top: 1em;
@@ -496,14 +501,12 @@ a.svg:after {
   transition-property: opacity, transform;
   transition-duration: 0.3s;
   transition-timing-function: cubic-bezier(0.75, -0.015, 0.565, 1.055);
-  
 }
 
 .menu-toggler:checked ~ .stagger-menu li {
   opacity: 1;
   transform: translateX(0);
   transition-delay: calc(0.055s * var(--i));
-  
 }
 
 /* HOVER */
@@ -513,7 +516,6 @@ a.svg:after {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  
 }
 
 .hover-nav li a {
