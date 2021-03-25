@@ -133,16 +133,16 @@ main > section {
 
 @keyframes slideIn {
   0% {
-    transform: translate(-100%, 0px);
+    transform: translate(-100%);
     transform-origin: 50%;
   }
 
   50% {
-    transform: translate(100%, 0px);
+    transform: translate(100%);
   }
 
   100% {
-    transform: translate(-100%, 0px);
+    transform: translate(-100%);
   }
 }
 
