@@ -140,25 +140,26 @@ const eventHandler = () => {
 
   if (isStarted === true) {
     stopAnimation()
-    if (// condition Game Over
+    if (
+      // condition Game Over
       leftMovingBlock < RightMovingBlock < leftFixedBlock ||
       rightFixedBlock < leftMovingBlock < rightMovingBlock
     ) {
       gameOver.style.display = 'visible' // stop the animation
-      score // current score
+      currentScore // display
       isStarted = false
+    } else {
+      if (
+        leftFixedBlock < leftMovingBlock < rightFixedBlock || //les definir dans createElement
+        leftFixedBlock < rightMovingBlock < rightFixedBlock
+      ) {
+        resizeCurrentElement
+      }
+      createElement()
+      speedDefinition()
+      countScore()
+      fetchHighscore() // check together
     }
-    else {
-    if (
-      leftFixedBlock < leftMovingBlock < rightFixedBlock || //les definir dans createElement
-      leftFixedBlock < rightMovingBlock < rightFixedBlock
-    ) {
-      resizeCurrentElement
-    } 
-    createElement()
-    speedDefinition()
-    countScore()
-    fetchHighscore() // check together
   }
 }
 
