@@ -283,7 +283,7 @@ a {
   grid-template-rows: 100px 100px 100px 100px;
   grid-gap: 25px;
   text-align: center;
-
+  background:linear-gradient(var(--blue2),var(--blue1));
   padding-left: 0%;
   width: auto;
 }
@@ -293,9 +293,12 @@ a {
 }
 
 #top1 {
+  display: flex;
+  justify-content: center;
   grid-column-start: 1;
   grid-column-end: 4;
-  border: dashed red;
+  border:4mm ridge rgba(75, 50, 220, 0.6);
+  color:hsl(0, 90%, 41%)
 }
 
 #top2 {
