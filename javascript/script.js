@@ -62,17 +62,19 @@ const resizeCurrentElement = () => {
     leftFixedBlock < leftMovingBlock &&
     leftMovingBlock < rightFixedBlock
   ) {
-    // calculates the size of the leftover
+    // calculates the size of the leftover and move it
     currentBlockWidth =
       previousBlock.offsetWidth - (rightMovingBlock - rightFixedBlock)
+    currentBlock.style.marginRight = (rightMovingBlock - rightFixedBlock) / 2
   } else if (
     // The moving bloc is to the left of the fixed one
     leftFixedBlock < rightMovingBlock &&
     rightMovingBlock < rightFixedBlock
   ) {
-    // calculates the size of the leftover
+    // calculates the size of the leftover and move it
     currentBlockWidth =
       previousBlock.offsetWidth - (leftFixedBlock - leftMovingBlock)
+    currentBlock.style.marginRight = (leftMovingBlock - leftFixedBlock) / 2
   }
   // set the new size to the element
   currentBlock.style.width = `${currentBlockWidth}px`
@@ -81,19 +83,19 @@ const resizeCurrentElement = () => {
 // createElement creates a new block --Ed
 function createBlock() {
   // 1) create element: document.createElement("div")
-  const newBlock = document.createElement('div')
+  const currentBlock = document.createElement('div')
   // grab the last bloc element (of class)
-  const lastBlock = document.querySelector('.block:last-of-type')
+  const previousBlock = document.querySelector('.block:last-of-type')
   // 2) Set width from previous bloc, height, margin and class
-  newBlock.classList.add('block')
-  newBlock.classList.add('new-block')
-  newBlock.style.width = `${lastBlock.offsetWidth}px`
-  newBlock.style.left = `${100 + currentScore}px`
+  currentBlock.classList.add('block')
+  currentBlock.classList.add('new-block')
+  currentBlock.style.width = `${previousBlock.offsetWidth}px`
+  currentBlock.style.left = `${previousBlock.offsetWidth}px`
   // 3) Set color: using hsl, hue + 10 * score
-  newBlock.style.background = `hsl(${254 + 10 * currentScore}, 60%, 35%)`
+  currentBlock.style.background = `hsl(${254 + 10 * currentScore}, 60%, 35%)`
   // 4) append child block to the container (gameArea)
-  gameArea.appendChild(newBlock)
-  return newBlock
+  gameArea.appendChild(currentBlock)
+  return currentBlock
 }
 
 // Function = "displayScore" (and sets highscore if score > highscore) && save it to localStorage --joris
