@@ -54,9 +54,10 @@ buttonElement.addEventListener('click' || 'keydown', function (event)) {
       isStarted = true 
     })
 });
-let stopAnimation
-const running = lastBlock.style.animationPlayState === 'running';
-lastBlock.style.animationPlayState = running ? 'paused' : 'running';
+  
+function stopAnimation 
+const running = lastBlock.slideIn.animationPlayState === 'running';
+lastBlock.slideIn.animationPlayState = running ? 'paused' : 'running';
 
 
  */
