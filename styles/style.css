@@ -370,13 +370,14 @@ a {
 
 .highscores ol {
   display: grid;
-  grid-template-columns: 100px 100px 100px;
-  grid-template-rows: 100px 100px 100px 100px;
-  grid-gap: 25px;
+  grid-template-columns:repeat(3,20vw);
+  grid-template-rows:repeat(4,20vw);
+  grid-gap: 2vw;
   text-align: center;
   background: linear-gradient(var(--blue2), var(--blue1));
   padding-left: 0%;
-  width: auto;
+  margin: auto;
+  
   border-radius: 2px;
   list-style: none;
   margin:0, auto;
@@ -394,7 +395,7 @@ a {
   border: 4mm ridge rgba(75, 50, 220, 0.6);
   color: hsl(0, 90%, 41%);
   border-radius: 5px;
-  font: bold;
+  align-content: space-around;
 }
 
 #top2 {
@@ -480,24 +481,29 @@ a.svg:after {
 
 .menu-toggler-label > svg {
   height: 2em;
+  
 }
 
 .menu-toggler-label {
   cursor: pointer;
   font-size: 1.5em;
   font-weight: bold;
+  
 }
+
 
 .stagger-menu {
   list-style-type: none;
   margin: 1em 0;
   padding: 0;
+  
 }
 
 .stagger-menu li {
   margin-bottom: 0.5em;
   font-size: 1.2em;
   opacity: 0;
+  
   max-width: max-content;
   transform: translateX(100%);
   transition-property: opacity, transform;
@@ -509,6 +515,7 @@ a.svg:after {
   opacity: 1;
   transform: translateX(0);
   transition-delay: calc(0.055s * var(--i));
+  
 }
 
 /* HOVER */
@@ -518,6 +525,8 @@ a.svg:after {
   margin: 0;
   padding: 0;
   overflow: hidden;
+  
+  
 }
 
 
@@ -529,6 +538,9 @@ a.svg:after {
   padding: 8px 12px;
   text-decoration: none;
   z-index: -1;
+  
+  
+  
 }
 
 .mobile li a:before {
@@ -542,9 +554,12 @@ a.svg:after {
   z-index: auto;
   transform: scale(0);
   transition: transform 0.4s ease-in-out;
+  
+  
 }
 
 .mobile li a:hover:before,
 .mobile li a:focus:before {
   transform: scale(1);
+  
 }
