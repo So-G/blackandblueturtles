@@ -131,15 +131,21 @@ when bloc = 0 (ie if click when moving bloc is outside of area previous fixed bl
 
 // fetchHighscore Fetch highscores from localStorage and assign them to variable highscore --Ed
 function fetchHighscore() {
-  // 1) fetch the data : localStorage.getItem('highscores')
-  // 2) parse it : JSON.parse
-  const localStor = JSON.parse(localStorage.getItem('highscores'))
-  // Sort by highscore
-  localStor.sort((a, b) => b.score - a.score)
-  // 3) Assign it to highscore
-  highscore = localStor[0].score
-  // 3) Display it
-  displayHighscore.textContent = `Highscore: ${highscore}`
+  // 0) Deal with the case the highscores don't exists
+  if (!localStorage.getItem('highscores')) {
+    localStorage.setItem('hightscores', JSON.stringify(highscores))
+  } else {
+    // 1) fetch the data : localStorage.getItem('highscores')
+    // 2) parse it : JSON.parse
+    const localStor = JSON.parse(localStorage.getItem('highscores'))
+    console.log(localStor)
+    // Sort by highscore
+    localStor.sort((a, b) => b.score - a.score)
+    // 3) Assign it to highscore
+    highscore = localStor[0].score
+    // 3) Display it
+    displayHighscore.textContent = `Highscore: ${highscore}`
+  }
 }
 
 function promptUser() {
