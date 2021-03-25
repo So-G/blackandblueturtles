@@ -145,7 +145,6 @@ function toggleInstructions() {
 
 // Main function called everytime the game area is clicked (spacebar, tap & click)
 const eventHandler = (event) => {
-  console.log(event)
   if (event.code === 'Space' || event.type === 'mousedown') {
     event.preventDefault()
     if (!isStarted) {
