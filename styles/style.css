@@ -90,12 +90,12 @@ a {
 }
 
 main {
-  height: 80vh;
+  height: 100vh;
 }
 
-main > section {
+/*main > section {
   height: 80%;
-}
+}*/
 
 #game-area {
   background: var(--beige1);
