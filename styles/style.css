@@ -85,8 +85,10 @@ a {
 
 #banner {
   display: block;
+  object-fit: cover;
   width: 100%;
   height: 5rem;
+  border-radius: 5px;
 }
 
 main {
@@ -187,15 +189,15 @@ main {
 
 @keyframes slideIn {
   0% {
-    transform: translate(-100%, 0px);
+    transform: translate(-50vw, 0px);
   }
 
   50% {
-    transform: translate(100%, 0px);
+    transform: translate(50vw, 0px);
   }
 
   100% {
-    transform: translate(-100%, 0px);
+    transform: translate(-50vw, 0px);
   }
 }
 
@@ -209,6 +211,7 @@ main {
     position: absolute;
     top: 1em;
     left: 1em;
+    border-radius: 5px;
   }
 
   body {
@@ -238,6 +241,17 @@ main {
 
   .desktop {
     display: none;
+  }
+  
+  form {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    background: var(--beige1);
+    color: var(--grey3);
+    margin-top: 1em;
+    padding: 50px;
+    padding-top: 0;
   }
 }
 
@@ -293,13 +307,24 @@ main {
   .mobile {
     display: none;
   }
+
+  #scores {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin-right: 2em;
 }
 
-#scores {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  margin-right: 2em;
+  form {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    background: var(--beige1);
+    color: var(--grey3);
+    padding: 50px;
+    border-radius: 40px;
+    padding-top: 0;
+  }
 }
 
 /* ================
@@ -316,6 +341,7 @@ footer {
   bottom: 0;
   width: 100vw;
   background: var(--blue2);
+  border-radius: 5px;
 }
 
 footer > p {
@@ -331,6 +357,7 @@ a {
 .highscores {
   display: flex;
   justify-content: center;
+  
 }
 
 .highscores ol {
@@ -342,6 +369,8 @@ a {
   background: linear-gradient(var(--blue2), var(--blue1));
   padding-left: 0%;
   width: auto;
+  border-radius: 2px;
+  list-style: none;
 }
 
 .block {
@@ -353,8 +382,10 @@ a {
   justify-content: center;
   grid-column-start: 1;
   grid-column-end: 4;
-  border: 4mm ridge rgba(75, 50, 220, 0.6);
-  color: hsl(0, 90%, 41%);
+  border:4mm ridge rgba(75, 50, 220, 0.6);
+  color:hsl(0, 90%, 41%);
+  border-radius: 5px;
+  font: bold;
 }
 
 #top2 {
@@ -371,19 +402,8 @@ a {
   text-align: center;
 }
 
-form {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  background: var(--beige1);
-  color: var(--grey3);
-  padding: 50px;
-}
-/* .container {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-} */
+
+
 input {
   margin-top: 1em;
   margin-bottom: 1em;
@@ -416,10 +436,12 @@ textarea {
 
 .about-us {
   text-align: center;
+  max-height: 14em;
 }
 
 .about-us p {
   text-align: left;
+  padding: 0.3em;
   margin: 1em;
 }
 
@@ -474,12 +496,14 @@ a.svg:after {
   transition-property: opacity, transform;
   transition-duration: 0.3s;
   transition-timing-function: cubic-bezier(0.75, -0.015, 0.565, 1.055);
+  
 }
 
 .menu-toggler:checked ~ .stagger-menu li {
   opacity: 1;
   transform: translateX(0);
   transition-delay: calc(0.055s * var(--i));
+  
 }
 
 /* HOVER */
@@ -489,6 +513,7 @@ a.svg:after {
   margin: 0;
   padding: 0;
   overflow: hidden;
+  
 }
 
 .hover-nav li a {
@@ -496,7 +521,7 @@ a.svg:after {
   text-align: center;
   padding: 8px 12px;
   text-decoration: none;
-  z-index: 0;
+  z-index: -1;
 }
 
 .mobile li a:before {
