@@ -41,55 +41,58 @@ function stopAnimation() {
 
 const resizeCurrentElement = () => {
   // Select the current bloc : getElement
-  const currentElement = document.querySelector('.block:last-of-type')
-  const leftMovingBlock = currentElement.getBoundingClientRect().left
-  const rightMovingBlock = currentElement.getBoundingClientRect().right
+  const currentBlock = document.querySelector('.block:last-of-type')
+  const leftMovingBlock = currentBlock.getBoundingClientRect().left
+  const rightMovingBlock = currentBlock.getBoundingClientRect().right
 
   // Select the previous bloc : ~ node.previousSibling
-  const previousElement = document.querySelector('.block:nth-last-of-type(2)')
-  const leftFixedBlock = previousElement.getBoundingClientRect().left
-  const rightFixedBlock = previousElement.getBoundingClientRect().right
+  const previousBlock = document.querySelector('.block:nth-last-of-type(2)')
+  const leftFixedBlock = previousBlock.getBoundingClientRect().left
+  const rightFixedBlock = previousBlock.getBoundingClientRect().right
 
-  // if we are here it means that both bloc are not equal
+  // The moving bloc is to the right of the fixed one
   if (leftFixedBlock < leftMovingBlock && leftMovingBlock < rightFixedBlock) {
-    // if x is between [ab]
+    // calculates the size of the leftover
     currentBlockWidth =
-      previousElement.offsetWidth - (rightMovingBlock - rightFixedBlock) // so, y = b
+      previousBlock.offsetWidth - (rightMovingBlock - rightFixedBlock)
   } else if (
+    // The moving bloc is to the left of the fixed one
     leftFixedBlock < rightMovingBlock &&
     rightMovingBlock < rightFixedBlock
   ) {
-    // if y is between [ab]
+    // calculates the size of the leftover
     currentBlockWidth =
-      previousElement.offsetWidth - (leftFixedBlock - leftMovingBlock) // so, x = a
+      previousBlock.offsetWidth - (leftFixedBlock - leftMovingBlock)
+  } else if () {
+
   }
   // set the new size to the element
-  currentElement.style.width = `${currentBlockWidth}px`
+  currentBlock.style.width = `${currentBlockWidth}px`
 }
 
 // createElement creates a new block --Ed
-function createElement() {
+function createBlock() {
   // 1) create element: document.createElement("div")
-  const newElement = document.createElement('div')
+  const newBlock = document.createElement('div')
   // grab the last bloc element (of class)
   const lastBlock = document.querySelector('.block:last-of-type')
   // 2) Set width from previous bloc, height, margin and class
-  newElement.classList.add('block')
-  newElement.classList.add('new-block')
-  newElement.style.width = `${lastBlock.offsetWidth}px`
-  newElement.style.left = `${100 + currentScore}px`
+  newBlock.classList.add('block')
+  newBlock.classList.add('new-block')
+  newBlock.style.width = `${lastBlock.offsetWidth}px`
+  newBlock.style.left = `${100 + currentScore}px`
   // 3) Set color: using hsl, hue + 10 * score
-  newElement.style.background = `hsl(${254 + 10 * currentScore}, 60%, 35%)`
+  newBlock.style.background = `hsl(${254 + 10 * currentScore}, 60%, 35%)`
   // 4) append child block to the container (gameArea)
-  gameArea.appendChild(newElement)
-  return newElement
+  gameArea.appendChild(newBlock)
+  return newBlock
 }
 
 /* Function blocAnimation 
 - to add / create animation (css) for the new element / bloc (div) --Solene */
-function speedDefinition(htmlElement) {
+function speedDefinition(block) {
   let period = 1 / speed
-  htmlElement.style.animationDuration = `${3 + period}s`
+  block.style.animationDuration = `${3 + period}s`
   // Speed to be adjusted
 }
 /* change class + JS (toggle?)
@@ -105,11 +108,11 @@ set speed +1
 // function startGame
 // Function to restart the game : delete all blocs --Solene
 function resetGame() {
-  const deleteBlocks = document.querySelectorAll('.new-block')
-  for (let i = 0; i < deleteBlocks.length; i++) {
-    deleteBlocks[i].remove()
-    currentScore = 0
+  const blocksToRemove = document.querySelectorAll('.new-block')
+  for (let i = 0; i < blocksToRemove.length; i++) {
+    blocksToRemove[i].remove()
   }
+  currentScore = 0
 }
 /* const resetScore = document.getElementById('.display-score');
   resetScore.innerHTML = "0"
@@ -120,11 +123,11 @@ when bloc = 0 (ie if click when moving bloc is outside of area previous fixed bl
 function fetchHighscore() {
   // 1) fetch the data : localStorage.getItem('highscores')
   // 2) parse it : JSON.parse
-  const locSto = JSON.parse(localStorage.getItem('highscores'))
+  const localStor = JSON.parse(localStorage.getItem('highscores'))
   // Sort by highscore
-  locSto.sort((a, b) => b.score - a.score)
+  localStor.sort((a, b) => b.score - a.score)
   // 3) Assign it to highscore
-  highscore = locSto[0].score
+  highscore = localStor[0].score
   // 3) Display it
   displayHighscore.textContent = `Highscore: ${highscore}`
 }
@@ -136,14 +139,14 @@ function hideInstructions() {
   instructions.forEach((paragraph) => (paragraph.style.display = 'none'))
 }
 
-// Main function called once the game area is clicked (spacebar, tap & click)
+// Main function called everytime the game area is clicked (spacebar, tap & click)
 const eventHandler = (event) => {
   console.log(event)
   if (event.code === 'space' || event.type === 'click') {
     if (!isStarted) {
       isStarted = true
       hideInstructions()
-      createElement()
+      createBlock()
     } else if (isStarted) {
       stopAnimation()
       resizeCurrentElement()
@@ -154,7 +157,7 @@ const eventHandler = (event) => {
         resetGame()
       } else {
         currentScore++
-        createElement()
+        createBlock()
         // increase speed
       }
     }
@@ -170,18 +173,5 @@ fetchHighscore()
 // on click, spacebar, tap event -- Do
 
 gameArea.addEventListener('click', eventHandler)
+// todo : Not working... why ?
 gameArea.addEventListener('keypress', eventHandler)
-
-/* 
-Start the game: 
-When start button is clicked, call the createElement function
-When spacebar is pressed, call the createElement function
-
-Drop the bloc : 
-When user click, call the drop function
-When spacebar is pressed, call the drop function
-
-Restart the game
-When user click, go back to the initial game 
-When spacebar, go back to the initial game
-*/
