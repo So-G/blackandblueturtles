@@ -109,6 +109,7 @@ main > section {
   flex-direction: column-reverse;
   justify-content: flex-start;
   align-items: center;
+  overflow-x: hidden;
 }
 
 #game-area > p {
@@ -133,16 +134,16 @@ main > section {
 
 @keyframes slideIn {
   0% {
-    transform: translate(-100%);
+    transform: translate(-100vw);
     transform-origin: 50%;
   }
 
   50% {
-    transform: translate(100%);
+    transform: translate(100vw);
   }
 
   100% {
-    transform: translate(-100%);
+    transform: translate(-100vw);
   }
 }
 
