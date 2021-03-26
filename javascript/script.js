@@ -4,13 +4,15 @@
 
 // gameArea: Grab HTML containing element (id)
 const gameArea = document.querySelector('#game-area')
+const input = document.querySelector('#player-name')
 
 // Score & Highscore
 const scoreDisplay = document.querySelector('#display-score')
 const highscoreDisplay = document.querySelector('#display-highscore')
 
 // Instruction
-const instructions = gameArea.querySelectorAll('p')
+const instructions = gameArea.querySelector('#click-to-play')
+const gameOver = gameArea.querySelector('#game-over')
 
 let currentScore = 0
 let highscore = 0
@@ -67,9 +69,6 @@ function resizeCurrentElement() {
     // calculates the size of the leftover
     currentBlockWidth =
       previousBlock.offsetWidth - (rightMovingBlock - rightFixedBlock)
-    // set the new size to the element
-    currentBlock.style.width = `${currentBlockWidth}px`
-    // Move element
     currentBlock.style.right = `${(rightMovingBlock - rightFixedBlock) / 2}px`
   } else if (
     // The moving bloc is to the LEFT of the fixed one
@@ -79,28 +78,28 @@ function resizeCurrentElement() {
     // calculates the size of the leftover
     currentBlockWidth =
       previousBlock.offsetWidth - (leftFixedBlock - leftMovingBlock)
-    // set the new size to the element
-    currentBlock.style.width = `${currentBlockWidth}px`
     currentBlock.style.left = `${(leftFixedBlock - leftMovingBlock) / 2}px`
   }
+  // set the new size to the element
+  currentBlock.style.width = `${currentBlockWidth}px`
 }
 
 // createElement creates a new block --Ed
 function createBlock() {
   // 1) create element: document.createElement("div")
-  const newBlock = document.createElement('div')
+  const currentBlock = document.createElement('div')
   // grab the last bloc element (of class)
-  const lastBlock = document.querySelector('.block:last-of-type')
+  const previousBlock = document.querySelector('.block:last-of-type')
   // 2) Set width from previous bloc, height, margin and class
   currentBlock.classList.add('block')
   currentBlock.classList.add('new-block')
   currentBlock.style.width = `${previousBlock.offsetWidth}px`
   // currentBlock.style.left = `${previousBlock.offsetWidth}px`
   // 3) Set color: using hsl, hue + 10 * score
-  newBlock.style.background = `hsl(${254 + 10 * currentScore}, 60%, 35%)`
+  currentBlock.style.background = `hsl(${254 + 10 * currentScore}, 60%, 35%)`
   // 4) append child block to the container (gameArea)
-  gameArea.appendChild(newBlock)
-  return newBlock
+  gameArea.appendChild(currentBlock)
+  return currentBlock
 }
 
 // Function = "displayScore" (and sets highscore if score > highscore) && save it to localStorage --joris
@@ -137,25 +136,18 @@ function fetchHighscore() {
   }
 }
 
-// Function to toggle the instructions (tap to play...)
-function toggleInstructions() {
-  if (instructions[0].style.display === 'none') {
-    // eslint-disable-next-line no-unused-expressions
-    document.querySelector('body').offsetWidth > 600
-      ? (instructions[1].style.display = 'block')
-      : (instructions[0].style.display = 'block')
-  } else {
-    // eslint-disable-next-line no-return-assign
-    instructions.forEach((paragraph) => (paragraph.style.display = 'none'))
-  }
-}
-
 // Main function called everytime the game area is clicked (spacebar, tap & click)
 const eventHandler = (event) => {
-  if (event.code === 'space' || event.type === 'mousedown') {
+  if (
+    event.code === 'Enter' ||
+    event.code === 'Space' ||
+    event.type === 'mousedown'
+  ) {
+    event.preventDefault()
     if (!isStarted) {
       isStarted = true
-      toggleInstructions()
+      instructions.style.display = 'none'
+      gameOver.style.display = 'none'
       createBlock()
     } else {
       stopAnimation()
@@ -165,7 +157,7 @@ const eventHandler = (event) => {
         highscores.push({ playerName, score: currentScore })
         isStarted = false
         resetGame()
-        toggleInstructions()
+        gameOver.style.display = 'block'
         currentScore = 0
       } else {
         currentScore++
@@ -186,5 +178,5 @@ fetchHighscore()
 // on click, spacebar, tap event -- Do
 
 gameArea.addEventListener('mousedown', eventHandler)
-// todo : Not working... why ?
-gameArea.addEventListener('keypress', eventHandler)
+document.body.addEventListener('keypress', eventHandler)
+input.addEventListener('keypress', eventHandler)
