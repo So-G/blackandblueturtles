@@ -272,10 +272,6 @@ main > #game {
     grid-template-rows: auto 1fr 4rem;
   }
 
-  .demo {
-    margin-top: 5%;
-  }
-
   .mobile {
     display: none;
   }
