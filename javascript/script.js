@@ -41,15 +41,16 @@ function stopAnimation() {
 // Function resizeBloc : resize the current element / bloc (div) || or loose ??? --Do -
 
 function resizeCurrentElement() {
-  // Select the current bloc : getElement
+  // Select the current bloc
   const currentBlock = document.querySelector('.block:last-of-type')
   const leftMovingBlock = currentBlock.getBoundingClientRect().left
   const rightMovingBlock = currentBlock.getBoundingClientRect().right
 
-  // Select the previous bloc : ~ node.previousSibling
+  // Select the previous bloc
   const previousBlock = document.querySelector('.block:nth-last-of-type(2)')
   const leftFixedBlock = previousBlock.getBoundingClientRect().left
   const rightFixedBlock = previousBlock.getBoundingClientRect().right
+  currentBlock.style.position = 'relative'
 
   if (
     // The moving bloc is not above the tower
@@ -59,26 +60,29 @@ function resizeCurrentElement() {
     currentBlock.remove()
     currentBlockWidth = 0
   } else if (
-    // The moving bloc is to the right of the fixed one
+    // The moving bloc is to the RIGHT of the fixed one
     leftFixedBlock < leftMovingBlock &&
     leftMovingBlock < rightFixedBlock
   ) {
     // calculates the size of the leftover
     currentBlockWidth =
       previousBlock.offsetWidth - (rightMovingBlock - rightFixedBlock)
-    currentBlock.style.right = `${rightFixedBlock}px`
+    // set the new size to the element
+    currentBlock.style.width = `${currentBlockWidth}px`
+    // Move element
+    currentBlock.style.right = `${(rightMovingBlock - rightFixedBlock) / 2}px`
   } else if (
-    // The moving bloc is to the left of the fixed one
+    // The moving bloc is to the LEFT of the fixed one
     leftFixedBlock < rightMovingBlock &&
     rightMovingBlock < rightFixedBlock
   ) {
     // calculates the size of the leftover
     currentBlockWidth =
       previousBlock.offsetWidth - (leftFixedBlock - leftMovingBlock)
-    currentBlock.style.left = `${leftFixedBlock}px`
+    // set the new size to the element
+    currentBlock.style.width = `${currentBlockWidth}px`
+    currentBlock.style.left = `${(leftFixedBlock - leftMovingBlock) / 2}px`
   }
-  // set the new size to the element
-  currentBlock.style.width = `${currentBlockWidth}px`
 }
 
 // createElement creates a new block --Ed

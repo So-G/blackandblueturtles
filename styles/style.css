@@ -190,16 +190,18 @@ main > #game {
 
 @keyframes slideIn {
   0% {
-    transform: translate(-100vw);
-    transform-origin: 50%;
+    transform: translate(-50vw);
+    transform-origin: center;
   }
 
   50% {
-    transform: translate(100vw);
+    transform: translate(50vw);
+    transform-origin: center;
   }
 
   100% {
-    transform: translate(-100vw);
+    transform: translate(-50vw);
+    transform-origin: center;
   }
 }
 
@@ -371,15 +373,17 @@ a {
 
 .highscores ol {
   display: grid;
-  grid-template-columns: 100px 100px 100px;
-  grid-template-rows: 100px 100px 100px 100px;
-  grid-gap: 25px;
+  grid-template-columns: repeat(3, 20vw);
+  grid-template-rows: repeat(4, 20vw);
+  grid-gap: 2vw;
   text-align: center;
   background: linear-gradient(var(--blue2), var(--blue1));
   padding-left: 0%;
-  width: auto;
+  margin: auto;
+
   border-radius: 2px;
   list-style: none;
+  margin: 0 auto;
 }
 
 .block {
@@ -498,6 +502,10 @@ a.svg:after {
   margin-bottom: 0.5em;
   font-size: 1.2em;
   opacity: 0;
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
   max-width: max-content;
   transform: translateX(100%);
   transition-property: opacity, transform;
