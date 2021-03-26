@@ -115,6 +115,7 @@ main > #game {
 }
 #game-over {
   display: none;
+
 }
 
 #demo-block1 {
@@ -256,6 +257,12 @@ main > #game {
   }
 }
 
+/*
+.hover-nav li a::before {
+  display: none;
+}
+
+*/
 /* Large screens */
 @media only screen and (min-width: 600px) {
   body {
@@ -560,7 +567,7 @@ a.svg:after {
   bottom: 0;
   left: 0;
   background-color: var(--blue2);
-  z-index: auto;
+  z-index: -1;
   transform: scale(0);
   transition: transform 0.4s ease-in-out;
   
