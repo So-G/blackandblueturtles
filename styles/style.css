@@ -363,7 +363,6 @@ Components
 }
 
 footer {
-  position: fixed;
   bottom: 0;
   width: 100vw;
   background: var(--blue2);
@@ -462,14 +461,16 @@ textarea {
 }
 
 .about-us {
+  margin: auto;
   text-align: center;
   max-height: 14em;
 }
 
 .about-us p {
-  text-align: left;
-  padding: 0.3em;
+  text-align: justify;
   margin: auto;
+  margin-bottom: 1em;
+  padding: 0.3em;
 }
 
 /* Menu button & list */
@@ -518,7 +519,6 @@ a.svg:after {
   margin-bottom: 0.5em;
   font-size: 1.2em;
   opacity: 0;
-
   max-width: max-content;
   transform: translateX(100%);
   transition-property: opacity, transform;
