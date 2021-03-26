@@ -17,14 +17,9 @@ const gameOver = gameArea.querySelector('#game-over')
 let currentScore = 0
 let highscore = 0
 const highscores = [{ playerName: "Bob's your uncle", score: 10 }]
-/*
-Array of objects:
-- playerName: John Doe
-- score: 1234
-*/
 
+const playerNameInput = document.querySelector('#player-name')
 let playerName = ''
-// playerName = document.querySelector('#player-name').value
 let currentBlockWidth
 let isStarted = false
 
@@ -102,7 +97,7 @@ function createBlock() {
   return currentBlock
 }
 
-// Function = "displayScore" (and sets highscore if score > highscore) && save it to localStorage --joris
+// Function = "displayScore" (and sets highscore if score > highscore)
 function displayScore(score, highscore) {
   scoreDisplay.textContent = `Score: ${score} `
   highscoreDisplay.textContent = `Highscore: ${highscore}`
@@ -136,6 +131,12 @@ function fetchHighscore() {
   }
 }
 
+// Function to store score into local storage
+function storeHighscore(name, score) {
+  highscores.push({ playerName: name, score })
+  localStorage.setItem('highscores', JSON.stringify(highscores))
+}
+
 // Main function called everytime the game area is clicked (spacebar, tap & click)
 const eventHandler = (event) => {
   if (
@@ -149,12 +150,14 @@ const eventHandler = (event) => {
       instructions.style.display = 'none'
       gameOver.style.display = 'none'
       createBlock()
+      playerName = playerNameInput.value
     } else {
       stopAnimation()
       resizeCurrentElement()
       // Size of element === 0 => Lost : prompt user for name, then reset Game (and display message Click to play)
       if (currentBlockWidth === 0) {
-        highscores.push({ playerName, score: currentScore })
+        // highscores.push({ playerName, score: currentScore })
+        storeHighscore(playerName, currentScore)
         isStarted = false
         resetGame()
         gameOver.style.display = 'block'
