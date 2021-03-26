@@ -12,6 +12,7 @@ const highscoreDisplay = document.querySelector('#display-highscore')
 
 // Instruction
 const instructions = gameArea.querySelector('#click-to-play')
+const gameOver = gameArea.querySelector('#game-over')
 
 let currentScore = 0
 let highscore = 0
@@ -135,15 +136,6 @@ function fetchHighscore() {
   }
 }
 
-// Function to toggle the instructions (tap to play...)
-function toggleInstructions() {
-  if (instructions.style.display === 'none') {
-    instructions.style.display = 'block'
-  } else {
-    instructions.style.display = 'none'
-  }
-}
-
 // Main function called everytime the game area is clicked (spacebar, tap & click)
 const eventHandler = (event) => {
   if (
@@ -154,7 +146,8 @@ const eventHandler = (event) => {
     event.preventDefault()
     if (!isStarted) {
       isStarted = true
-      toggleInstructions()
+      instructions.style.display = 'none'
+      gameOver.style.display = 'none'
       createBlock()
     } else {
       stopAnimation()
@@ -164,7 +157,7 @@ const eventHandler = (event) => {
         highscores.push({ playerName, score: currentScore })
         isStarted = false
         resetGame()
-        toggleInstructions()
+        gameOver.style.display = 'block'
         currentScore = 0
       } else {
         currentScore++

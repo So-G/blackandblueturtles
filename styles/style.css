@@ -112,6 +112,9 @@ main > #game {
 #game-area > p {
   margin: auto;
   padding: 1em;
+  font-size: 1.5em;
+  color: rgb(107, 104, 104);
+  font-weight: bold;
 }
 #game-over {
   display: none;
