@@ -226,6 +226,10 @@ main > #game {
     grid-template-rows: auto 1fr 4rem;
   }
 
+  .demo {
+    margin-top: 5%;
+  }
+
   p {
     text-align: center;
   }
@@ -266,6 +270,10 @@ main > #game {
     padding: 0;
     display: grid;
     grid-template-rows: auto 1fr 4rem;
+  }
+
+  .demo {
+    margin-top: 5%;
   }
 
   .mobile {
