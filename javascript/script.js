@@ -12,18 +12,14 @@ const highscoreDisplay = document.querySelector('#display-highscore')
 
 // Instruction
 const instructions = gameArea.querySelector('#click-to-play')
+const gameOver = gameArea.querySelector('#game-over')
 
 let currentScore = 0
 let highscore = 0
 const highscores = [{ playerName: "Bob's your uncle", score: 10 }]
-/*
-Array of objects:
-- playerName: John Doe
-- score: 1234
-*/
 
+const playerNameInput = document.querySelector('#player-name')
 let playerName = ''
-// playerName = document.querySelector('#player-name').value
 let currentBlockWidth
 let isStarted = false
 
@@ -42,15 +38,16 @@ function stopAnimation() {
 // Function resizeBloc : resize the current element / bloc (div) || or loose ??? --Do -
 
 function resizeCurrentElement() {
-  // Select the current bloc : getElement
+  // Select the current bloc
   const currentBlock = document.querySelector('.block:last-of-type')
   const leftMovingBlock = currentBlock.getBoundingClientRect().left
   const rightMovingBlock = currentBlock.getBoundingClientRect().right
 
-  // Select the previous bloc : ~ node.previousSibling
+  // Select the previous bloc
   const previousBlock = document.querySelector('.block:nth-last-of-type(2)')
   const leftFixedBlock = previousBlock.getBoundingClientRect().left
   const rightFixedBlock = previousBlock.getBoundingClientRect().right
+  currentBlock.style.position = 'relative'
 
   if (
     // The moving bloc is not above the tower
@@ -60,7 +57,7 @@ function resizeCurrentElement() {
     currentBlock.remove()
     currentBlockWidth = 0
   } else if (
-    // The moving bloc is to the right of the fixed one
+    // The moving bloc is to the RIGHT of the fixed one
     leftFixedBlock < leftMovingBlock &&
     leftMovingBlock < rightFixedBlock
   ) {
@@ -69,7 +66,7 @@ function resizeCurrentElement() {
       previousBlock.offsetWidth - (rightMovingBlock - rightFixedBlock)
     currentBlock.style.right = `${(rightMovingBlock - rightFixedBlock) / 2}px`
   } else if (
-    // The moving bloc is to the left of the fixed one
+    // The moving bloc is to the LEFT of the fixed one
     leftFixedBlock < rightMovingBlock &&
     rightMovingBlock < rightFixedBlock
   ) {
@@ -78,7 +75,6 @@ function resizeCurrentElement() {
       previousBlock.offsetWidth - (leftFixedBlock - leftMovingBlock)
     currentBlock.style.left = `${(leftFixedBlock - leftMovingBlock) / 2}px`
   }
-  currentBlock.style.position = 'relative'
   // set the new size to the element
   currentBlock.style.width = `${currentBlockWidth}px`
 }
@@ -101,7 +97,7 @@ function createBlock() {
   return currentBlock
 }
 
-// Function = "displayScore" (and sets highscore if score > highscore) && save it to localStorage --joris
+// Function = "displayScore" (and sets highscore if score > highscore)
 function displayScore(score, highscore) {
   scoreDisplay.textContent = `Score: ${score} `
   highscoreDisplay.textContent = `Highscore: ${highscore}`
@@ -135,13 +131,10 @@ function fetchHighscore() {
   }
 }
 
-// Function to toggle the instructions (tap to play...)
-function toggleInstructions() {
-  if (instructions.style.display === 'none') {
-    instructions.style.display = 'block'
-  } else {
-    instructions.style.display = 'none'
-  }
+// Function to store score into local storage
+function storeHighscore(name, score) {
+  highscores.push({ playerName: name, score })
+  localStorage.setItem('highscores', JSON.stringify(highscores))
 }
 
 // Main function called everytime the game area is clicked (spacebar, tap & click)
@@ -154,17 +147,20 @@ const eventHandler = (event) => {
     event.preventDefault()
     if (!isStarted) {
       isStarted = true
-      toggleInstructions()
+      instructions.style.display = 'none'
+      gameOver.style.display = 'none'
       createBlock()
+      playerName = playerNameInput.value
     } else {
       stopAnimation()
       resizeCurrentElement()
       // Size of element === 0 => Lost : prompt user for name, then reset Game (and display message Click to play)
       if (currentBlockWidth === 0) {
-        highscores.push({ playerName, score: currentScore })
+        // highscores.push({ playerName, score: currentScore })
+        storeHighscore(playerName, currentScore)
         isStarted = false
         resetGame()
-        toggleInstructions()
+        gameOver.style.display = 'block'
         currentScore = 0
       } else {
         currentScore++

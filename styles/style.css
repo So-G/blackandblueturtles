@@ -112,6 +112,9 @@ main > #game {
 #game-area > p {
   margin: auto;
   padding: 1em;
+  font-size: 1.5em;
+  color: rgb(107, 104, 104);
+  font-weight: bold;
 }
 #game-over {
   display: none;
@@ -137,7 +140,7 @@ main > #game {
   height: 20px;
   margin: auto;
   width: 100px;
-  box-shadow: 4px 1px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: 8px -4px 2px rgba(0, 0, 0, 0.2);
   border-radius: 4px 3px 6px / 2px 4px;
 }
 
@@ -151,8 +154,13 @@ main > #game {
   animation-direction: alternate;
   animation-duration: 2s;
   animation-iteration-count: infinite;
-  box-shadow: 4px 1px 2px rgba(0, 0, 0, 0.2);
-  border-radius: 4px 3px 6px / 2px 4px;
+  box-shadow: 8px -4px 2px rgba(0, 0, 0, 0.2);
+  border-radius: 2px;
+}
+
+.block {
+  box-shadow: 8px -4px 2px rgba(0, 0, 0, 0.2);
+  border-radius: 2px;
 }
 
 #fundation {
@@ -166,8 +174,6 @@ main > #game {
   animation-timing-function: linear;
   animation-duration: 8s;
   animation-iteration-count: infinite;
-  box-shadow: 4px 1px 2px rgba(0, 0, 0, 0.2);
-  border-radius: 4px 3px 6px / 2px 4px;
 }
 
 @keyframes runDemoLeft {
@@ -190,16 +196,18 @@ main > #game {
 
 @keyframes slideIn {
   0% {
-    transform: translate(-100vw);
-    transform-origin: 50%;
+    transform: translate(-50vw);
+    transform-origin: center;
   }
 
   50% {
-    transform: translate(100vw);
+    transform: translate(50vw);
+    transform-origin: center;
   }
 
   100% {
-    transform: translate(-100vw);
+    transform: translate(-50vw);
+    transform-origin: center;
   }
 }
 
@@ -222,7 +230,10 @@ main > #game {
     padding: 0;
     display: grid;
     grid-template-rows: auto 1fr 4rem;
-    
+  }
+
+  .demo {
+    margin-top: 5%;
   }
 
   p {
@@ -503,21 +514,18 @@ a.svg:after {
 
 .menu-toggler-label > svg {
   height: 2em;
-  
 }
 
 .menu-toggler-label {
   cursor: pointer;
   font-size: 1.5em;
   font-weight: bold;
-  
 }
 
 .stagger-menu {
   list-style-type: none;
   margin: 1em 0;
   padding: 0;
-  
 }
 
 .stagger-menu li {
@@ -535,7 +543,6 @@ a.svg:after {
   opacity: 1;
   transform: translateX(0);
   transition-delay: calc(0.055s * var(--i));
-  
 }
 
 /* HOVER */
@@ -545,11 +552,7 @@ a.svg:after {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  
-  
 }
-
-
 
 .hover-nav li a {
   position: inherit;
@@ -558,8 +561,6 @@ a.svg:after {
   padding: 8px 12px;
   text-decoration: none;
   z-index: -1;
-
-  
 }
 
 .mobile li a:before {
@@ -573,12 +574,9 @@ a.svg:after {
   z-index: -1;
   transform: scale(0);
   transition: transform 0.4s ease-in-out;
-  
-  
 }
 
 .mobile li a:hover:before,
 .mobile li a:focus:before {
   transform: scale(1);
-  
 }
