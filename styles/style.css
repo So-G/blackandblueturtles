@@ -383,17 +383,16 @@ a {
 
 .highscores ol {
   display: grid;
-  grid-template-columns:repeat(3,20vw);
-  grid-template-rows:repeat(4,20vw);
-  grid-gap: 2vw;
+  grid-template-columns: repeat(auto, minmax(100px,1fr));
+  grid-template-rows: repeat(4,minmax(5em, 1fr));
+  grid-gap: 0;
   text-align: center;
   background: linear-gradient(var(--blue2), var(--blue1));
-  padding-left: 0%;
-  margin: auto;
-  
+  padding: 0;
   border-radius: 2px;
   list-style: none;
-  margin:0, auto;
+  margin:0;
+  width: 50%;
 }
 
 .block {
@@ -408,21 +407,27 @@ a {
   border: 4mm ridge rgba(75, 50, 220, 0.6);
   color: hsl(0, 90%, 41%);
   border-radius: 5px;
-  align-content: space-around;
+  align-items: center;
 }
 
 #top2 {
   grid-column-start: 1;
   grid-column-end: 2;
+  
+  
 }
 
 #top3 {
   grid-column-start: 3;
   grid-column-end: 4;
+  
 }
 
 .highscores ol li {
   text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 input {
