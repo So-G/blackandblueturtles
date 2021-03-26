@@ -353,7 +353,6 @@ Components
 }
 
 footer {
-  position: fixed;
   bottom: 0;
   width: 100vw;
   background: var(--blue2);
@@ -452,14 +451,16 @@ textarea {
 }
 
 .about-us {
+  margin: auto;
   text-align: center;
   max-height: 14em;
 }
 
 .about-us p {
-  text-align: left;
+  text-align: justify;
+  margin: auto;
+  margin-bottom: 1em;
   padding: 0.3em;
-  margin: 1em;
 }
 
 /* Menu button & list */
@@ -500,7 +501,6 @@ a.svg:after {
   
 }
 
-
 .stagger-menu {
   list-style-type: none;
   margin: 1em 0;
@@ -512,7 +512,6 @@ a.svg:after {
   margin-bottom: 0.5em;
   font-size: 1.2em;
   opacity: 0;
-  
   max-width: max-content;
   transform: translateX(100%);
   transition-property: opacity, transform;
@@ -547,8 +546,7 @@ a.svg:after {
   padding: 8px 12px;
   text-decoration: none;
   z-index: -1;
-  
-  
+
   
 }
 
